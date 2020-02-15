@@ -23,3 +23,16 @@ html {
 .navi{
   font-family: 'Monofett', cursive;
 }
+
+summary {
+  cursor: pointer;
+}
+
+
+details {
+  height: 10em;
+  transition: .5s;
+}
+details[open] {
+  height: 40em;
+}
