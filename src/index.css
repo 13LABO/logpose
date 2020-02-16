@@ -6,6 +6,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media screen and (max-width:480px){
+  body{
+    font-size:16px;
+  }
+  .MuiCardHeader-title,.MuiTypography-h5,.MuiTypography-displayBlock{
+    font-size:30px
+  }
+}
+  
+
 html {
   transition:all 1s ease;
 }
@@ -35,4 +45,12 @@ details {
 }
 details[open] {
   height: 40em;
+}
+
+.MuiCard-root{
+  max-width: 100%;
+}
+
+.makeStyles-root-1{
+  max-width: 100%;
 }
