@@ -8,7 +8,7 @@ body {
 
 @media screen and (max-width:480px){
   body{
-    font-size:16px;
+    font-size:15px;
     cursor: default !important;
   }
   .MuiTypography-h5{
@@ -20,6 +20,9 @@ body {
   }
   .MuiCardHeader-subheader{
     margin:0.2em !important;
+  }
+  .brand-logo{
+    font-size: 2rem !important;
   }
 }
   
@@ -63,3 +66,12 @@ html {
 .MuiTypography-h5{
   font-family: 'Noto Sans JP', sans-serif !important;
 }
+
+.truncate{
+  display: inline-block !important;
+}
+
+.MuiCardContent-root{
+  padding-bottom: 9px !important;
+}
+

@@ -14,7 +14,7 @@ import Typography from '@material-ui/core/Typography';
 //import FavoriteIcon from '@material-ui/icons/Favorite';
 //import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+//import MoreVertIcon from '@material-ui/icons/MoreVert';
 //import { maxWidth } from '@material-ui/system';
 
 import Paper from '@material-ui/core/Paper';
@@ -45,6 +45,29 @@ const useStyles = makeStyles(theme => ({
     display: "inline-block"
   },
 }));
+
+const Details = (props) =>{
+  const content = props.content;
+  //const classes = useStyles();
+  const time = content.時間.length ? (<div><p>時間: </p><Typography>{content.時間}</Typography></div>):("")
+  const place = content.場所 ? (<div><p>場所:</p><Typography>{content.場所}</Typography></div>):("")
+  const organizer = content.主催.length ? (<div><p>主催:</p><Typography>{content.主催}</Typography></div>):("")
+  const target = content.対象.length ? (<div><p>対象:</p><Typography>{content.対象}</Typography></div>):("")
+  const maincontent = content.内容.length ? (<div><p>内容:</p><Typography>{content.内容}</Typography></div>):("")
+  const url = content.URL.length ? (
+    <div><p>URL: </p><a className="truncate" href={content.URL} style={{"fontSize":"12px","width":"60%","paddingLeft":"10px"}}>{content.URL}</a>
+    <i style={{"display":"inline-block"}} class="tiny material-icons blue-text">launch</i></div>
+  ):("")
+
+  return (
+    <div>
+      {time}{place}{organizer}{target}{maincontent}{url}
+    </div>
+  )
+
+}
+
+
 
 const MyBox = (props) => {
   const content = props.content;
@@ -97,10 +120,9 @@ const MyCard = (props) => {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
 
         <CardContent>
-          <Typography paragraph>内容:</Typography>
-          <Typography paragraph>{ content.内容 }</Typography>
+          {/* <Typography paragraph>内容:</Typography> */}
+          <Details content={ content } />
         </CardContent>
-
       </Collapse>
     </Card>
   );
