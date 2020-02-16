@@ -36,26 +36,26 @@ const useStyles = makeStyles(theme => ({
     transform: 'rotate(180deg)',
   },
   paper: {
-    padding: theme.spacing(2),
+    // padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    fontSize: "10px",
+    padding:"4px",
+    marginLeft:"10px",
+    display: "inline-block"
   },
 }));
 
-const MyBox = () => {
+const MyBox = (props) => {
+  const content = props.content;
   const classes = useStyles();
+  const genre = content.ジャンル.length ? (<Grid><Paper className={classes.paper}>{content.ジャンル}</Paper></Grid>):("")
+  const target = content.対象.length ? (<Grid><Paper className={classes.paper}>{content.対象}</Paper></Grid>):("")
+  const isHokkaido = content.道内or道外.length ? (<Grid><Paper className={classes.paper}>{content.道内or道外}</Paper></Grid>):("")
   return(
-    <Grid container spacing={3}>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>xs=12</Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
-      </Grid>
+    <Grid container style={{marginLeft:"10px"}}>
+    { genre }{ target }{ isHokkaido }
+    </Grid>
   )
 }
 
@@ -71,18 +71,16 @@ const MyCard = (props) => {
   const dayTime = `${content.日程.substr(5,5).replace('-','/')}  (${week[content.曜日]})`
 
   return (
-    <Card className={classes.root} variant="outlined" style={{"borderRadius":"0.7em","margin":"1em 0px"}} >
+    <Card className={classes.root} variant="outlined" style={{"borderRadius":"0.7em","margin":"1em 0px"}}>
       <CardHeader
-      //disableTypography
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
+        onClick={handleExpandClick}
         title={ content.タイトル }
         subheader={ dayTime }
+        style={{"cursor":"default"}}
       />
+
       <CardActions disableSpacing>
+        <MyBox content={ content }/>
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -94,12 +92,15 @@ const MyCard = (props) => {
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
+      
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
+
         <CardContent>
           <Typography paragraph>内容:</Typography>
           <Typography paragraph>{ content.内容 }</Typography>
         </CardContent>
+
       </Collapse>
     </Card>
   );
