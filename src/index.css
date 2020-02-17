@@ -15,14 +15,30 @@ body {
     font-size: 15px !important;
     font-family: 'Noto Sans JP', sans-serif !important;
   }
+  .MuiCard-root{
+    margin:0 auto !important;
+  }
   .MuiCardHeader-root{
     padding:10px !important;
   }
   .MuiCardHeader-subheader{
-    margin:0.2em !important;
+    margin:0.2rem !important;
+    font-size: 105% !important;
   }
   .brand-logo{
     font-size: 2rem !important;
+  }
+  .container{
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  .MuiPaper-outlined{
+    border-left: 0 !important;
+    border-right: 0 !important;
+  }
+  .mycontainer{
+    margin: 0 auto;
+    width:90%;
   }
 }
   
@@ -58,7 +74,8 @@ html {
 }
 
 .MuiCardActions-root{
-  padding: 0px !important;
+  padding:0px !important;
+  /* margin-left: 7% !important; */
 }
 .MuiIconButton-root{
   padding:9px;
@@ -75,3 +92,11 @@ html {
   padding-bottom: 9px !important;
 }
 
+.bigcontainer{
+  width:90%;
+  margin: 0 auto;
+}
+.MuiCardHeader-subheader{
+  margin:0.2rem !important;
+  font-size: 120% !important;
+}

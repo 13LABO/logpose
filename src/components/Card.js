@@ -42,26 +42,34 @@ const useStyles = makeStyles(theme => ({
     fontSize: "10px",
     padding:"4px",
     marginLeft:"10px",
-    display: "inline-block"
+    display: "inline-block",
+    "background":"#eceff1",
   },
 }));
 
 const Details = (props) =>{
   const content = props.content;
   //const classes = useStyles();
-  const time = content.時間.length ? (<div><p>時間: </p><Typography>{content.時間}</Typography></div>):("")
+  const time = content.時間.length ? (
+    <div className="valign-wrapper"style={{"display":"flex"}}><i className="tiny material-icons">access_time</i>　<Typography>{content.時間}</Typography></div>
+    ):(
+      <div className="valign-wrapper"style={{"display":"flex"}}><i className="tiny material-icons">access_time</i>　不明</div>
+    )
   const place = content.場所 ? (<div><p>場所:</p><Typography>{content.場所}</Typography></div>):("")
-  const organizer = content.主催.length ? (<div><p>主催:</p><Typography>{content.主催}</Typography></div>):("")
-  const target = content.対象.length ? (<div><p>対象:</p><Typography>{content.対象}</Typography></div>):("")
+  const organizer = content.主催.length ? (<div style={{"display":"flex"}}><p>主催:　</p><Typography style={{"margin":"16px 0px"}}>{content.主催}</Typography></div>):("")
+  const target = content.対象.length ? (
+    <div style={{"display":"flex"}}><i className="tiny material-icons" style={{"marginTop":"8px"}}>person</i>　<div style={{"marginTop":"5px"}}><Typography>{content.対象}</Typography></div></div>
+  ):(
+    <div style={{"display":"flex"}} className="valign-wrapper"><i className="tiny material-icons" style={{"marginTop":"8px"}}>person</i>　<div style={{"marginTop":"6px"}}>不明</div></div>
+  )
   const maincontent = content.内容.length ? (<div><p>内容:</p><Typography>{content.内容}</Typography></div>):("")
   const url = content.URL.length ? (
-    <div><p>URL: </p><a className="truncate" href={content.URL} style={{"fontSize":"12px","width":"60%","paddingLeft":"10px"}}>{content.URL}</a>
-    <i style={{"display":"inline-block"}} class="tiny material-icons blue-text">launch</i></div>
+    <div className="valign-wrapper"style={{"display":"flex"}}><i className="tiny material-icons">link</i><a className="truncate" href={content.URL} style={{"fontSize":"12px","width":"80%","paddingLeft":"10px"}}>{content.URL}</a></div>
   ):("")
 
   return (
-    <div>
-      {time}{place}{organizer}{target}{maincontent}{url}
+    <div className="bigcontainer" >
+      {time}{place}{target}{organizer}{maincontent}<div style={{"margin":"15px 0"}}>{url}</div>
     </div>
   )
 
@@ -72,9 +80,9 @@ const Details = (props) =>{
 const MyBox = (props) => {
   const content = props.content;
   const classes = useStyles();
-  const genre = content.ジャンル.length ? (<Grid><Paper className={classes.paper}>{content.ジャンル}</Paper></Grid>):("")
-  const target = content.対象.length ? (<Grid><Paper className={classes.paper}>{content.対象}</Paper></Grid>):("")
-  const isHokkaido = content.道内or道外.length ? (<Grid><Paper className={classes.paper}>{content.道内or道外}</Paper></Grid>):("")
+  const genre = content.ジャンル.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.ジャンル}</Paper></Grid>):("")
+  const target = content.対象.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.対象}</Paper></Grid>):("")
+  const isHokkaido = content.道内or道外.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.道内or道外}</Paper></Grid>):("")
   return(
     <Grid container style={{marginLeft:"10px"}}>
     { genre }{ target }{ isHokkaido }
@@ -94,21 +102,25 @@ const MyCard = (props) => {
   const dayTime = `${content.日程.substr(5,5).replace('-','/')}  (${week[content.曜日]})`
 
   return (
-    <Card className={classes.root} variant="outlined" style={{"borderRadius":"0.7em","margin":"1em 0px"}}>
-      <CardHeader
-        onClick={handleExpandClick}
-        title={ content.タイトル }
-        subheader={ dayTime }
-        style={{"cursor":"default"}}
-      />
-
+    <Card className={classes.root} variant="outlined" style={{"margin":"1em 0px"}} onClick={handleExpandClick}>
+      <div　style={{"display":"flex"}}>
+        {/* <div className="datetime" style={{"height":"100%","width":"40px","padding":"10px 0"}}>
+          あああ
+        </div> */}
+        <CardHeader
+          
+          title={ content.タイトル }
+          subheader={ dayTime }
+          style={{"cursor":"default"}}
+        />
+      </div>
       <CardActions disableSpacing>
         <MyBox content={ content }/>
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
           })}
-          onClick={handleExpandClick}
+          // onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
         >

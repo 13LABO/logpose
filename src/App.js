@@ -2,18 +2,21 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
-import { BrowserRouter, Route, } from 'react-router-dom';
+import NotFound from './components/404'
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="App">
         <Navbar />
-        
-        <Route exact path='/' component={Home} />
-        <Route path='/about' component={About} />
-        <div className="red darken-4 grey-text text-lighten-5 valign-wrapper" style={{"height":"10em","marginTop":"10em"}}>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/about' component={About} />
+          <Route component={NotFound} />
+        </Switch>
+        <div className="grey-text valign-wrapper" style={{"height":"10em","marginTop":"10em"}}>
           <div style={{"margin":"0 auto"}}>©2020  Logpose</div>
         </div>
       </div>

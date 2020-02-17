@@ -8,7 +8,7 @@ import MyCard from './Card'
 
 class Home extends Component {
   state = {posts:[]}
-  componentDidMount() { /* ↓にせもの↓ */
+  componentDidMount() { /* ↓にせもの↓ https://script.google.com/macros/s/AKfycbyNuxy8w2STS9iNKSaTwQYYRS9rCHIFZD89cux-4CjuRNtRrwCu/exec*/
     axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
       .then(res => {
         console.log(res.data);
@@ -47,14 +47,16 @@ class Home extends Component {
     return ( 
       <div>
       <div className="container">
-        <h6 className="" style={{"margin":"2em 0"}}>就活イベントを探そう！</h6>
+        <div className="mycontainer">
+          <h6 className="" style={{"margin":"2em 0"}}>就活イベントを探そう！</h6>
 
-        <div className="container center-align"style={{"height":"5em","border":"2px dashed #ddd","borderRadius":"1em","marginBottom":"4em"}}>
-          {/* <div className="center-align">検索フォーム</div> */}
-          <button onClick={this.wow}>絞り込む</button>
+          <div className="container center-align"style={{"height":"5em","border":"2px dashed #ddd","borderRadius":"1em","marginBottom":"4em"}}>
+            {/* <div className="center-align">検索フォーム</div> */}
+            <button onClick={this.wow}>絞り込む</button>
+          </div>
+
+          <p className="grey-text text-darken-3">{ posts.length }件のイベント</p>
         </div>
-
-        <p className="grey-text text-darken-3">{ posts.length }件のイベント</p>
         { postList }
         </div>
 
