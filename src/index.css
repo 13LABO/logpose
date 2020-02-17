@@ -1,13 +1,103 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Noto Sans JP', sans-serif, 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI',  'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media screen and (max-width:480px){
+  body{
+    font-size:15px;
+    cursor: default !important;
+  }
+  .MuiTypography-h5{
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    font-family: 'Noto Sans JP', sans-serif !important;
+  }
+  .MuiCard-root{
+    margin:0 auto !important;
+  }
+  /* .MuiCardHeader-root{
+    padding:10px !important;
+  } */
+  .MuiCardHeader-subheader{
+    margin:0.2rem !important;
+    font-size: 100% !important;
+  }
+  .brand-logo{
+    font-size: 2rem !important;
+  }
+  .container{
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  .MuiPaper-outlined{
+    border-left: 0 !important;
+    border-right: 0 !important;
+  }
+  .mycontainer{
+    margin: 0 auto;
+    width:90%;
+  }
+}
+  
+
+html {
+  transition:all 1s ease;
+}
+
+.w3{
+  font-weight: 300;
+}
+.w4{
+  font-weight: 400;
+}
+.w5{
+  font-weight: 500;
+}
+
+.navi{
+  font-family: 'Monofett', cursive;
+}
+
+
+/* MuiButtonBase-root 
+
+ makeStyles-expand-2 */
+.MuiIconButton-root{
+  width:20%;
+}
+
+.MuiIconButton-root:hover{
+  background-color: white !important;
+}
+
+.MuiCardActions-root{
+  padding:0px !important;
+  /* margin-left: 7% !important; */
+}
+.MuiIconButton-root{
+  padding:18px !important;
+}
+.MuiTypography-h5{
+  font-family: 'Noto Sans JP', sans-serif !important;
+}
+
+.truncate{
+  display: inline-block !important;
+}
+
+.MuiCardContent-root{
+  padding-bottom: 9px !important;
+}
+
+.bigcontainer{
+  width:90%;
+  margin: 0 auto;
+}
+.MuiCardHeader-subheader{
+  margin:0.2rem !important;
+  font-size: 110% !important;
 }
