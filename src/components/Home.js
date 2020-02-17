@@ -50,9 +50,9 @@ class Home extends Component {
         <div className="mycontainer">
           <h6 className="" style={{"margin":"2em 0"}}>就活イベントを探そう！</h6>
 
-          <div className="container center-align"style={{"height":"5em","border":"2px dashed #ddd","borderRadius":"1em","marginBottom":"4em"}}>
+          <div className="container valign-wrapper"style={{"height":"5em","border":"2px dashed #ddd","borderRadius":"1em","marginBottom":"4em"}}>
             {/* <div className="center-align">検索フォーム</div> */}
-            <button onClick={this.wow}>絞り込む</button>
+            <button onClick={this.wow} style={{"margin":"0 auto"}}>絞り込む</button>
           </div>
 
           <p className="grey-text text-darken-3">{ posts.length }件のイベント</p>

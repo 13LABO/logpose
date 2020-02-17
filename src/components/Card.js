@@ -63,18 +63,25 @@ const Details = (props) =>{
     <div style={{"display":"flex"}} className="valign-wrapper"><i className="tiny material-icons" style={{"marginTop":"8px"}}>person</i>　<div style={{"marginTop":"6px"}}>不明</div></div>
   )
   const maincontent = content.内容.length ? (<div><p>内容:</p><Typography>{content.内容}</Typography></div>):("")
-  const url = content.URL.length ? (
-    <div className="valign-wrapper"style={{"display":"flex"}}><i className="tiny material-icons">link</i><a className="truncate" href={content.URL} style={{"fontSize":"12px","width":"80%","paddingLeft":"10px"}}>{content.URL}</a></div>
-  ):("")
+  // const url = content.URL.length ? (
+  //   <div className="valign-wrapper"style={{"display":"flex"}}><i className="tiny material-icons">link</i><a className="truncate" href={content.URL} style={{"fontSize":"12px","width":"80%","paddingLeft":"10px"}}>{content.URL}</a></div>
+  // ):("")
 
   return (
     <div className="bigcontainer" >
-      {time}{place}{target}{organizer}{maincontent}<div style={{"margin":"15px 0"}}>{url}</div>
+      <div>{time}{place}{target}{organizer}{maincontent}</div>
     </div>
   )
-
 }
 
+const URL = props =>{
+  const content = props.content;
+  const url = content.URL.length ? (
+    <div className="valign-wrapper"style={{"display":"flex"}}><i className="tiny material-icons">link</i><a className="truncate" href={content.URL} target="_blank" rel="noopener noreferrer" style={{"fontSize":"12px","width":"80%","paddingLeft":"10px"}}>{content.URL}</a></div>
+  ):("")
+  return (
+    <div className="bigcontainer" style={{"padding":"15px 0"}}>{url}</div>
+  )}
 
 
 const MyBox = (props) => {
@@ -102,8 +109,8 @@ const MyCard = (props) => {
   const dayTime = `${content.日程.substr(5,5).replace('-','/')}  (${week[content.曜日]})`
 
   return (
-    <Card className={classes.root} variant="outlined" style={{"margin":"1em 0px"}} onClick={handleExpandClick}>
-      <div　style={{"display":"flex"}}>
+    <Card className={classes.root} variant="outlined" style={{"margin":"1em 0px"}} >
+      <div style={{"display":"flex"}} onClick={handleExpandClick}>
         {/* <div className="datetime" style={{"height":"100%","width":"40px","padding":"10px 0"}}>
           あああ
         </div> */}
@@ -114,13 +121,13 @@ const MyCard = (props) => {
           style={{"cursor":"default"}}
         />
       </div>
-      <CardActions disableSpacing>
+      <CardActions disableSpacing onClick={handleExpandClick}>
         <MyBox content={ content }/>
         <IconButton
+          
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
           })}
-          // onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
         >
@@ -133,7 +140,10 @@ const MyCard = (props) => {
 
         <CardContent>
           {/* <Typography paragraph>内容:</Typography> */}
-          <Details content={ content } />
+          <div onClick={handleExpandClick}>
+            <Details content={ content }/>
+          </div>
+          <URL content={ content } />
         </CardContent>
       </Collapse>
     </Card>
