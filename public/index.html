@@ -39,7 +39,29 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCTqP88A09mdvSwLEPYsDe2pXS6jPxg64o",
+    authDomain: "logpose-f0f03.firebaseapp.com",
+    databaseURL: "https://logpose-f0f03.firebaseio.com",
+    projectId: "logpose-f0f03",
+    storageBucket: "logpose-f0f03.appspot.com",
+    messagingSenderId: "402760309313",
+    appId: "1:402760309313:web:5935af921c9e8af70604c0",
+    measurementId: "G-Z1MY5BER5N"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
