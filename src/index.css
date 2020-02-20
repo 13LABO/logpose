@@ -6,6 +6,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* nav{
+  line-height:58px !important;
+} */
+
+
 @media screen and (max-width:480px){
   body{
     font-size:15px;

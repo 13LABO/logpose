@@ -1,0 +1,68 @@
+.react-date-pagination {
+  height: 36px;
+  margin: 18px 0;
+}
+.react-date-pagination ul {
+  padding: 0;
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+  margin-left: 0;
+  margin-bottom: 0;
+  -ms-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.react-date-pagination li {
+  display: inline;
+}
+.react-date-pagination li:first-child a {
+  border-left-width: 1px;
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.react-date-pagination li:last-child a {
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.react-date-pagination a {
+  float: left;
+  padding: 0 5px;
+  line-height: 34px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-left-width: 0;
+  color: #0088cc;
+}
+.react-date-pagination a:hover {
+  background-color: #f5f5f5;
+}
+.react-date-pagination .active a {
+  color: #999999;
+  cursor: default;
+  background-color: #f5f5f5;
+}
+
+.react-date-pagination .disabled span,
+.react-date-pagination .disabled a,
+.react-date-pagination .disabled a:hover {
+  color: #999999;
+  background-color: transparent;
+  cursor: default;
+}
+
+.react-date-pagination a span{
+  padding: 2px;
+}
