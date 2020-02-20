@@ -6,13 +6,13 @@ import cx from 'classnames'
 
 import './pagination.css'
 
-const ulStyle={
-  minWidth: '696px',
-  listStyle: 'none',
-  paddingTop: '20px'
-}
+// const ulStyle={
+//   minWidth: '696px',
+//   listStyle: 'none',
+//   paddingTop: '20px'
+// }
 
-export default class Pagination extends React.Component {
+export default class DatePagination extends React.Component {
   paginationInfo=null;
 
   static propTypes = {
@@ -43,15 +43,15 @@ export default class Pagination extends React.Component {
     pageRangeDisplayed: 5,
     activePage: 1,
     prevPageText: '⟨',
-    firstPageText: '«',
+    //firstPageText: '«',
     nextPageText: '⟩',
-    lastPageText: '»',
+    //lastPageText: '»',
     innerClass: 'pagination',
     itemClass: undefined,
     linkClass: undefined,
     activeLinkClass: undefined,
     hideFirstLastPages: false,
-    getPageUrl: (i) => '#'
+    //getPageUrl: (i) => '#'
   };
 
   componentWillUnmount() {
@@ -103,11 +103,27 @@ export default class Pagination extends React.Component {
       getPageUrl,
       days
     } = this.props
-
+    console.log(onChange)
     this.paginationInfo = new Paginator(
       itemsCountPerPage,
       pageRangeDisplayed
     ).build(totalItemsCount, activePage)
+
+    /**
+    total_pages: total_pages,
+    pages: Math.min(last_page - first_page + 1, total_pages),
+    current_page: current_page,
+    first_page: first_page,
+    last_page: last_page,
+    previous_page: current_page - 1,
+    next_page: current_page + 1,
+    has_previous_page: current_page > 1,
+    has_next_page: current_page < total_pages, //bool
+    total_results: total_results,
+    results: Math.min(last_result - first_result + 1, total_results),
+    first_result: first_result,
+    last_result: last_result,
+     */
 
     if (this.paginationInfo.next_page === this.paginationInfo.total_pages) {
       this.paginationInfo.has_next_page = false
@@ -120,7 +136,7 @@ export default class Pagination extends React.Component {
         <Page
           isActive={i === activePage}
           key={i}
-          href={getPageUrl(i)}
+          //href={getPageUrl(i)}
           pageNumber={i}
           pageText={i + ''}
           onClick={onChange}
@@ -165,7 +181,8 @@ export default class Pagination extends React.Component {
 
   render() {
     const pages = this.buildPages()
-
+    //console.log(this.state)
+    //console.log(this.props)
     return (
       <div className='react-date-pagination'>
         <ul>

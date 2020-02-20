@@ -1,6 +1,6 @@
 import React ,{ Component }from 'react';
 
-import MDSpinner from "react-md-spinner";
+//import MDSpinner from "react-md-spinner";
 import MyCard from './Card'
 
 
@@ -39,8 +39,9 @@ class Home extends Component {
     ) : (
     <div>
       <div className="center" style={{"margin":"5em auto"}}>
-        {/* loading */}
-        <MDSpinner size={40} singleColor={"rgb(205,92,92)"}/>
+        loading
+        {/* <MDSpinner size={40} singleColor={"rgb(205,92,92)"}/> */}
+        {/* <p>データが取得できませんでした…</p> */}
       </div>
     </div>
     )
@@ -56,7 +57,7 @@ class Home extends Component {
             <button onClick={this.wow} style={{"margin":"0 auto"}}>絞り込む</button>
           </div>
 
-          {/* <p className="grey-text text-darken-3">{ posts.length }件のイベント</p> */}
+          <p className="grey-text text-darken-3">{ posts.length }件のイベント</p>
         </div>
         { postList }
         </div>

@@ -4,17 +4,17 @@ import moment from 'moment'
 
 import './pagination.css'
 
-const navListStyle={
-  display: 'block',
-  float: 'left',
-  margin: '10px'
-}
+// const navListStyle={
+//   display: 'block',
+//   float: 'left',
+//   margin: '10px'
+// }
 
-const itemListStyle={
-  display: 'block',
-  float: 'left',
-  margin: '10px'
-}
+// const itemListStyle={
+//   display: 'block',
+//   float: 'left',
+//   margin: '10px'
+// }
 
 export default class Page extends Component {
   static propTypes = {
@@ -24,7 +24,8 @@ export default class Page extends Component {
     isActive: PropTypes.bool.isRequired,
     isDisabled: PropTypes.bool,
     isNavigationPage: PropTypes.bool,
-    date: PropTypes.string
+    //date: PropTypes.string
+    date:PropTypes.object
   };
 
   static defaultProps = {
@@ -49,6 +50,9 @@ export default class Page extends Component {
   }
 
   render() {
+    //console.log(moment('2020-02-21T15:00:00.000Z'))
+
+    //console.log(this.props)
     let {
       pageText,
       isActive,

@@ -1,13 +1,10 @@
 .react-date-pagination {
-  height: 36px;
+  height: 60px;
   margin: 18px 0;
 }
 .react-date-pagination ul {
   padding: 0;
   display: inline-block;
-  *display: inline;
-  /* IE7 inline-block hack */
-  *zoom: 1;
   margin-left: 0;
   margin-bottom: 0;
   -ms-border-radius: 3px;

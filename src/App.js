@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-import Navbar from './components/Navbar';
+import moment from 'moment'
+import Navbar from './components/Nav/Navbar';
 import Home from './components/Home';
 import Top from './components/Top';
-import Calendar from './components/Calendar'
-import About from './components/About';
-import Burger from './components/Burger';
+import Calendar from './components/Calendar/Calendar'
+import About from './components/About/About';
+import Burger from './components/Nav/Burger';
 import NotFound from './components/404';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 
@@ -16,14 +16,20 @@ class App extends Component{
   componentDidMount() { /* ???? https://script.google.com/macros/s/AKfycbyNuxy8w2STS9iNKSaTwQYYRS9rCHIFZD89cux-4CjuRNtRrwCu/exec*/
     axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
       .then(res => {
-        //console.log(res.data);
+        const datas = res.data.length ? (
+          res.data.map(eventData=>{
+          eventData["fdate"]=moment(eventData["??"])
+          return eventData
+        })
+        ):(null)
+        console.log(datas);
         this.setState({
-          posts: res.data
+          posts: datas
         })
       })
       .catch(res=>{
         this.setState({
-          posts: ""
+          posts: null
         })
       })
   }
