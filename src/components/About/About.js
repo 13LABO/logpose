@@ -17,7 +17,7 @@ class About extends Component {
             </div>
         </div>
 
-        <div >
+        <div>
           <h5 style={{"margin":"1em 0"}}>NEWS</h5>
           <div className="card grey lighten-5" style={{"borderRadius":"1em"}}>
             <div className="card-content">
