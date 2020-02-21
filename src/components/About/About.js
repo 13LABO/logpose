@@ -9,10 +9,10 @@ class About extends Component {
       <div className="mycontainer bigcontainer">
         <h4 className="" style={{"margin":"1em auto"}}>Logpose について</h4>
         <div className="" style={{"marginBottom":"5em"}}>
-            <p>札幌就活情報を集めているのだ！企業様はこちらからだよ！↓</p>
+            <p>札幌就活情報を集めているのだ！13LABOを称えましょう！↓</p>
             <div style={{"display":"flex"}} className="valign-wrapper">
             <i className="tiny material-icons">link</i>
-            <a className="truncate" href="#" style={{"fontSize":"12px","width":"80%","paddingLeft":"10px"}}>(マスプへのリンク)</a>
+            <a className="truncate" href="https://docs.google.com/spreadsheets/d/1-ucKi5ArQ2FQIlgraXhxQYo9mm4ULn8f9LZvxH16ZfA/edit" style={{"fontSize":"12px","width":"80%","paddingLeft":"10px"}}>(マスプへのリンク)</a>
             {/* https://docs.google.com/spreadsheets/d/1-ucKi5ArQ2FQIlgraXhxQYo9mm4ULn8f9LZvxH16ZfA/edit */}
             </div>
         </div>
