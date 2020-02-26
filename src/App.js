@@ -3,7 +3,7 @@ import axios from 'axios';
 import moment from 'moment'
 import Navbar from './components/Nav/Navbar';
 import Home from './components/Home';
-import Top from './components/Top';
+import Top from './components/TopPage/Top';
 import Calendar from './components/Calendar/Calendar'
 import About from './components/About/About';
 import Burger from './components/Nav/Burger';
