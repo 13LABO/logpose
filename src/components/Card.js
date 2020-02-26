@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     '&:hover': {
       boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .1)',
-    }
+    },
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -75,7 +75,7 @@ const URL = props =>{
   const url = content.url.length ? (
     <div className="valign-wrapper"style={{"display":"flex"}}>
       <i className="tiny material-icons">link</i>
-      <a className="truncate" href={content.URL} target="_blank" rel="noopener noreferrer" style={{"fontSize":"12px","width":"80%","paddingLeft":"10px"}}>{content.url}</a>
+      <a className="truncate" href={content.url} target="_blank" rel="noopener noreferrer" style={{"fontSize":"12px","width":"80%","paddingLeft":"10px"}}>{content.url}</a>
     </div>
   ):("")
   return (
