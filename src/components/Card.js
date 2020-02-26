@@ -17,6 +17,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     maxWidth: "100%",
     flexGrow: 1,
+    '&:hover': {
+      boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .1)',
+    }
   },
   expand: {
     transform: 'rotate(0deg)',
