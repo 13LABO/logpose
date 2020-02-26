@@ -18,10 +18,11 @@ class App extends Component{
       .then(res => {
         const datas = res.data.length ? (
           res.data.map(eventData=>{
-          eventData["fdate"]=moment(eventData["??"])
+          //console.log(eventData.date)
+          eventData["fdate"]=moment(eventData.date)
           return eventData
         })
-        ):(null)
+        ):("error")
         console.log(datas);
         this.setState({
           posts: datas
@@ -29,7 +30,7 @@ class App extends Component{
       })
       .catch(res=>{
         this.setState({
-          posts: null
+          posts: "error"
         })
       })
   }

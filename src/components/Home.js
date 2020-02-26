@@ -7,21 +7,6 @@ import MyCard from './Card'
 
 
 class Home extends Component {
-  // state = {posts:[]}
-  // componentDidMount() { /* にせもの https://script.google.com/macros/s/AKfycbyNuxy8w2STS9iNKSaTwQYYRS9rCHIFZD89cux-4CjuRNtRrwCu/exec*/
-  //   axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
-  //     .then(res => {
-  //       console.log(res.data);
-  //       this.setState({
-  //         posts: res.data
-  //       })
-  //     })
-  //     .catch(res=>{
-  //       this.setState({
-  //         posts: ""
-  //       })
-  //     })
-  //   }
   
   wow = () => {
     alert('絞り込み機能準備中...');
@@ -29,22 +14,28 @@ class Home extends Component {
 
   render() { 
     const posts = this.props.content.posts;
-    console.log(posts)
-    const postList = posts.length ? (
-      posts.map(post => {
-        return(
-            <MyCard key={ post.pk } content={ post } />
-        )
-      })
-    ) : (
-    <div>
-      <div className="center" style={{"margin":"5em auto"}}>
-        loading
-        {/* <MDSpinner size={40} singleColor={"rgb(205,92,92)"}/> */}
-        {/* <p>データが取得できませんでした…</p> */}
+    let postList = ""
+    //console.log(posts)
+    if (posts==="error"){
+      postList = <div>エラーにより取得できませんでした。</div>
+    }else{
+      postList = posts.length ? (
+        posts.map(post => {
+          return(
+              <MyCard key={ post.pk } content={ post } />
+          )
+        })
+      ) : (
+      <div>
+        <div className="center" style={{"margin":"5em auto"}}>
+          loading
+          {/* <MDSpinner size={40} singleColor={"rgb(205,92,92)"}/> */}
+          {/* <p>データが取得できませんでした…</p> */}
+        </div>
       </div>
-    </div>
-    )
+      )
+    }
+
 
     return ( 
       <div>
