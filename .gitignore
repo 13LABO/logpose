@@ -30,3 +30,4 @@ yarn-error.log*
 
 /src/constants/c*
 contentful.js
+src/constants/contentful.js
