@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-class NewsList extends Component {
+class TagList extends Component {
   state = {  }
   render() { 
     return (
       <div>
-        <h1>新着ニュース</h1>
+        <h1>カテゴリータグ一覧</h1>
       </div>
     );
   }
 }
  
-export default NewsList;
+export default TagList;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Heading from './components/Heading';
-import SearchButtons from './components/SearchButtons';
+import TagList from './components/TagList';
+import EventCalendar from './components/EventCalendar';
 import AttensionEventList from './components/AttensionEventList';
 import NewEventList from './components/NewEventList';
-import NewsList from './components/NewsList';
 
 class Top extends Component {
   state = {  }
@@ -11,10 +11,10 @@ class Top extends Component {
     return (
       <div>
         <Heading />
-        <SearchButtons />
         <AttensionEventList />
+        <EventCalendar />
+        <TagList />
         <NewEventList />
-        <NewsList />
       </div>
      );
   }
