@@ -9,31 +9,43 @@ import About from './components/About/About';
 import Burger from './components/Nav/Burger';
 import NotFound from './components/404';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
-
+import * as contentful from 'contentful';
+import ApiKey from './constants/contentful';
 
 class App extends Component{
-  state = {posts:[]}
-  componentDidMount() { /* ???? https://script.google.com/macros/s/AKfycbyNuxy8w2STS9iNKSaTwQYYRS9rCHIFZD89cux-4CjuRNtRrwCu/exec*/
+  client = contentful.createClient(ApiKey);
+  state = {events:[],news:[]}
+  componentDidMount() { /* ???? https://script.google.com/macros/s/AKfycbyNuxy8w2STS9iNKSaTwQYYRS9rCHIFZD89cux-4CjuRNtRrwCu/exec */
+    //get event datas from GAS...
+    //https://script.google.com/d/1217VsRFyRFei_trI6ZBq4KIFug9bSenV5cNkxKFrYeUZDF5Drv6z0z1j/edit
     axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
       .then(res => {
         const datas = res.data.length ? (
           res.data.map(eventData=>{
-          //console.log(eventData.date)
-          eventData["fdate"]=moment(eventData.date)
+          eventData["fdate"]=moment(eventData.date) //format date to moment.js
           return eventData
         })
         ):("error")
-        console.log(datas);
         this.setState({
-          posts: datas
-        })
+          events: datas
+        });
+        console.log(this.state)
       })
       .catch(res=>{
-        this.setState({
-          posts: "error"
-        })
+        this.setState({events: "error"})
       })
+
+      //get news from contentful...
+      //https://github.com/contentful/contentful.js#documentation--references
+      //https://www.contentful.com/developers/docs/references/content-delivery-api/
+      this.client.getEntries()
+      .then((response) => {
+        this.setState({
+          news: response.items
+        });
+      });
   }
+
   render(){
     return (
       <BrowserRouter>
