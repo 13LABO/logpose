@@ -5,19 +5,27 @@ import EventCalendar from './components/EventCalendar';
 import AttensionEventList from './components/AttensionEventList';
 import NewEventList from './components/NewEventList';
 
+import styled from "styled-components";
+
 class Top extends Component {
   state = {  }
   render() { 
     return (
       <div>
-        <Heading />
-        <AttensionEventList />
-        <EventCalendar />
-        <TagList />
-        <NewEventList />
+        <TopPageContainer>
+          <Heading />
+          <AttensionEventList />
+          <EventCalendar />
+          <TagList />
+          <NewEventList />
+        </TopPageContainer>
       </div>
      );
   }
 }
+
+const TopPageContainer = styled.div`
+  color: red; /* this is just test */
+`;
  
 export default Top;
