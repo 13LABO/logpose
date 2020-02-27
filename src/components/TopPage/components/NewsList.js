@@ -7,7 +7,7 @@ class NewsList extends Component {
       <div>
         <h1>新着ニュース</h1>
       </div>
-     );
+    );
   }
 }
  

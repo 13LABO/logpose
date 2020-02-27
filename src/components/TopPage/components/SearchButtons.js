@@ -8,7 +8,7 @@ class SearchButtons extends Component {
         <button>カレンダーから探す</button>
         <button>条件で検索する</button>
       </div>
-     );
+    );
   }
 }
  

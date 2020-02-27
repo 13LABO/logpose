@@ -7,7 +7,7 @@ class AttensionEventList extends Component {
       <div>
         <h1>注目イベント</h1>
       </div>
-     );
+    );
   }
 }
  

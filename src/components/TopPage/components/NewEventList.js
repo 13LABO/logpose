@@ -7,7 +7,7 @@ class NewEventList extends Component {
       <div>
         <h1>新着イベント</h1>
       </div>
-     );
+    );
   }
 }
  

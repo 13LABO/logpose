@@ -7,7 +7,7 @@ class Heading extends Component {
       <div>
         <h1>就活イベント，探そうぜ！</h1>
       </div>
-     );
+    );
   }
 }
  
