@@ -11,6 +11,7 @@
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "contentful": "^7.14.0",
+    "core-util-is": "^1.0.2",
     "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.24.0",
     "paginator": "^1.0.0",
