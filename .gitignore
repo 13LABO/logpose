@@ -29,3 +29,5 @@ yarn-error.log*
 .firebaserc
 
 /src/constants/*
+
+contentful.js
