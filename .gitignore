@@ -27,3 +27,5 @@ yarn-error.log*
 *.cache
 
 .firebaserc
+
+src/constants/*
