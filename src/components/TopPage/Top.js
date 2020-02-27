@@ -25,6 +25,13 @@ class Top extends Component {
 }
 
 const TopPageContainer = styled.div`
+  border: 1px solid #aaa;
+  width: 375px;  /* スマホの横幅ってどんなもんだろう？ px で設定する必要あるか？ */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   color: red; /* this is just test */
 `;
  
