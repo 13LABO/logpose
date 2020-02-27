@@ -28,4 +28,4 @@ yarn-error.log*
 
 .firebaserc
 
-src/constants/*
+/src/constants/*
