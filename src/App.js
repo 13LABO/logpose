@@ -15,7 +15,9 @@ import ApiKey from './constants/contentful';
 class App extends Component{
   client = contentful.createClient(ApiKey);
   state = {events:[],news:[]}
-  componentDidMount() { /* ???? https://script.google.com/macros/s/AKfycbyNuxy8w2STS9iNKSaTwQYYRS9rCHIFZD89cux-4CjuRNtRrwCu/exec */
+  componentDidMount() { 
+    
+    /* ???? https://script.google.com/macros/s/AKfycbyNuxy8w2STS9iNKSaTwQYYRS9rCHIFZD89cux-4CjuRNtRrwCu/exec */
     //get event datas from GAS...
     //https://script.google.com/d/1217VsRFyRFei_trI6ZBq4KIFug9bSenV5cNkxKFrYeUZDF5Drv6z0z1j/edit
     axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
@@ -38,7 +40,10 @@ class App extends Component{
       //get news from contentful...
       //https://github.com/contentful/contentful.js#documentation--references
       //https://www.contentful.com/developers/docs/references/content-delivery-api/
-      this.client.getEntries()
+      this.client.getEntries({
+        order: '-sys.createdAt',
+        //1ページあたりのコンテンツ数
+        'limit':3,})
       .then((response) => {
         this.setState({
           news: response.items
