@@ -4,6 +4,7 @@ import TagList from './components/TagList';
 import EventCalendar from './components/EventCalendar';
 import AttensionEventList from './components/AttensionEventList';
 import NewEventList from './components/NewEventList';
+import Information from './components/Information';
 
 import styled from "styled-components";
 
@@ -13,6 +14,7 @@ class Top extends Component {
     return (
       <div>
         <TopPageContainer>
+          <Information />
           <Heading />
           <AttensionEventList />
           <EventCalendar />
