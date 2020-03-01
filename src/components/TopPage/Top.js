@@ -28,7 +28,7 @@ class Top extends Component {
 
 const TopPageContainer = styled.div`
   border: 1px solid #aaa;  /* FIXME 後でとる */
-  width: 375px;  /* スマホの横幅ってどんなもんだろう？ px で設定する必要あるか？ */
+  width: 375px;  /* スマホの横幅ってどんなもんだろう？ px で設定する必要あるか？→100%でどうでしょうか */
   top: 0;
   bottom: 0;
   left: 0;
