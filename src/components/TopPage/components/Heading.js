@@ -6,13 +6,11 @@ const backImg = '../assets/syukatu2.jpeg';
 
 export default function Heading() {
   return (
-    <>
-      <HeadingContainer>
-        <HeadingText>
-          {data}
-        </HeadingText>
-      </HeadingContainer>
-    </>
+    <HeadingContainer>
+      <HeadingText>
+        {data}
+      </HeadingText>
+    </HeadingContainer>
   );
 }
 

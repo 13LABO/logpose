@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
-import Demo from './Daily'
+import React from 'react';
+
 import BigCalendar from './BigCalendar'
 
-class Calendar extends Component {
-  state = {  }
-  render() { 
-    return ( 
+
+const Calendar = (props) => {
+  return ( 
       <div>
-        <h3>calendar in development</h3>
-        <Demo />
         <div className="center">
-          <BigCalendar />
+          <BigCalendar content={props.content}/>
         </div>
       </div>
-     );
-  }
+   );
 }
  
 export default Calendar;
