@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DayPicker from 'react-day-picker';
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 import '../../css/datepicker.css';

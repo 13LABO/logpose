@@ -26,7 +26,7 @@ const DailyModal = (props) => {
 
     <div className="center">
       <ReactModal
-        isOpen={ true}//props.isModalOpen }
+        isOpen={ props.isModalOpen }
         contentLabel={"Example Modal"}
         ariaHideApp={false}
         shouldFocusAfterRender={true}
