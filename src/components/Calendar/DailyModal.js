@@ -1,30 +1,27 @@
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
 import DatePagination from '../DatePagination/index';
+import '../../css/modal.css';
 
 const DailyModal = (props) => {
+  const uniq = array =>  [...new Set(array)];
+  const [pageNumber, setPageNumber] = useState(6); //shows 6th date because of this
 
-  const [pageNumber, setPageNumber] = useState(1);
-
-
-  const handlePageChange= (pageNumber) => {
-    setPageNumber(pageNumber)
-  }
+  const handlePageChange= pageNumber => setPageNumber(pageNumber)
+  
   
   //ここで日付の配列を用意する
-  let daysArray = [{date:'2018-06-01'}, {date:'2018-06-02'}, {date:'2018-06-03'},{date:'2018-06-04'}, {date: '2018-06-05'}, {date: '2018-06-06'},{date: '2018-06-07'}, {date: '2018-06-08'}, {date: '2018-06-09'}];
-  let activeContent = daysArray[pageNumber-1].date
-  //console.log(activeContent)
-  //console.log(this.handlePageChange)
+  let daysArray = props.momentList.map(e=>e.toDate())
+  const days = uniq(daysArray.map(e=>e.toLocaleDateString("ja-JP")));
+  let activeContent = 'hello'//daysArray[pageNumber-1].date
+
 
   const handleAfterOpenFunc = (e) =>{
     console.log(props.selectedDay)
   }
 
   return (
-
-
-    <div className="center">
+    <div className="center center-align">
       <ReactModal
         isOpen={ props.isModalOpen }
         contentLabel={"Example Modal"}
@@ -37,33 +34,51 @@ const DailyModal = (props) => {
         aria={{labelledby: "heading", describedby: "full_description"}}
         onAfterOpen={ handleAfterOpenFunc }
         style={modalStyle}
+        closeTimeoutMS={150}
       >
+      <div>
         <div style={{height:'4em',background:'lightgrey',paddingTop:'10px'}}>
-          <p>Modal Content is here!</p>
+          {/* <p>Modal Content is here!</p> */}
+          <div onClick={()=>{props.setModalOpen(!props.isModalOpen)}}  className='valign-wrapper' style={{width:'30%'}}>
+            <i className="material-icons medium" style={{opacity:0.4}}>chevron_left</i>
+            <span style={{transform:'translateX(-10px)'}}>戻る</span>
+          </div>
         </div>
-        <div className='container red-text'>
+        {/* <div className='container red-text'>
           <p>Modal Content is here!</p>
-        </div>
+        </div> */}
         
-        <button onClick={()=>{props.setModalOpen(!props.isModalOpen)}}>modal</button>
 
-        <div>
+        <div className='center-align'>
+
           <DatePagination
-            activePage={ pageNumber-0 }
-            itemsCountPerPage={1}
-            totalItemsCount={daysArray.length}
-            days={daysArray}
-            pageRangeDisplayed={5}
+            totalItemsCount={days.length}
             onChange={ handlePageChange }
+            activePage={ pageNumber } //ここがだいじ
+            itemsCountPerPage={1}
+            pageRangeDisplayed={7}
+            days={ days }
+            setSelectedDay={ props.setSelectedDay }
+            selectedDay={ props.selectedDay }
           />
           <p>active page is { pageNumber }</p>
           <p>active content is { activeContent }</p>
-        </div>
+          <p>selectedDay is { props.selectedDay }</p>
 
+        </div>
+      </div>
       </ReactModal>
     </div>
   );
 }
+
+
+
+
+
+
+
+
 
 
 const modalStyle={
@@ -88,6 +103,7 @@ const modalStyle={
     borderRadius: '4px',
     outline: 'none',
     padding: 0,
+    backgroundColor: 'aliceblue',
   }
 }
 

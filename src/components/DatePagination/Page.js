@@ -1,91 +1,23 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import moment from 'moment'
 
 import './pagination.css'
 
-// const navListStyle={
-//   display: 'block',
-//   float: 'left',
-//   margin: '10px'
-// }
 
-// const itemListStyle={
-//   display: 'block',
-//   float: 'left',
-//   margin: '10px'
-// }
-
-export default class Page extends Component {
-  static propTypes = {
-    pageText: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    pageNumber: PropTypes.number.isRequired,
-    onClick: PropTypes.func.isRequired,
-    isActive: PropTypes.bool.isRequired,
-    isDisabled: PropTypes.bool,
-    isNavigationPage: PropTypes.bool,
-    //date: PropTypes.string
-    date:PropTypes.object
-  };
-
-  static defaultProps = {
-    activeClass: 'active',
-    itemClass: undefined,
-    linkClass: undefined,
-    activeLinkCLass: undefined,
-    isActive: false,
-    isDisabled: false,
-    href: '#',
-    isNavigationPage: false
-  };
-
-  handleClick=(e) => {
-    const { isDisabled, pageNumber } = this.props
-    e.preventDefault()
-
-    if (isDisabled) {
-      return
-    }
-    this.props.onClick(pageNumber)
+export default function Page(props){
+  let { isActive, date } = props
+    const handleClick=() => {
+    const { isDisabled, pageNumber } = props
+    if (isDisabled) { return }
+    props.onClick(pageNumber)
+    props.setSelectedDay(date)
   }
 
-  render() {
-    //console.log(moment('2020-02-21T15:00:00.000Z'))
-
-    //console.log(this.props)
-    let {
-      pageText,
-      isActive,
-      isDisabled,
-      date
-    } = this.props
-
-    let elem = this.props.isNavigationPage === true
-      ? (
-        <li className={isDisabled?'disabled':''} onClick={(e) => this.handleClick(e)}>
-          <a href={'#'}>
-            <strong>
-              {pageText}
-            </strong>
-          </a>
-        </li>
-      )
-      : (
-        <li className={isActive?'active':''} onClick={(e) => this.handleClick(e)}>
-          {isActive ?
-            <a href={'#'}>
-              {moment(date.date, 'YYYY-MM-DD').format('ddd Do MMM YYYY')}
-            </a>
-            :
-            <a href={'#'}>
-              {moment(date.date, 'YYYY-MM-DD').format('ddd Do')}
-            </a>
-          }
-        </li>
-      )
-
-    return (
-      elem
-    )
-  }
+  return (
+    <li className={isActive?'active':'' } onClick={handleClick}>
+      <span href={'#'}>
+        {moment(date,'YYYY/M/D').format('D')}
+      </span>
+    </li>
+  )
 }
