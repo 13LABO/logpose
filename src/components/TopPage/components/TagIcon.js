@@ -22,9 +22,9 @@ const IconContainer = styled.div`
   opacity: 1;
 `;
 
-// TODO 上下にも中央揃えにする
 const TextContainer = styled.div`
   text-align: center;
+  line-height: 28px;
   font: W6 13px/23px Hiragino Kaku Gothic ProN;
   letter-spacing: 0;
   color: #FFFFFF;
