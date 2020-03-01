@@ -14,4 +14,3 @@ const Calendar = (props) => {
 }
  
 export default Calendar;
-

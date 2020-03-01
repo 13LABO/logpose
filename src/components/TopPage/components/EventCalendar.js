@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
+import styled from "styled-components";
+
 class EventCalendar extends Component {
   state = {  }
   render() { 
     return (
-      <div>
-        <h2>イベントカレンダー</h2>
+      <div className="center">
+        カレンダー 
       </div>
     );
   }

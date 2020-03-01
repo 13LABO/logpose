@@ -16,9 +16,9 @@ class Top extends Component {
         <TopPageContainer>
           <Information />
           <Heading />
-          <AttensionEventList />
           <EventCalendar />
           <TagList />
+          <AttensionEventList />
           <NewInfoList content={this.props.content.news}/>
         </TopPageContainer>
       </div>
