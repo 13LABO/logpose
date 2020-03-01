@@ -3,7 +3,7 @@ import Heading from './components/Heading';
 import TagList from './components/TagList';
 import EventCalendar from './components/EventCalendar';
 import AttensionEventList from './components/AttensionEventList';
-import NewEventList from './components/NewEventList';
+import NewInfoList from './components/NewInfoList';
 import Information from './components/Information';
 
 import styled from "styled-components";
@@ -19,7 +19,7 @@ class Top extends Component {
           <EventCalendar />
           <TagList />
           <AttensionEventList />
-          <NewEventList />
+          <NewInfoList content={this.props.content.news}/>
         </TopPageContainer>
       </div>
      );

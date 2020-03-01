@@ -10,11 +10,11 @@ class Calendar extends Component {
         <h3>calendar in development</h3>
         <Demo />
         <div className="center">
-          <BigCalendar />
+          <BigCalendar events={this.props.content.events}/>
         </div>
       </div>
      );
   }
 }
- 
+
 export default Calendar;
