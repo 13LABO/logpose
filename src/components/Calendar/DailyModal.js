@@ -1,70 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import ReactModal from 'react-modal';
-import DatePagination from '../DatePagination/index';
+import Paginator from 'paginator'
 import '../../css/modal.css';
+import moment from 'moment'
+import './pagination.css'
+
+// referenced from ./Calendar
+// DailyModal( ReactModal( DatePagination( Page ) ) )
+
 
 const DailyModal = (props) => {
+
   const uniq = array =>  [...new Set(array)];
-  const [pageNumber, setPageNumber] = useState(6); //shows 6th date because of this
-
   const handlePageChange= pageNumber => setPageNumber(pageNumber)
-  
-  
-  //ここで日付の配列を用意する
-  let daysArray = props.momentList.map(e=>e.toDate())
-  const days = uniq(daysArray.map(e=>e.toLocaleDateString("ja-JP")));
-  let activeContent = 'hello'//daysArray[pageNumber-1].date
 
+  const [pageNumber, setPageNumber] = useState(6);
+  // days = [array of 'YYYY/M/D'] 
+  const days = uniq(props.dateList); // uniqued array of 'YYYY/M/D'
 
-  const handleAfterOpenFunc = (e) =>{
-    console.log(props.selectedDay)
-  }
+  const handleAfterOpenFunc = () =>{return}
 
   return (
     <div className="center center-align">
       <ReactModal
-        isOpen={ props.isModalOpen }
-        contentLabel={"Example Modal"}
-        ariaHideApp={false}
-        shouldFocusAfterRender={true}
-        shouldCloseOnOverlayClick={true}
-        shouldCloseOnEsc={true}
-        shouldReturnFocusAfterClose={true}
-        parentSelector={() => document.body}
-        aria={{labelledby: "heading", describedby: "full_description"}}
-        onAfterOpen={ handleAfterOpenFunc }
-        style={modalStyle}
-        closeTimeoutMS={150}
+        isOpen = { props.isModalOpen }
+        contentLabel = { "modal" }
+        ariaHideApp = { false }
+        shouldFocusAfterRender = { true }
+        shouldCloseOnOverlayClick = { true }
+        shouldCloseOnEsc = { true }
+        shouldReturnFocusAfterClose = {true}
+        parentSelector = { () => document.body }
+        aria = {{ labelledby: "heading", describedby: "full_description" }}
+        onAfterOpen = { handleAfterOpenFunc }
+        style = { modalStyle }
+        closeTimeoutMS = { 150 }
       >
       <div>
         <div style={{height:'4em',background:'lightgrey',paddingTop:'10px'}}>
-          {/* <p>Modal Content is here!</p> */}
           <div onClick={()=>{props.setModalOpen(!props.isModalOpen)}}  className='valign-wrapper' style={{width:'30%'}}>
             <i className="material-icons medium" style={{opacity:0.4}}>chevron_left</i>
             <span style={{transform:'translateX(-10px)'}}>戻る</span>
           </div>
         </div>
-        {/* <div className='container red-text'>
-          <p>Modal Content is here!</p>
-        </div> */}
         
 
         <div className='center-align'>
-
+          <span >{ moment(props.selectedDay,'YYYY/M/D').format('YYYY年M月') }</span>
           <DatePagination
-            totalItemsCount={days.length}
+            totalItemsCount = { days.length }
             onChange={ handlePageChange }
             activePage={ pageNumber } //ここがだいじ
-            itemsCountPerPage={1}
-            pageRangeDisplayed={7}
-            days={ days }
-            setSelectedDay={ props.setSelectedDay }
-            selectedDay={ props.selectedDay }
+            days={ days } // uniqued array of 'YYYY/M/D'
+            setSelectedDay={ props.setSelectedDay } // set to 'YYYY/M/D'
+            selectedDay={ props.selectedDay } // 'YYYY/M/D'
           />
           <p>active page is { pageNumber }</p>
-          <p>active content is { activeContent }</p>
           <p>selectedDay is { props.selectedDay }</p>
-
         </div>
       </div>
       </ReactModal>
@@ -74,11 +66,58 @@ const DailyModal = (props) => {
 
 
 
+class DatePagination extends Component {
+  paginationInfo=null;
+  componentWillUnmount() { this.paginationInfo = null }
+
+  buildPages() {
+    const pages = []
+    const { totalItemsCount, onChange, days } = this.props
+    const activePage = days.indexOf(this.props.selectedDay) + 1
+    this.paginationInfo = new Paginator(1, 7).build(totalItemsCount, activePage) // Paginator(itemsCountPerPage, pageRangeDisplayed).build(~~)
+    
+    for (let i = this.paginationInfo.first_page; i <= this.paginationInfo.last_page; i++) {
+      let date = days[i - 1] 
+      pages.push(
+        <Page
+          pageNumber={i}
+          onClick={onChange}
+          isActive={i === activePage}
+          date={date}
+          key={i}
+          setSelectedDay={this.props.setSelectedDay}
+        />
+      )
+    }
+    return pages
+  }
+  render() {
+    const pages = this.buildPages()
+    return (
+      <div className='react-date-pagination'>
+        <ul style={{width:'100%'}} className='center-align'>
+          { pages }
+        </ul>
+      </div>
+    )
+  }
+}
 
 
-
-
-
+const Page = (props) => {
+  let { isActive, date } = props
+  const handleClick=() => {
+    props.onClick(props.pageNumber);
+    props.setSelectedDay(date);
+  }
+  return (
+    <li className={isActive?'active':'' } onClick={handleClick}>
+      <span href={'#'}>
+        {moment(date,'YYYY/M/D').format('D')}
+      </span>
+    </li>
+  )
+}
 
 
 const modalStyle={
@@ -107,5 +146,5 @@ const modalStyle={
   }
 }
 
- 
+
 export default DailyModal;
