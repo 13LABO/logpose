@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-
 import styled from 'styled-components';
 
 const data = "LOGPOSEで\n北海道の就活イベントを\n探そう";
+const backImg = '../assets/syukatu2.jpeg';
 
-class Heading extends Component {
-  state = {  }
-  render() { 
-    return (
-      <div>
-        <HeadingContainer>
-          <HeadingText>
-            {data}
-          </HeadingText>
-        </HeadingContainer>
-      </div>
-    );
-  }
+export default function Heading() {
+  return (
+    <>
+      <HeadingContainer>
+        <HeadingText>
+          {data}
+        </HeadingText>
+      </HeadingContainer>
+    </>
+  );
 }
 
 const HeadingText = styled.div`
@@ -31,8 +28,16 @@ const HeadingContainer = styled.div`
   border: 1px solid #aaa;  /* FIXME 後でとる */
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 `
- 
-export default Heading;
+
+const HeadingButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+`;
+
+const HeadingButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;

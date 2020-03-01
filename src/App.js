@@ -42,7 +42,10 @@ class App extends Component{
       //get news from contentful...
       //https://github.com/contentful/contentful.js#documentation--references
       //https://www.contentful.com/developers/docs/references/content-delivery-api/
-      this.client.getEntries()
+      this.client.getEntries({
+        order: '-sys.createdAt',
+        //1ページ㝂㝟り㝮コンテンツ数
+        'limit':3,})
       .then((response) => {
         this.setState({
           news: response.items
