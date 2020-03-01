@@ -103,7 +103,7 @@ export default class DatePagination extends React.Component {
       getPageUrl,
       days
     } = this.props
-    console.log(onChange)
+    //console.log(onChange)
     this.paginationInfo = new Paginator(
       itemsCountPerPage,
       pageRangeDisplayed

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import moment from 'moment'
+import Moment from 'moment';
+import { extendMoment } from 'moment-range';
 import Navbar from './components/Nav/Navbar';
 import Home from './components/Home';
 import Top from './components/TopPage/Top';
@@ -12,17 +13,20 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import * as contentful from 'contentful';
 import ApiKey from './constants/contentful';
 
+const moment = extendMoment(Moment);
+
 class App extends Component{
   client = contentful.createClient(ApiKey);
   state = {events:[],news:[]}
-  componentDidMount() { /* ???? https://script.google.com/macros/s/AKfycbyNuxy8w2STS9iNKSaTwQYYRS9rCHIFZD89cux-4CjuRNtRrwCu/exec */
+  componentDidMount() {
     //get event datas from GAS...
     //https://script.google.com/d/1217VsRFyRFei_trI6ZBq4KIFug9bSenV5cNkxKFrYeUZDF5Drv6z0z1j/edit
     axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
       .then(res => {
+        moment.locale('ja');
         const datas = res.data.length ? (
           res.data.map(eventData=>{
-          eventData["fdate"]=moment(eventData.date) //format date to moment.js
+          eventData["fdate"]=moment(eventData.date).startOf('day') //format date to moment.js
           return eventData
         })
         ):("error")
