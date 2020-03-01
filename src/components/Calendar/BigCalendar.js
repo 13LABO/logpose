@@ -1,37 +1,68 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import DayPicker from 'react-day-picker';
+import ReactModal from 'react-modal';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 import '../../css/datepicker.css';
+import MomentLocaleUtils from 'react-day-picker/moment';
+import 'moment/locale/ja';
+import DailyModal from './DailyModal';
 
 const moment = extendMoment(Moment);
+const MONTHS = ['1','2','3','4','5','6','7','8','9','10','11','12']
 
+const BigCalendar = (props) => {
 
-export default class BigCalendar extends Component {
+  const [selectedDay, setSetlectedDay] = useState('');
+  const handleDayClick = (day, { selected, disabled }) => {
+    if(disabled){return;}
+    setSetlectedDay(day.toLocaleDateString("ja-JP"))
+    setModalOpen(true);
+  };
 
-  render() {
-    const momentList = this.props.events.map(e=>e.fdate);
-    //console.log(momentList) 
-    const dateFrom = moment.min(momentList);
-    const dateTo = moment.max(momentList);
-    const range = moment.range(dateFrom, dateTo);
-    console.log(range)
-    //const difference = arr1.filter(x => !arr2.includes(x));
-    const availableDays = Array.from(range.by('day'))//.map((e)=>e._i);
-    console.log(availableDays)
-    const noEventDays = availableDays.filter((x) => {return(!momentList.includes(x))});
-    //console.log(noEventDays)
-    //moment().toDate();
-    //https://momentjs.com/docs/#/displaying/as-javascript-date/
-    const disabledDays = { 
-      before: dateFrom.toDate(), 
-      after: dateTo.toDate(), 
-    }
-    return (
-      <div style={{"height":"30em"}}>
-        <DayPicker disabledDays={disabledDays}/>
-        <div><button onClick={()=>console.log(this.props.events)}>console.log</button></div>
-      </div>
-    );
+  // array of moment objects
+  const momentList = props.content.events.map(e=>e.fdate);
+  // array of formatted dates
+  const dateList = momentList.map(e=>e.format("YYYY-MM-DD"));
+
+  const dateFrom = moment.min(momentList);
+  const dateTo = moment.max(momentList);
+  // moment-range object
+  const range = moment.range(dateFrom.toDate(), dateTo.toDate());
+  // get days to be disabled 
+  const noEventDays = Array.from(range.by('day')).filter(x=>!dateList.includes(x.format("YYYY-MM-DD"))).map(e=>e.toDate());
+  // https://momentjs.com/docs/#/displaying/as-javascript-date/
+  const disabledDays = { 
+    before: dateFrom.toDate(), 
+    after: dateTo.toDate(), 
   }
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  return (
+    <div style={{"height":"20rem",'width':'100%'}} >
+      <div style={{height:'100%' ,margin:'5em auto 5em'}} className='bigcontainer'>
+        <DayPicker
+          localeUtils={MomentLocaleUtils}
+          locale="ja"
+          months = { MONTHS }
+          disabledDays={[...noEventDays, disabledDays]}
+          onDayClick={ handleDayClick }
+        />
+      </div>
+
+      <div>{ selectedDay }</div>
+      <div>{ isModalOpen }</div>
+      <button onClick={()=>{setModalOpen(!isModalOpen)}}>modal</button>
+
+      <DailyModal
+        isModalOpen={ isModalOpen }
+        setModalOpen={ setModalOpen }
+        selectedDay={ selectedDay }
+      />
+
+    </div>
+  );
 }
+
+export default BigCalendar
