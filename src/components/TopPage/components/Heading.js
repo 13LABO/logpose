@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const data = "LOGPOSEで\n北海道の就活イベントを\n探そう";

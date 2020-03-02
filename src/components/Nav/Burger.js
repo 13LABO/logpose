@@ -1,7 +1,7 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu'
 import '../../css/burger.css'
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Burger extends React.Component{
   state={

@@ -4,21 +4,26 @@ import Paginator from 'paginator'
 import '../../css/modal.css';
 import moment from 'moment'
 import './pagination.css'
-
+import MyCard from '../Card'
 // referenced from ./Calendar
 // DailyModal( ReactModal( DatePagination( Page ) ) )
 
+const uniq = array =>  [...new Set(array)];
+
 
 const DailyModal = (props) => {
-
-  const uniq = array =>  [...new Set(array)];
-  const handlePageChange= pageNumber => setPageNumber(pageNumber)
-
-  const [pageNumber, setPageNumber] = useState(6);
-  // days = [array of 'YYYY/M/D'] 
   const days = uniq(props.dateList); // uniqued array of 'YYYY/M/D'
-
+  const [pageNumber, setPageNumber] = useState(0);
+  //console.log(days.indexOf(props.selectedDay)+1)
+  const handlePageChange = pageNumber => setPageNumber(pageNumber)
   const handleAfterOpenFunc = () =>{return}
+
+  const eventOnTheDay = props.events.filter((e)=>{
+    return (e.fdate.format('YYYY/M/D')===props.selectedDay)}).map((e)=>{
+      return(
+         <MyCard key={ e.pk } content={ e } />
+      )
+    })
 
   return (
     <div className="center center-align">
@@ -36,33 +41,34 @@ const DailyModal = (props) => {
         style = { modalStyle }
         closeTimeoutMS = { 150 }
       >
-      <div>
-        <div style={{height:'4em',background:'lightgrey',paddingTop:'10px'}}>
-          <div onClick={()=>{props.setModalOpen(!props.isModalOpen)}}  className='valign-wrapper' style={{width:'30%'}}>
-            <i className="material-icons medium" style={{opacity:0.4}}>chevron_left</i>
-            <span style={{transform:'translateX(-10px)'}}>戻る</span>
+        <div>
+          <div style={{height:'4em',background:'lightgrey',paddingTop:'10px'}}>
+            <div onClick={()=>{props.setModalOpen(!props.isModalOpen)}}  className='valign-wrapper' style={{width:'30%'}}>
+              <i className="material-icons medium" style={{opacity:0.4}}>chevron_left</i>
+              <span style={{transform:'translateX(-10px)'}}>戻る</span>
+            </div>
+          </div>
+          
+
+          <div className='center-align'>
+            <span >{ moment(props.selectedDay,'YYYY/M/D').format('YYYY年M月') }</span>
+            <DatePagination
+              totalItemsCount = { days.length }
+              onChange={ handlePageChange }
+              activePage={ pageNumber } //ここがだいじ
+              days={ days } // uniqued array of 'YYYY/M/D'
+              setSelectedDay={ props.setSelectedDay } // set to 'YYYY/M/D'
+              selectedDay={ props.selectedDay } // 'YYYY/M/D'
+            />
+            <p>selectedDay is { props.selectedDay }</p>
+            <div> { eventOnTheDay } </div>
           </div>
         </div>
-        
-
-        <div className='center-align'>
-          <span >{ moment(props.selectedDay,'YYYY/M/D').format('YYYY年M月') }</span>
-          <DatePagination
-            totalItemsCount = { days.length }
-            onChange={ handlePageChange }
-            activePage={ pageNumber } //ここがだいじ
-            days={ days } // uniqued array of 'YYYY/M/D'
-            setSelectedDay={ props.setSelectedDay } // set to 'YYYY/M/D'
-            selectedDay={ props.selectedDay } // 'YYYY/M/D'
-          />
-          <p>active page is { pageNumber }</p>
-          <p>selectedDay is { props.selectedDay }</p>
-        </div>
-      </div>
       </ReactModal>
     </div>
   );
 }
+
 
 
 
@@ -81,7 +87,7 @@ class DatePagination extends Component {
       pages.push(
         <Page
           pageNumber={i}
-          onClick={onChange}
+          onClick = { onChange }
           isActive={i === activePage}
           date={date}
           key={i}
@@ -104,9 +110,11 @@ class DatePagination extends Component {
 }
 
 
+
+
 const Page = (props) => {
   let { isActive, date } = props
-  const handleClick=() => {
+  const handleClick= () => {
     props.onClick(props.pageNumber);
     props.setSelectedDay(date);
   }
@@ -118,6 +126,8 @@ const Page = (props) => {
     </li>
   )
 }
+
+
 
 
 const modalStyle={

@@ -19,19 +19,19 @@ const Calendar = (props) => {
 
   const handleDayClick = (day, { selected, disabled }) => {
     if(disabled){return;}
+    //console.log(day.toLocaleDateString("ja-JP"))
     setSelectedDay(day.toLocaleDateString("ja-JP"))
     setModalOpen(true);
   };
 
   const momentList = props.content.events.map(e=>e.fdate); // Date object
   const dateList = momentList.map(e=>e.format("YYYY/M/D")); // string
-  const dateFrom = moment.min(momentList);
-  const dateTo = moment.max(momentList);
-  // moment-range object
-  const range = moment.range(dateFrom.toDate(), dateTo.toDate());
+  const dateFrom = moment.min(momentList).toDate();
+  const dateTo = moment.max(momentList).toDate();
+  const range = moment.range(dateFrom, dateTo); // moment-range object
   //date objects
   const noEventDays = Array.from(range.by('day')).filter(x=>!dateList.includes(x.format("YYYY/M/D"))).map(e=>e.toDate());
-  const disabledDays = { before: dateFrom.toDate(), after: dateTo.toDate() }
+  const disabledDays = { before: dateFrom, after: dateTo }
 
   return (
     <div style={{"height":"20rem",'width':'100%'}} className='center'>
@@ -50,6 +50,7 @@ const Calendar = (props) => {
         selectedDay={ selectedDay } // 'YYYY/M/D'
         dateList={ dateList } // list of 'YYYY/M/D'
         setSelectedDay={ setSelectedDay } // set to 'YYYY/M/D'
+        events = { props.content.events }
       />
     </div>
   );
