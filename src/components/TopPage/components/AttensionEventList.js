@@ -17,18 +17,14 @@ export default function AttensionEventList() {
 }
 
 const TopBarWrapper = styled.div`
-  background: #707070 0% 0% no-repeat padding-box;
-  border: 1px solid #707070;
-  opacity: 1;
+  background: #707070;
   width: 375px;
   height: 43px;
 `;
 
 const TopBarTextContainer = styled.div`
-  margin-left: 10px;
-  font-size: 24px;
-  font: W6 19px/33px Hiragino Kaku Gothic ProN;
-  letter-spacing: 0;
+  margin-left:10px;
+  font-size:19px;
   color: #FFFFFF;
-  opacity: 1;
+  line-height:43px;
 `;
