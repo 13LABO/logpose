@@ -3,8 +3,6 @@ import styled from 'styled-components';
 
 import HeadingButton from "./HeadingButton";
 
-
-
 const data = "LOGPOSEで\n北海道の就活イベントを\n探そう";
 const backImg = '../assets/syukatu2.jpeg';
 
