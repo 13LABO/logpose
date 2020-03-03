@@ -18,7 +18,6 @@ export default function AttensionEventList() {
 
 const TopBarWrapper = styled.div`
   background: #707070;
-  width: 375px;
   height: 43px;
 `;
 
