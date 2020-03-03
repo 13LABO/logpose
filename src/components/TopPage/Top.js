@@ -13,7 +13,7 @@ class Top extends Component {
   state = {  }
   render() { 
     return (
-      <div>
+      <div className="container">
         <TopPageContainer>
           <Information />
           <Heading />
@@ -22,17 +22,15 @@ class Top extends Component {
           <AttensionEventList />
           <NewInfoList content={this.props.content.news}/>
         </TopPageContainer>
-      </div>
+      </div> 
      );
   }
 }
 
 const TopPageContainer = styled.div`
-  border: 1px solid #aaa;  /* FIXME 後でとる */
   width: 100%;  
   margin:0;
   padding:0;
 `;
-
  
 export default Top;

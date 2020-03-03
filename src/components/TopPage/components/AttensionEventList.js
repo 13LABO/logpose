@@ -29,7 +29,7 @@ const styles = {
 export default function AttensionEventList() {
 
   return (
-    <>
+    <Container>
       <TopBarWrapper>
         <TopBarTextContainer>
           {topBarText}
@@ -43,17 +43,20 @@ export default function AttensionEventList() {
           <div style={Object.assign({}, styles.slide, styles.slide3)}>slide n°3</div>
         </SwipeableViews>
       </SwipeableViewsContainer>
-    </> 
+    </Container>
   );
 }
 
+const Container = styled.div`
+  height: 15rem;
+  border: solid 1px red;
+`;
 const SwipeableViewsContainer = styled.div`
-  margin: 10px;
+  margin: 15px;
 `;
 
 const TopBarWrapper = styled.div`
   background: #707070;
-  height: 43px;
 `;
 
 const TopBarTextContainer = styled.div`
