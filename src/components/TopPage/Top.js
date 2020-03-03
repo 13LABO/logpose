@@ -21,7 +21,7 @@ class Top extends Component {
           <TagList />
           <AttensionEventList />
           <NewInfoList content={this.props.content.news}/>
-        </TopPageContainer>
+        </TopPageContainer>   
       </div>
      );
   }
