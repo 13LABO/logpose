@@ -60,6 +60,9 @@ const HeadingButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
 `;
 
 const HeadingButtonContainer = styled.div`
