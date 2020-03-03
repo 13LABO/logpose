@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const topBarText = "おすすめ";
 const styles = {
@@ -37,11 +40,11 @@ export default function AttensionEventList() {
       </TopBarWrapper>
       
       <SwipeableViewsContainer>
-        <SwipeableViews style={styles.root} slideStyle={styles.slideContainer}>
+        <AutoPlaySwipeableViews style={styles.root} slideStyle={styles.slideContainer}>
           <div style={Object.assign({}, styles.slide, styles.slide1)}>slide n°1</div>
           <div style={Object.assign({}, styles.slide, styles.slide2)}>slide n°2</div>
           <div style={Object.assign({}, styles.slide, styles.slide3)}>slide n°3</div>
-        </SwipeableViews>
+        </AutoPlaySwipeableViews>
       </SwipeableViewsContainer>
     </Container>
   );
@@ -49,7 +52,6 @@ export default function AttensionEventList() {
 
 const Container = styled.div`
   height: 15rem;
-  border: solid 1px red;
 `;
 const SwipeableViewsContainer = styled.div`
   margin: 15px;
