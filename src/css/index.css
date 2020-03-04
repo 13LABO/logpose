@@ -22,7 +22,7 @@ html {
 } */
 
 
-@media screen and (max-width:480px){
+@media screen and (max-width:520px){
   body{
     font-size:15px;
     cursor: default !important;
@@ -56,6 +56,22 @@ html {
   .mycontainer{
     margin: 0 auto;
     width:90%;
+  }
+
+  .parallax-wrapper::before{
+    content: "";
+    width: 100%; height:150%;
+    top: 0; left: 0; bottom: 0; right: 0;
+    display: block;
+    transform-origin: center center 0;
+    background-image: url(../components/TopPage/assets/syuukatu4-min.jpg) !important; 
+    background-color:#666;
+    background-blend-mode:overlay;
+    background-size:cover;
+    position: absolute;
+    z-index: -1;
+    border: 3px solid blue;
+    transform: translateZ(-0.15px) scale(1.3);
   }
 
   /* calendar-wrapper{
@@ -137,14 +153,14 @@ html {
   top: 0; left: 0; bottom: 0; right: 0;
   display: block;
   transform-origin: center center 0;
-  background-image: url(../components/TopPage/assets/syuukatu4-min.jpg);
+  background-image: url(../components/TopPage/assets/syukatu2.jpeg);
   background-color:#666;
   background-blend-mode:overlay;
   background-size:cover;
   position: absolute;
   z-index: -1;
   border: 3px solid blue;
-  transform: translateZ(-0.15px) scale(1.3);
+  transform: translateZ(-0.15px) scale(1.3) ;
 }
 
 .regular-wrapper{

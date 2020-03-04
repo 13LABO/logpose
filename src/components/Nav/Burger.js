@@ -25,10 +25,10 @@ class Burger extends React.Component{
         disableAutoFocus
         width={'15em'}
       >
-        <NavLink to="/" id="home" className="menu-item" onClick={()=>this.closeMenu()}>トップ</NavLink>
-        <NavLink to="/top" id="home" className="menu-item" onClick={()=>this.closeMenu()}>新トップ</NavLink>
-        <NavLink to="/calendar" id="calendar" className="menu-item" onClick={()=>this.closeMenu()}>カレンダー</NavLink>
+        <NavLink to="/" className="menu-item" onClick={()=>this.closeMenu()}>トップ</NavLink>
         <NavLink to="/about" className="menu-item" onClick={()=>this.closeMenu()}>about</NavLink>
+        <NavLink to="/news" className="menu-item" onClick={()=>this.closeMenu()}>news</NavLink>
+        <NavLink to="/home" id="home" className="menu-item" onClick={()=>this.closeMenu()}>旧トップ</NavLink>
       </Menu>
     );
     }

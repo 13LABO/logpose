@@ -5,9 +5,10 @@ import { extendMoment } from 'moment-range';
 import Navbar from './components/Nav/Navbar';
 import Home from './components/Home';
 import Top from './components/TopPage/Top';
-import Calendar from './components/Calendar/Calendar'
+import News from './components/News/News'
 import About from './components/About/About';
 import Burger from './components/Nav/Burger';
+import Search from './components/Search/Search';
 import NotFound from './components/404';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import * as contentful from 'contentful';
@@ -62,19 +63,23 @@ class App extends Component{
           <Switch>
             <Route 
               exact path='/'
-              render={()=><Home content={this.state}/>}
+              render={()=><Top content={this.state}/>}
             />
             <Route 
-              exact path='/top' 
-              render={()=><Top content={this.state}/>}
+              exact path='/home' 
+              render={()=><Home content={this.state}/>}
             />
             <Route 
               exact path='/about' 
               render={()=><About content={this.state}/>}
             />
             <Route 
-              exact path='/calendar' 
-              render={()=><Calendar content={this.state}/>}
+              exact path='/news' 
+              render={()=><News content={this.state}/>}
+            />
+            <Route 
+              exact path='/events' 
+              render={()=><Search content={this.state}/>}
             />
             <Route component={NotFound} />
           </Switch>

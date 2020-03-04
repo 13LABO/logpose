@@ -4,12 +4,12 @@ import { Link, NavLink } from 'react-router-dom';
 const Navbar = () => {
   return ( 
     <div className="navbar-fixed">
-      <nav className="nav-wrapper red lighten-2" id="navi">
+      <nav className="nav-wrapper red darken-3" id="navi">
         <div className="container">
           <Link to="/" className="brand-logo navi" style={{"fontSize":"2.5rem","marginLeft":"0.2em"}}>Logpose</Link>
           <ul className="right" >
           <li>
-          <NavLink to="/about">
+          <NavLink to="/events">
             <i className="tiny material-icons" style={{"marginTop":"20%"}}>search</i>
           </NavLink>
           </li>
