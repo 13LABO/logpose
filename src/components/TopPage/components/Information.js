@@ -19,7 +19,7 @@ export default function Information() {
 
 const InformationText = styled.div`
   white-space: pre-line;
-  color: rgb(112, 112, 112);
+  color: rgb(112, 112, 112,0.3);
   font-size: 12px;
   font-weight: bold;
   margin: 3px;

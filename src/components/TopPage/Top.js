@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Heading from './components/Heading';
 import TagList from './components/TagList';
-import EventCalendar from './components/EventCalendar';
 import AttensionEventList from './components/AttensionEventList';
 import NewInfoList from './components/NewInfoList';
 import Information from './components/Information';
@@ -13,14 +12,20 @@ class Top extends Component {
   state = {  }
   render() { 
     return (
-      <div className="container">
+      <div>
         <TopPageContainer>
-          <Information />
-          <Heading />
-          <Calendar content={this.props.content}/>
-          <TagList />
-          <AttensionEventList />
-          <NewInfoList content={this.props.content.news}/>
+          <div className="parallax-wrapper">
+            <Information /> {/* 新型コロナですよーとか */}
+            <Heading /> {/* 写真 */}
+          </div>
+          <div className="regular-wrapper" id="regular-wrapper">
+            <div className="container">
+              <Calendar content={this.props.content}/>
+              <TagList />
+              <AttensionEventList />
+              <NewInfoList content={this.props.content.news}/>
+            </div>
+          </div>
         </TopPageContainer>   
       </div>
      );

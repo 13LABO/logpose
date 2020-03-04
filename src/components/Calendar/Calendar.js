@@ -34,7 +34,7 @@ const Calendar = (props) => {
   const disabledDays = { before: dateFrom, after: dateTo }
 
   return (
-    <div style={{"height":"40rem",'width':'100%','padding':'1.5em'}} className='center-align'>
+    <div style={{"height":"100%",'width':'100%','padding':'1.5em 0','background':'lightpink'}} className='center-align calendar-wrapper'>
       <div style={{height:'100%'}} className='bigcontainer'>
         <DayPicker // literally a calendar
           localeUtils={MomentLocaleUtils}

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import HeadingButton from "./HeadingButton";
 
 const data = "LOGPOSEで\n北海道の就活イベントを\n探そう";
-const backImg = '../assets/syukatu2.jpeg';
+//const backImg = '../assets/syukatu2.jpeg';
 
 export default function Heading() {
   return (
@@ -20,12 +20,12 @@ export default function Heading() {
               subtitle={"からさがす"}
             />
           </HeadingButtonContainer>
-          <HeadingButtonContainer>
+          {/* <HeadingButtonContainer>
             <HeadingButton 
               title={"カレンダー"}
               subtitle={"からさがす"}
             />
-          </HeadingButtonContainer>
+          </HeadingButtonContainer> */}
           <HeadingButtonContainer>
             <HeadingButton 
               title={"細かい条件"}
@@ -44,6 +44,7 @@ const HeadingText = styled.div`
   color: white;
   font-size: 20px;
   font-weight: bold;
+  padding:3em 0;
 `
 
 const HeadingContainer = styled.div`
@@ -51,7 +52,7 @@ const HeadingContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
-  background-color: rgb(0, 0, 0);
+  /* background-color: rgb(0, 0, 0, 0.5); */
 `
 
 const HeadingButtonWrapper = styled.div`

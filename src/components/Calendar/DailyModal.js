@@ -35,13 +35,14 @@ const DailyModal = (props) => {
         shouldCloseOnOverlayClick = { true }
         shouldCloseOnEsc = { true }
         shouldReturnFocusAfterClose = {true}
-        parentSelector = { () => document.body }
+        //parentSelector = { () => document.body }
+        parentSelector={() => document.querySelector('#regular-wrapper')}
         aria = {{ labelledby: "heading", describedby: "full_description" }}
         onAfterOpen = { handleAfterOpenFunc }
         style = { modalStyle }
         closeTimeoutMS = { 150 }
       >
-        <div>
+        <div style={{height:"100%",zIndex:5}}>
           <div style={{height:'4em',background:'lightgrey',paddingTop:'10px'}}>
             <div onClick={()=>{props.setModalOpen(!props.isModalOpen)}}  className='valign-wrapper' style={{width:'30%'}}>
               <i className="material-icons medium" style={{opacity:0.4}}>chevron_left</i>
@@ -50,7 +51,7 @@ const DailyModal = (props) => {
           </div>
           
 
-          <div className='center-align'>
+          <div className='center-align'  style={{height:"100%"}}>
             <span >{ moment(props.selectedDay,'YYYY/M/D').format('YYYY年M月') }</span>
             <DatePagination
               totalItemsCount = { days.length }
@@ -61,7 +62,7 @@ const DailyModal = (props) => {
               selectedDay={ props.selectedDay } // 'YYYY/M/D'
             />
             <p>selectedDay is { props.selectedDay }</p>
-            <div> { eventOnTheDay } </div>
+            <div  style={{height:"100%"}}> { eventOnTheDay } </div>
           </div>
         </div>
       </ReactModal>
@@ -153,6 +154,9 @@ const modalStyle={
     outline: 'none',
     padding: 0,
     backgroundColor: 'aliceblue',
+    height:"100vh",
+
+    
   }
 }
 
