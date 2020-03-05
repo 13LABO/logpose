@@ -8,7 +8,6 @@ import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-//import moment from 'moment'
 
 
 const useStyles = makeStyles(theme => ({
@@ -31,23 +30,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
-
-// const Details = (props) =>{
-//   //const classes = useStyles();
-  
-//   return (
-//     <div className="bigcontainer" >
-//       <div>details</div>
-//     </div>
-//   )
-// }
-
-
-
-
-
-
 const NewsCard = (props) => {
 
   const classes = useStyles();
@@ -60,8 +42,8 @@ const NewsCard = (props) => {
     <Card className={classes.root} variant="outlined" style={{"margin":"1em 0px"}} >
       <div style={{"display":"flex"}} onClick={handleExpandClick}>
         <CardHeader
-          title="this is title"
-          subheader="date?"
+          title={props.newsTitle}
+          subheader={props.publishDate}
           style={{"cursor":"default"}}
         />
       </div>
@@ -69,17 +51,17 @@ const NewsCard = (props) => {
         <IconButton
           className={clsx(classes.expand, {[classes.expandOpen]: expanded,})}
           aria-expanded={expanded}
-          aria-label="show more"
+          aria-label="続きを読む"
         >
           <ExpandMoreIcon/>
         </IconButton>
       </CardActions>
       
-
+      
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <div onClick={handleExpandClick}>
-            this is content
+            {props.newsBody}
           </div>
         </CardContent>
       </Collapse>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import NewsCard from "../../NewsCard";
 
 
 const topBarText = "新着情報";
@@ -15,13 +16,12 @@ class NewInfoList extends Component{
         </TopBarWrapper>
       <ListContainer>
         {
-          this.props.content.map((item) => (
-            <List key={item.sys.id}><PublishDate>{item.fields.publishDate}</PublishDate>
-                                  <NewsTitle>{item.fields.title}</NewsTitle>
-                                  <NewsBody>{item.fields.body}</NewsBody>
-                                  </List>
-           ))
-        }
+          this.props.content.map((item) => ( 
+            <List key={item.sys.id}><NewsCard publishDate={item.fields.publishDate}
+                                        newsTitle={item.fields.title}
+                                        newsBody={item.fields.body}/></List>
+       ))
+    }
       </ListContainer>
       <Button>全てのお知らせを見る</Button>
       </Container>
