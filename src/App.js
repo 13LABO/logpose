@@ -13,6 +13,13 @@ import NotFound from './components/404';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import * as contentful from 'contentful';
 import ApiKey from './constants/contentful';
+import ReactDOM from 'react-dom';
+import { library } from '@fortawesome/fontawesome-svg-core'; //fontawesomeのコアファイル
+import { fab } from '@fortawesome/free-brands-svg-icons'; //fontawesomeのbrandアイコンのインポート
+import { fas } from '@fortawesome/free-solid-svg-icons'; //fontawesomeのsolidアイコンのインポート
+import { far } from '@fortawesome/free-regular-svg-icons'; //fontawesomeのregularアイコンのインポート
+
+library.add(fab, fas, far);
 
 const moment = extendMoment(Moment);
 
@@ -45,6 +52,7 @@ class App extends Component{
       //https://www.contentful.com/developers/docs/references/content-delivery-api/
       this.client.getEntries({
         order: '-sys.createdAt',
+        'sys.contentType.sys.id': 'logposeNews',
         //1ページ㝂㝟り㝮コンテンツ数
         'limit':3,})
       .then((response) => {

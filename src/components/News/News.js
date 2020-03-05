@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
 import * as contentful from 'contentful';
 import ApiKey from '../../constants/contentful';
 import NewsCard from "../NewsCard";
+import styled from 'styled-components'
 
 
 class News extends Component{
@@ -12,51 +12,34 @@ class News extends Component{
     // axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
       this.client.getEntries({
         order: '-sys.createdAt',
-        //1ページ㝂㝟り㝮コンテンツ数
+        'sys.contentType.sys.id': 'logposeNews',
         })
       .then((response) => {
-        this.setState({
-          news: response.items
-        });
+          this.setState({
+            news: response.items    
+          });
       });
   }
   
   render(){
     return ( 
-    <Container>
+    <React.Fragment>
+      <Header>全てのお知らせを表示しています。{this.state.news.length}件</Header>
       {
-      this.state.news.map((item) => (
-        
-        <List key={item.sys.id}><PublishDate>{item.fields.publishDate}</PublishDate>
-                                  <NewsTitle>{item.fields.title}</NewsTitle>
-                                  <NewsBody>{item.fields.body}</NewsBody>
-                                  
-                                  <NewsCard />
-                                  
-                                  </List>
+      this.state.news.map((item) => ( 
+        <List key={item.sys.id}><NewsCard publishDate={item.fields.publishDate}
+                                        newsTitle={item.fields.title}
+                                        newsBody={item.fields.body}/></List>
        ))
-    }</Container>
+    }</React.Fragment>
     );
   }
 }
-const Container = styled.div`
-  width:90%;
-  margin:0 auto;
-`;
 const List = styled.li`
   list-style:none;
-`;
-const PublishDate = styled.span`
-  font-weight:700;
-`;
-const NewsTitle = styled.span`
-  font-weight:700;
-  display:block;
-`;
-const NewsBody = styled.span`
-  color:grey;
-  width:80%;
-  margin:0 auto;
+  `;
+const Header = styled.div`
+  text-align:center;
 `;
  
 export default News;
