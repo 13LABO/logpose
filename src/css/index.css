@@ -17,9 +17,6 @@ html {
   overflow: hidden;
   height: 100%;
 }
-/* nav{
-  line-height:58px !important;
-} */
 
 .noselect{
   -moz-user-select: none;
@@ -102,10 +99,45 @@ html {
   font-family: 'Monofett', cursive;
 }
 
+/* for top page parallax */
 
-/* MuiButtonBase-root 
+.parallax-wrapper{
+  box-sizing: border-box;
+  margin:0;
+  transform-style: preserve-3d;
+  position: relative;
+}
 
- makeStyles-expand-2 */
+.parallax-wrapper::before{
+  content: "";
+  width: 100%; height:150%;
+  top: 0; left: 0; bottom: 0; right: 0;
+  display: block;
+  transform-origin: center center 0;
+  background-image: url(../components/TopPage/assets/syukatu2.jpeg);
+  background-color:#666;
+  background-blend-mode:overlay;
+  background-size:cover;
+  position: absolute;
+  z-index: -1;
+  transform: translateZ(-0.15px) scale(1.3) ;
+}
+
+.regular-wrapper{
+  position: relative;
+  background: #efebe9;
+}
+
+.navbar-fixed{
+  overflow: hidden;
+  top:0;
+  width: 100%;
+}
+
+
+
+
+/* styles for card */
 .MuiIconButton-root{
   width:20%;
 }
@@ -144,37 +176,3 @@ html {
 
 
 
-/* for top page parallax */
-
-.parallax-wrapper{
-  box-sizing: border-box;
-  margin:0;
-  transform-style: preserve-3d;
-  position: relative;
-}
-
-.parallax-wrapper::before{
-  content: "";
-  width: 100%; height:150%;
-  top: 0; left: 0; bottom: 0; right: 0;
-  display: block;
-  transform-origin: center center 0;
-  background-image: url(../components/TopPage/assets/syukatu2.jpeg);
-  background-color:#666;
-  background-blend-mode:overlay;
-  background-size:cover;
-  position: absolute;
-  z-index: -1;
-  transform: translateZ(-0.15px) scale(1.3) ;
-}
-
-.regular-wrapper{
-  position: relative;
-  background: #efebe9;
-}
-
-.navbar-fixed{
-  overflow: hidden;
-  top:0;
-  width: 100%;
-}

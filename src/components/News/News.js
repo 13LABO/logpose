@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import * as contentful from 'contentful';
 import ApiKey from '../../constants/contentful';
-import axios from 'axios';
+import NewsCard from "../NewsCard";
 
 
 class News extends Component{
   client = contentful.createClient(ApiKey);
   state = {news:[]}
   componentDidMount() {
-    axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
+    // axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
       this.client.getEntries({
         order: '-sys.createdAt',
         //1ページ㝂㝟り㝮コンテンツ数
@@ -26,9 +26,13 @@ class News extends Component{
     <Container>
       {
       this.state.news.map((item) => (
+        
         <List key={item.sys.id}><PublishDate>{item.fields.publishDate}</PublishDate>
                                   <NewsTitle>{item.fields.title}</NewsTitle>
                                   <NewsBody>{item.fields.body}</NewsBody>
+                                  
+                                  <NewsCard />
+                                  
                                   </List>
        ))
     }</Container>

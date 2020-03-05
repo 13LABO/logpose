@@ -141,11 +141,11 @@ const modalStyle={
     backgroundColor: 'rgba(0, 0, 0, 0.5)'
   },
   content: {
-    zIndex:20,
+    // zIndex:20,
     position: 'absolute',
     top: '190px',
-    left: "10%",
-    right: "10%",
+    left: 0,
+    right: 0,
     //bottom: "100px",
     border: '1px solid #ccc',
     //background: '#fff',
