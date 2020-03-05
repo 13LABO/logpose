@@ -66,8 +66,8 @@ class App extends Component{
     return (
       <BrowserRouter>
         <div className="App">
-          <Burger />
           <Navbar />
+          <Burger />
           <Switch>
             <Route 
               exact path='/'
