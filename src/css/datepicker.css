@@ -60,8 +60,8 @@
 
   display: inline-block;
   margin-top: 2px;
-  width: 1.25em;
-  height: 1.25em;
+  width: 2.5em;
+  height: 2.5em;
   background-position: center;
   background-size: 50%;
   background-repeat: no-repeat;
@@ -74,7 +74,7 @@
 }
 
 .DayPicker-NavButton--prev {
-  margin-right: 1.5em;
+  margin-right: 4em;
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAVVJREFUWAnN2G0KgjAYwPHpGfRkaZeqvgQaK+hY3SUHrk1YzNLay/OiEFp92I+/Mp2F2Mh2lLISWnflFjzH263RQjzMZ19wgs73ez0o1WmtW+dgA01VxrE3p6l2GLsnBy1VYQOtVSEH/atCCgqpQgKKqYIOiq2CBkqtggLKqQIKgqgCBjpJ2Y5CdJ+zrT9A7HHSTA1dxUdHgzCqJIEwq0SDsKsEg6iqBIEoq/wEcVRZBXFV+QJxV5mBtlDFB5VjYTaGZ2sf4R9PM7U9ZU+lLuaetPP/5Die3ToO1+u+MKtHs06qODB2zBnI/jBd4MPQm1VkY79Tb18gB+C62FdBFsZR6yeIo1YQiLJWMIiqVjQIu1YSCLNWFgijVjYIuhYYCKoWKAiiFgoopxYaKLUWOii2FgkophYp6F3r42W5A9s9OcgNvva8xQaysKXlFytoqdYmQH6tF3toSUo0INq9AAAAAElFTkSuQmCC');
 }
 
@@ -88,9 +88,10 @@
 
 .DayPicker-Caption {
   display: table-caption;
-  margin-bottom: 0.5em;
+  margin-bottom: 2em;
   padding: 0 0.5em;
   text-align: left;
+  font-size: 170%;
 }
 
 .DayPicker-Caption > div {
@@ -100,7 +101,7 @@
 
 .DayPicker-Weekdays {
   display: table-header-group;
-  margin-top: 1em;
+  /* margin-top: 1em; */
 }
 
 .DayPicker-WeekdaysRow {
@@ -131,10 +132,11 @@
 .DayPicker-Day {
   display: table-cell;
   padding: 0.5em;
-  border-radius: 50%;
+  border-radius: 40%;
   vertical-align: middle;
   text-align: center;
   cursor: pointer;
+  font-size: 140% !important;
 }
 
 .DayPicker-WeekNumber {
@@ -187,13 +189,13 @@
 
 /* Example modifiers */
 
-.DayPicker-Day--sunday {
-  background-color: #F7F8F8;
-}
+/* .DayPicker-Day--sunday {
+  background-color: blue;
+} */
 
-.DayPicker-Day--sunday:not(.DayPicker-Day--today) {
+/* .DayPicker-Day--sunday:not(.DayPicker-Day--today) {
   color: #DCE0E0;
-}
+} */
 
 .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
   position: relative;
@@ -203,12 +205,12 @@
 }
 
 .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
-  background-color: #51A0FA;
+  background-color: red;
 }
-
+/*  */
 .DayPicker:not(.DayPicker--interactionDisabled)
   .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
-  background-color: #F0F8FF;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* DayPickerInput */

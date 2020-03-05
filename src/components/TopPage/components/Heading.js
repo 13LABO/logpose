@@ -7,6 +7,15 @@ const data = "LOGPOSEで\n北海道の就活イベントを\n探そう";
 //const backImg = '../assets/syukatu2.jpeg';
 
 export default function Heading() {
+
+  const search = () => {
+    console.log("search by conditions?");
+  }
+
+  const searchByTag = () => {
+    console.log("search by tag!");
+  }
+
   return (
     <>
       <HeadingContainer>
@@ -14,7 +23,7 @@ export default function Heading() {
           {data}
         </HeadingText>
         <HeadingButtonWrapper>
-          <HeadingButtonContainer>
+          <HeadingButtonContainer onClick={ searchByTag }>
             <HeadingButton 
               title={"カテゴリタグ"}
               subtitle={"からさがす"}
@@ -26,7 +35,7 @@ export default function Heading() {
               subtitle={"からさがす"}
             />
           </HeadingButtonContainer> */}
-          <HeadingButtonContainer>
+          <HeadingButtonContainer onClick={ search }>
             <HeadingButton 
               title={"細かい条件"}
               subtitle={"でさがす"}
@@ -51,7 +60,7 @@ const HeadingContainer = styled.div`
   border: 1px solid #aaa;  /* FIXME 後でとる */
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   /* background-color: rgb(0, 0, 0, 0.5); */
 `
 
