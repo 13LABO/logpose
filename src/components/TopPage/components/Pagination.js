@@ -2,16 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PaginationDot from './PaginationDot';
 
-const styles = {
-  root: {
-    position: 'absolute',
-    bottom: 8,
-    right: 8,
-    display: 'flex',
-    flexDirection: 'row',
-  },
-};
-
 class Pagination extends React.Component {
   handleClick = (event, index) => {
     this.props.onChangeIndex(index);
