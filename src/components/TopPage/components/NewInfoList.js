@@ -7,6 +7,7 @@ class NewInfoList extends Component{
   render(){
     return (
       <Container>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"></link>
         <TopBarWrapper>
           <TopBarTextContainer>
             {topBarText}
@@ -18,7 +19,7 @@ class NewInfoList extends Component{
             <List key={item.sys.id}><PublishDate>{item.fields.publishDate}</PublishDate>
                                   <NewsTitle>{item.fields.title}</NewsTitle>
                                   <NewsBody>{item.fields.body}</NewsBody>
-                                  <Next>続きを読む</Next></List>
+                                  </List>
            ))
         }
       </ListContainer>
@@ -59,12 +60,6 @@ const NewsBody = styled.span`
   display:block;
   height:34px;
   overflow:hidden;
-`;
-const Next = styled.span`
-  display:block;
-  text-align:right;
-  padding:0 5px 5px 0;
-  border-bottom:0.3px solid grey;
 `;
 const Button = styled.div`
   width:90%;
