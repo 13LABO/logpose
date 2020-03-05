@@ -8,9 +8,36 @@ export default function TagList() {
 
   // どうやって tag 取得するんだろう
   const tags = [
-    "わたあめ",
-    "タピオカ",
+    "全学年対象",
+    "22卒",
+    "21卒",
+    "札幌ドーム",
+    "パークホテル",
+    "マイナビ",
+    "ジョブウェイ",
+    "ジョブカフェ北海道",
+    "リクナビ",
+    "ジェイ・ブロード",
+    "合同企業説明会",
+    "自己分析",
+    "面接GD",
+    "企業研究",
+    "インターン",
+    "その他",
+    // "",
+    // "",
+    // "",
+    // "",
+    // "",
   ];
+
+  const tagicons = tags.map((tag,i)=>{
+    return (
+      <TagWrapper key={i}>
+        <TagIcon tag={tag}/>
+      </TagWrapper>
+    )
+  })
 
   return (
     <>
@@ -20,12 +47,7 @@ export default function TagList() {
         </TopBarTextContainer>
       </TopBarWrapper>
       <TagListWrapper>
-        <TagWrapper>
-          <TagIcon tag={tags[0]}/>
-        </TagWrapper>
-        <TagWrapper>
-          <TagIcon tag={tags[1]}/>
-        </TagWrapper>
+        { tagicons }
       </TagListWrapper>
     </> 
   );
@@ -44,10 +66,13 @@ const TopBarTextContainer = styled.div`
 `;
 
 const TagListWrapper = styled.div`
-  display: flex;
+  /* display: flex; */
   margin-left: 10px;
+  /* flex-wrap: wrap; */
+  overflow-x: scroll;
 `;
 
 const TagWrapper = styled.div`
   margin: 5px;
+  display: inline-block;
 `;

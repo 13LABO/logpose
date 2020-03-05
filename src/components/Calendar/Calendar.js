@@ -34,14 +34,20 @@ const Calendar = (props) => {
   const disabledDays = { before: dateFrom, after: dateTo }
 
   return (
-    <div style={{"height":"100%",'width':'100%','padding':'1.5em 0','background':'lightpink'}} className='center-align calendar-wrapper'>
-      <div style={{height:'100%'}} className='bigcontainer'>
+    <div style={{"height":"100%",'width':'100%','padding':'1.5em 0'}} className='center-align calendar-wrapper'>
+      <div style={{height:'100%'}} className='bigcontainer noselect'>
         <DayPicker // literally a calendar
           localeUtils={MomentLocaleUtils}
           locale="ja"
           months = { MONTHS }
           disabledDays={[...noEventDays, disabledDays]}
           onDayClick={ handleDayClick }
+          captionElement = {(props)=>{
+            return (
+              <div className="DayPicker-Caption">
+                {props.date.getFullYear()} / {props.date.getMonth()+1}
+              </div>
+            )}}
         />
       </div>
       <DailyModal // initially hidden

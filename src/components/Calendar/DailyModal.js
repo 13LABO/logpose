@@ -35,15 +35,16 @@ const DailyModal = (props) => {
         shouldCloseOnOverlayClick = { true }
         shouldCloseOnEsc = { true }
         shouldReturnFocusAfterClose = {true}
-        //parentSelector = { () => document.body }
-        parentSelector={() => document.querySelector('#regular-wrapper')}
+        parentSelector = { () => document.body }
+        //parentSelector={() => document.querySelector('#regular-wrapper')}
         aria = {{ labelledby: "heading", describedby: "full_description" }}
         onAfterOpen = { handleAfterOpenFunc }
         style = { modalStyle }
         closeTimeoutMS = { 150 }
       >
-        <div style={{height:"100%",zIndex:5}}>
-          <div style={{height:'4em',background:'lightgrey',paddingTop:'10px'}}>
+        <div style={{height:"100%"}} className="container">
+        <div className="container">
+          <div style={{height:'4em',background:'lightgrey'}}>
             <div onClick={()=>{props.setModalOpen(!props.isModalOpen)}}  className='valign-wrapper' style={{width:'30%'}}>
               <i className="material-icons medium" style={{opacity:0.4}}>chevron_left</i>
               <span style={{transform:'translateX(-10px)'}}>戻る</span>
@@ -52,7 +53,7 @@ const DailyModal = (props) => {
           
 
           <div className='center-align'  style={{height:"100%"}}>
-            <span >{ moment(props.selectedDay,'YYYY/M/D').format('YYYY年M月') }</span>
+            <div style={{padding:"1em",}}>{ moment(props.selectedDay,'YYYY/M/D').format('YYYY年M月') }</div>
             <DatePagination
               totalItemsCount = { days.length }
               onChange={ handlePageChange }
@@ -61,9 +62,9 @@ const DailyModal = (props) => {
               setSelectedDay={ props.setSelectedDay } // set to 'YYYY/M/D'
               selectedDay={ props.selectedDay } // 'YYYY/M/D'
             />
-            <p>selectedDay is { props.selectedDay }</p>
             <div  style={{height:"100%"}}> { eventOnTheDay } </div>
           </div>
+        </div>
         </div>
       </ReactModal>
     </div>
@@ -82,7 +83,6 @@ class DatePagination extends Component {
     const { totalItemsCount, onChange, days } = this.props
     const activePage = days.indexOf(this.props.selectedDay) + 1
     this.paginationInfo = new Paginator(1, 7).build(totalItemsCount, activePage) // Paginator(itemsCountPerPage, pageRangeDisplayed).build(~~)
-    
     for (let i = this.paginationInfo.first_page; i <= this.paginationInfo.last_page; i++) {
       let date = days[i - 1] 
       pages.push(
@@ -137,23 +137,24 @@ const modalStyle={
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(255, 255, 255, 0.75)'
+    bottom: "50%",
+    backgroundColor: 'rgba(0, 0, 0, 0.5)'
   },
   content: {
+    zIndex:20,
     position: 'absolute',
-    top: '50px',
-    left: 0,
-    right: 0,
-    bottom: 0,
+    top: '190px',
+    left: "10%",
+    right: "10%",
+    //bottom: "100px",
     border: '1px solid #ccc',
-    background: '#fff',
-    overflow: 'auto',
+    //background: '#fff',
+    overflow: 'scroll',
     WebkitOverflowScrolling: 'touch',
-    borderRadius: '4px',
+    // borderRadius: '4px',
     outline: 'none',
     padding: 0,
-    backgroundColor: 'aliceblue',
+    backgroundColor: '#efebe9',
     height:"100vh",
 
     
