@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import Pagination from './Pagination';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -31,6 +32,10 @@ const styles = {
 
 export default function AttensionEventList() {
 
+  const [ index, setIndex ] = useState(0);
+  const handleChangeIndex = (index) => {
+    setIndex(index);
+  }
   return (
     <Container>
       <TopBarWrapper>
@@ -40,11 +45,14 @@ export default function AttensionEventList() {
       </TopBarWrapper>
       
       <SwipeableViewsContainer>
-        <AutoPlaySwipeableViews style={styles.root} slideStyle={styles.slideContainer}>
+        <AutoPlaySwipeableViews index={index} onChangeIndex={handleChangeIndex} style={styles.root} slideStyle={styles.slideContainer}>
           <div style={Object.assign({}, styles.slide, styles.slide1)}>slide n°1</div>
           <div style={Object.assign({}, styles.slide, styles.slide2)}>slide n°2</div>
           <div style={Object.assign({}, styles.slide, styles.slide3)}>slide n°3</div>
         </AutoPlaySwipeableViews>
+        <PaginationWrapper>
+          <Pagination dots={3} index={index} onChangeIndex={handleChangeIndex} />
+        </PaginationWrapper>
       </SwipeableViewsContainer>
     </Container>
   );
@@ -66,4 +74,9 @@ const TopBarTextContainer = styled.div`
   font-size:19px;
   color: #FFFFFF;
   line-height:43px;
+`;
+
+const PaginationWrapper = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
 `;
