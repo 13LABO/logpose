@@ -56,38 +56,40 @@ class App extends Component{
 
   render(){
     return (
-      <BrowserRouter>
-        <div className="App">
-          <Navbar />
-          <Burger />
-          <Switch>
-            <Route 
-              exact path='/'
-              render={()=><Top content={this.state}/>}
-            />
-            <Route 
-              exact path='/home' 
-              render={()=><Home content={this.state}/>}
-            />
-            <Route 
-              exact path='/about' 
-              render={()=><About content={this.state}/>}
-            />
-            <Route 
-              exact path='/news' 
-              render={()=><News content={this.state}/>}
-            />
-            <Route 
-              exact path='/events' 
-              render={()=><Search content={this.state}/>}
-            />
-            <Route component={NotFound} />
-          </Switch>
-          <div className="grey-text valign-wrapper" style={{"height":"10em","marginTop":"10em"}}>
-            <div style={{"margin":"0 auto"}}>©2020  Logpose</div>
+        <BrowserRouter>
+          <div className="App" >
+            <Burger />
+            <Navbar />
+            <main>
+              <Switch>
+                <Route 
+                  exact path='/'
+                  render={()=><Top content={this.state}/>}
+                />
+                <Route 
+                  exact path='/home' 
+                  render={()=><Home content={this.state}/>}
+                />
+                <Route 
+                  exact path='/about' 
+                  render={()=><About content={this.state}/>}
+                />
+                <Route 
+                  exact path='/news' 
+                  render={()=><News content={this.state}/>}
+                />
+                <Route 
+                  exact path='/events' 
+                  render={()=><Search content={this.state}/>}
+                />
+                <Route component={NotFound} />
+              </Switch>
+              <div className="grey-text valign-wrapper" style={{"height":"10em","marginTop":"10em"}}>
+                <div style={{"margin":"0 auto"}}>©2020  Logpose</div>
+              </div>
+            </main>
           </div>
-        </div>
-      </BrowserRouter>
+        </BrowserRouter>
     );
   }
 }

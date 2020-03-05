@@ -1,21 +1,63 @@
 body {
   margin: 0;
-  height: 100%;
-  perspective: 1px;
-  transform-style: preserve-3d;
-  overflow-x: hidden;
-  overflow-y: scroll;
-
+  padding:0;
   font-family: 'Noto Sans JP', sans-serif, 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI',  'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+  /* transform-style: preserve-3d; */
+}
+
+main{
+  position: relative;
+  height: 100vh;
+  perspective: 1px;
+  transform-style: preserve-3d;  
+  /* overflow-x: hidden; */
+  /* overflow-y: auto; */
 }
 
 html {
+  perspective: 1px;
   transition:all 1s ease;
-  /* overflow: hidden; */
+  overflow: hidden;
   height: 100%;
+}
+
+.parallax-wrapper{
+  width:100%;
+  /* height: 60%; */
+  box-sizing: border-box;
+  margin:0;
+  transform-style: preserve-3d; 
+  position: relative;
+}
+
+.parallax-wrapper::before{
+  content: "";
+  width: 100%; height:90%;
+  top: 0; left: 0; bottom: 0; right: 0;
+  display: block;
+  transform-origin:center center 0; 
+  background-image: url(../components/TopPage/assets/syukatu2.jpeg);
+  background-color:#666;
+  background-blend-mode:overlay;
+  background-size:cover;
+  background-position: center 0;
+  position: absolute;
+  z-index: -5;
+  border: 2px solid orange;
+  transform: translateZ(-0.4px) scale(2.4); 
+}
+
+.regular-wrapper{
+  width: 100vw;
+  position: relative;
+  background: #efebe9;
 }
 
 .noselect{
@@ -61,7 +103,7 @@ html {
     width:90%;
   }
 
-  .parallax-wrapper::before{
+  /* .parallax-wrapper::before{
     content: "";
     width: 100%; height:150%;
     top: 0; left: 0; bottom: 0; right: 0;
@@ -74,8 +116,8 @@ html {
     position: absolute;
     z-index: -1;
     border: 3px solid blue;
-    transform: translateZ(-0.15px) scale(1.3);
-  }
+    transform: translateZ(0) ; 
+  } */
 
   /* calendar-wrapper{
     height:30rem;
@@ -101,38 +143,13 @@ html {
 
 /* for top page parallax */
 
-.parallax-wrapper{
-  box-sizing: border-box;
-  margin:0;
-  transform-style: preserve-3d;
-  position: relative;
-}
 
-.parallax-wrapper::before{
-  content: "";
-  width: 100%; height:150%;
-  top: 0; left: 0; bottom: 0; right: 0;
-  display: block;
-  transform-origin: center center 0;
-  background-image: url(../components/TopPage/assets/syukatu2.jpeg);
-  background-color:#666;
-  background-blend-mode:overlay;
-  background-size:cover;
-  position: absolute;
-  z-index: -1;
-  transform: translateZ(-0.15px) scale(1.3) ;
-}
 
-.regular-wrapper{
-  position: relative;
-  background: #efebe9;
-}
-
-.navbar-fixed{
+/* .navbar-fixed{
   overflow: hidden;
   top:0;
   width: 100%;
-}
+} */
 
 
 
