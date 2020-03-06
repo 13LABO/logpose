@@ -24,18 +24,27 @@ class Search extends Component {
     this.nameInput.focus();
   }
 
-  // TODO 
-  // 距離計算する
   culcDistances() {
     var n = this.state.events.length;
     let tmp = this.state.events;
-    for (let i = 0; i < n; i++) {
+    for(let i = 0; i < n; i++) {
       tmp[i][0] = monkukuiDistance(this.state.text, tmp[i][1]);
-      console.log(tmp);
     }
+
+    // 距離順にソートする（O(n^2) の雑をやる）（バブルソート）
+    for(let i = 0; i < n; i++) {
+      for(let j = i + 1; j < n; j++) {
+        if(tmp[i][0] > tmp[j][0]) {
+          let buf = tmp[i][0];
+          tmp[i][0] = tmp[j][0];
+          tmp[j][0] = buf;
+        }
+      }
+    }
+    console.log(tmp);
     this.setState({events:tmp});
   }
-  // ソートをして，setState する
+
   render() { 
     
     return ( 
