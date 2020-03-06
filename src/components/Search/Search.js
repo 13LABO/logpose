@@ -35,9 +35,9 @@ class Search extends Component {
     for(let i = 0; i < n; i++) {
       for(let j = i + 1; j < n; j++) {
         if(tmp[i][0] > tmp[j][0]) {
-          let buf = tmp[i][0];
-          tmp[i][0] = tmp[j][0];
-          tmp[j][0] = buf;
+          let buf = tmp[i];
+          tmp[i] = tmp[j];
+          tmp[j] = buf;
         }
       }
     }
