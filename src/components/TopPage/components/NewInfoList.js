@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import NewsCard from "../../NewsCard";
-
+import { Link } from 'react-router-dom';
 
 const topBarText = "新着情報";
 class NewInfoList extends Component{
@@ -23,7 +23,9 @@ class NewInfoList extends Component{
        ))
     }
       </ListContainer>
-      <Button>全てのお知らせを見る</Button>
+      <Link to="/news">
+        <Button>全てのお知らせを見る</Button>
+      </Link>
       </div>
     );  
   }
@@ -46,13 +48,15 @@ const List = styled.li`
 `;
 const Button = styled.div`
   width:90%;
-  background-color:silver;
+  background-color:grey;
   margin:5px auto;
   height:30px;
   line-height:30px;
   text-align:center;
   border-radius:5px;
   color:white;
+  margin-top: 1em;
+  cursor: pointer;
 `;
 const ListContainer = styled.div`
   list-style:none;

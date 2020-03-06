@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-
-
 class Search extends Component {
   state = { text: "", events:"" }
   componentDidMount(){
@@ -20,7 +18,7 @@ class Search extends Component {
       //text += e.content; 
       return ([-1,text])
     })
-    this.setState({...this.state,events:slug})
+    this.setState({events:slug})
     this.nameInput.focus();
   }
   // TODO 
@@ -32,7 +30,7 @@ class Search extends Component {
     <button onClick={()=>{console.log(this.state)}}>console.log</button>
       <input
         type="text"
-        autoFocus="true"
+        autoFocus={true}
         ref={(input) => { this.nameInput = input; }}  
         placeholder="検索"
         id="searchinput"

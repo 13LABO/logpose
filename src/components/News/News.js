@@ -9,7 +9,6 @@ class News extends Component{
   client = contentful.createClient(ApiKey);
   state = {news:[]}
   componentDidMount() {
-    // axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
       this.client.getEntries({
         order: '-sys.createdAt',
         'sys.contentType.sys.id': 'logposeNews',
@@ -24,7 +23,7 @@ class News extends Component{
   render(){
     return ( 
     <React.Fragment>
-      <Header>全てのお知らせを表示しています。({this.state.news.length}件)</Header>
+      <Header>Logposeからのニュース</Header>
       {
       this.state.news.map((item) => ( 
         <List key={item.sys.id}><NewsCard publishDate={item.fields.publishDate}
@@ -38,8 +37,8 @@ class News extends Component{
 const List = styled.li`
   list-style:none;
   `;
-const Header = styled.div`
-  text-align:center;
+const Header = styled.h5`
+  padding: 1em;
 `;
  
 export default News;
