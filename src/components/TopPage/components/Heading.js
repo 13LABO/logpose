@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import HeadingButton from "./HeadingButton";
 
-const data = "LOGPOSEで\n北海道の就活イベントを\n探そう";
-//const backImg = '../assets/syukatu2.jpeg';
+// const data = "LOGPOSEで\n北海道の就活イベントを\n探そう！";
+const data = "就活、\n ソロ活？"
 
 export default function Heading() {
 
@@ -51,13 +51,17 @@ const HeadingText = styled.div`
   white-space: pre-line;
   text-align: center;
   color: white;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: bold;
   padding:3em 0;
+  line-height: 2em;
+  text-shadow: -2px 4px 0 rgba(0,0,0,0.3);
+  letter-spacing: 2px;
+}
 `
 
 const HeadingContainer = styled.div`
-  border: 1px solid #aaa;  /* FIXME 後でとる */
+  /*border: 1px solid #aaa;   FIXME 後でとる */
   margin-left: auto;
   margin-right: auto;
   /* margin-top: 10px; */

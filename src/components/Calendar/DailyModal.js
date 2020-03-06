@@ -28,6 +28,7 @@ const DailyModal = (props) => {
   return (
     <div className="center center-align">
       <ReactModal
+        className= "myModal"
         isOpen = { props.isModalOpen }
         contentLabel = { "modal" }
         ariaHideApp = { false }
@@ -43,17 +44,17 @@ const DailyModal = (props) => {
         closeTimeoutMS = { 150 }
       >
         <div style={{height:"100%"}} className="container">
-        <div className="container">
-          <div style={{height:'4em',background:'lightgrey'}}>
-            <div onClick={()=>{props.setModalOpen(!props.isModalOpen)}}  className='valign-wrapper' style={{width:'30%'}}>
+        <div>
+          <div style={{height:'4em'}}>
+            <div onClick={()=>{props.setModalOpen(!props.isModalOpen)}}  className='valign-wrapper' style={{width:'30%',cursor:"pointer",marginTop:"5em",}}>
               <i className="material-icons medium" style={{opacity:0.4}}>chevron_left</i>
               <span style={{transform:'translateX(-10px)'}}>戻る</span>
             </div>
           </div>
           
 
-          <div className='center-align'  style={{height:"100%"}}>
-            <div style={{padding:"1em",}}>{ moment(props.selectedDay,'YYYY/M/D').format('YYYY年M月') }</div>
+          <div style={{height:"100%"}}>
+            <div style={{padding:"1em",fontSize:"150%",marginLeft:"10%"}}>{ moment(props.selectedDay,'YYYY/M/D').format('YYYY年M月') }</div>
             <DatePagination
               totalItemsCount = { days.length }
               onChange={ handlePageChange }
@@ -133,17 +134,18 @@ const Page = (props) => {
 
 const modalStyle={
   overlay: {
-    position: 'fixed',
-    top: 0,
+    // position: 'fixed',
+    top: "30px",
     left: 0,
     right: 0,
-    bottom: "50%",
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    // bottom: "50%",
+    // backgroundColor: 'rgba(0, 0, 0, 0.5)'
   },
   content: {
-    // zIndex:20,
+    overflowY:"hidden",
+    zIndex:20,
     position: 'absolute',
-    top: '190px',
+    top: 0,
     left: 0,
     right: 0,
     //bottom: "100px",

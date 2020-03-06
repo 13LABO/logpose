@@ -4,7 +4,7 @@ import TagIcon from "./TagIcon";
 
 const topBarText = "カテゴリータグ一覧";
 
-export default function TagList() {
+export default function TagList(props) {
 
   // どうやって tag 取得するんだろう
   const tags = [
@@ -34,7 +34,7 @@ export default function TagList() {
   const tagicons = tags.map((tag,i)=>{
     return (
       <TagWrapper key={i}>
-        <TagIcon tag={tag}/>
+        <TagIcon tag={tag} setTag={ props.setTag }/>
       </TagWrapper>
     )
   })

@@ -1,19 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export default function TagIcon(props) {
 
   const handleTagSearch = () => {
     console.log(props.tag)
+    props.setTag(props.tag)
   }
 
   return (
     <>
-      <IconContainer onClick={ handleTagSearch }>
-        <TextContainer>
-          {props.tag}
-        </TextContainer>
-      </IconContainer>
+      <Link to={{
+        pathname: "/events",
+      }}>
+        <IconContainer onClick={ handleTagSearch }>
+          <TextContainer>
+            {props.tag}
+          </TextContainer>
+        </IconContainer>
+      </Link>
     </> 
   );
 }

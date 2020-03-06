@@ -5,62 +5,51 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: scroll;
-  overflow-x: hidden;
-  overflow-y: auto;
   height: 100%;
   /* transform-style: preserve-3d; */
 }
 
-main{
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  perspective: 1px;
-  transform-style: preserve-3d;  
-  overflow-x: hidden;
-  /* overflow-y: auto; */
-}
 
 html {
-  perspective: 1px;
+  /* perspective: 1px; */
   transition:all 1s ease;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 100%;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
+
 
 .parallax-wrapper{
   width:100%;
-  /* height: 60%; */
+  height: 60%; 
   box-sizing: border-box;
   margin:0;
   transform-style: preserve-3d; 
   position: relative;
-}
+} 
 
 .parallax-wrapper::before{
   content: "";
-  width: 100%; height:90%;
-  top: 0; left: 0; bottom: 0; right: 0;
-  display: block;
-  transform-origin:center center 0; 
+  z-index: -2;
+  width: 100%; 
+  height:110%;
+  position: absolute;
+  /* border: 1px solid green; */
+  /* top: 0; left: 0; bottom: 0; right: 0; */
+  /* display: block; */
   background-image: url(../components/TopPage/assets/syukatu2.jpeg);
   background-color:#666;
   background-blend-mode:overlay;
   background-size:cover;
-  background-position: center 0;
-  position: absolute;
-  z-index: -5;
-  border: 2px solid orange;
-  transform: translateZ(-0.4px) scale(2.4); 
+  background-position: top center;
 }
+
 
 .regular-wrapper{
   width: 100vw;
   position: relative;
   background: #efebe9;
-}
+} 
 
 .noselect{
   -moz-user-select: none;
@@ -106,19 +95,7 @@ html {
   }
 
   .parallax-wrapper::before{
-    /* content: "";
-    width: 100%; height:150%;
-    top: 0; left: 0; bottom: 0; right: 0;
-    display: block;
-    transform-origin: center center 0; */
     background-image: url(../components/TopPage/assets/syuukatu4-min.jpg) !important; 
-    /* background-color:#666;
-    background-blend-mode:overlay;
-    background-size:cover;
-    position: absolute;
-    z-index: -1;*/
-    border: 3px solid blue;  
-    transform:translateZ(-0.2px) scale(2) !important;
   }
 
   /* calendar-wrapper{
@@ -193,5 +170,11 @@ html {
   font-size: 110% !important;
 }
 
+.myModal{
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;
+}
 
-
+.myModal::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+  display:none;
+}
