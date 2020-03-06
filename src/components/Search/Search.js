@@ -49,7 +49,7 @@ class Search extends Component {
     
     return ( 
     <div style={{"marginTop":"5em"}} className="container">
-    <button onClick={() => this.culcDistances()}>console.log</button>
+      <button onClick={() => this.culcDistances()}>console.log</button>
       <input
         type="text"
         autoFocus={true}
@@ -59,7 +59,7 @@ class Search extends Component {
         value={this.state.text}
         style={{width:"80%",margin:"1em 0.5em",padding:"0.5em 1em",borderRadius:"4px",border:"2px solid #ddd",display:"inlineBlock"}}
         onChange={(e)=>{this.setState({text:e.target.value})}}
-      />      
+      />
     </div>
      );
   }
