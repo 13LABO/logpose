@@ -13,7 +13,7 @@ import NotFound from './components/404';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import * as contentful from 'contentful';
 import ApiKey from './constants/contentful';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import { library } from '@fortawesome/fontawesome-svg-core'; //fontawesomeのコアファイル
 import { fab } from '@fortawesome/free-brands-svg-icons'; //fontawesomeのbrandアイコンのインポート
 import { fas } from '@fortawesome/free-solid-svg-icons'; //fontawesomeのsolidアイコンのインポート

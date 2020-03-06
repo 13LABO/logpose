@@ -24,7 +24,7 @@ class News extends Component{
   render(){
     return ( 
     <React.Fragment>
-      <Header>全てのお知らせを表示しています。{this.state.news.length}件</Header>
+      <Header>全てのお知らせを表示しています。({this.state.news.length}件)</Header>
       {
       this.state.news.map((item) => ( 
         <List key={item.sys.id}><NewsCard publishDate={item.fields.publishDate}

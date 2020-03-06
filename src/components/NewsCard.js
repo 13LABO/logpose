@@ -16,6 +16,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     '&:hover': {
       boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .1)',
+      
     },
   },
   expand: {
