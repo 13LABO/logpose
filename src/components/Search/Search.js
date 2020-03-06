@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import monkukuiDistance from './algorithm/monkukuiDistance';
 
 class Search extends Component {
   state = { text: "", events:"" }
@@ -9,6 +10,7 @@ class Search extends Component {
     })
     let slug = this.props.content.events.map((e)=>{
       let text = ""
+
       text += e.organizer;
       text += e.genre;
       text += e.genre2;
@@ -21,13 +23,24 @@ class Search extends Component {
     this.setState({events:slug})
     this.nameInput.focus();
   }
+
   // TODO 
-  // 
+  // 距離計算する
+  culcDistances() {
+    var n = this.state.events.length;
+    let tmp = this.state.events;
+    for (let i = 0; i < n; i++) {
+      tmp[i][0] = monkukuiDistance(this.state.text, tmp[i][1]);
+      console.log(tmp);
+    }
+    this.setState({events:tmp});
+  }
+  // ソートをして，setState する
   render() { 
     
     return ( 
     <div style={{"marginTop":"5em"}} className="container">
-    <button onClick={()=>{console.log(this.state)}}>console.log</button>
+    <button onClick={() => this.culcDistances()}>console.log</button>
       <input
         type="text"
         autoFocus={true}
