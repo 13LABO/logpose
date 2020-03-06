@@ -65,10 +65,10 @@ class App extends Component{
   render(){
     return (
         <BrowserRouter>
-          <div className="App" >
+          <div className="App" style={{"width":"100vw",overflowX:"hidden"}}>
             <Burger />
             <Navbar />
-            <main>
+            <main style={{"width":"100vw",overflowX:"hidden"}}>
               <Switch>
                 <Route 
                   exact path='/'
