@@ -7,7 +7,7 @@ const topBarText = "新着情報";
 class NewInfoList extends Component{
   render(){
     return (
-      <Container>
+      <div>
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"></link>
         <TopBarWrapper>
           <TopBarTextContainer>
@@ -24,7 +24,7 @@ class NewInfoList extends Component{
     }
       </ListContainer>
       <Button>全てのお知らせを見る</Button>
-      </Container>
+      </div>
     );  
   }
 }
@@ -43,23 +43,6 @@ const TopBarTextContainer = styled.div`
 `;
 const List = styled.li`
   font-size:12px;
-  padding 5px;
-`;
-const PublishDate = styled.span`
-  font-weight:700;
-  padding-left:5px;
-`;
-const NewsTitle = styled.span`
-  font-weight:700;
-  display:block;
-  padding-left:10px;
-`;
-const NewsBody = styled.span`
-  color:grey;
-  padding-left:10px;
-  display:block;
-  height:34px;
-  overflow:hidden;
 `;
 const Button = styled.div`
   width:90%;
@@ -73,10 +56,6 @@ const Button = styled.div`
 `;
 const ListContainer = styled.div`
   list-style:none;
-`;
-const Container = styled.div`
-  background-color:white;
-  padding:0 0 5px 0;
 `;
 
 

@@ -27,6 +27,7 @@ export default function Heading() {
             <HeadingButton 
               title={"カテゴリタグ"}
               subtitle={"からさがす"}
+              icon={['fas', 'tags']}
             />
           </HeadingButtonContainer>
           {/* <HeadingButtonContainer>
@@ -39,6 +40,7 @@ export default function Heading() {
             <HeadingButton 
               title={"細かい条件"}
               subtitle={"でさがす"}
+              icon={['fas', 'search']}
             />
           </HeadingButtonContainer>
         </HeadingButtonWrapper>

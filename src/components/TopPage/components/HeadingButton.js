@@ -1,18 +1,20 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Button(props) {
 
   return (
     <HeadingButtonWrapper>
-      <TopIconContainer />
+      <TopIconContainer><FontAwesomeIcon icon={props.icon}　size="lg"/></TopIconContainer>
       <TitleContainer>
         {props.title}
       </TitleContainer>
       <SubTitleContainer>
         {props.subtitle}
       </SubTitleContainer>
-      <ButtomIconContainer />
+      
+      <BottomIconContainer><FontAwesomeIcon icon={['fas','chevron-down']}　size="lg"/></BottomIconContainer>
     </HeadingButtonWrapper>
   );
 }
@@ -22,7 +24,7 @@ const HeadingButtonWrapper = styled.div`
   width: 88px;
   height: 140px;
   background: #FFFFFF4B 0% 0% no-repeat padding-box;
-  border-radius: 8px;
+  border-radius: 10px;
   opacity: 1;
   display: flex;
   flex-direction: column;
@@ -52,14 +54,13 @@ const TopIconContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
+  text-align:center;
+  line-height:50px;
+  color:white;
 `;
 
-const ButtomIconContainer = styled.div`
-  top: 379px;
-  left: 288px;
-  width: 21px;
-  height: 12px;
-  transform: matrix(0, -1, 1, 0, 0, 0);
-  background: transparent url('img/Chevron.png') 0% 0% no-repeat padding-box;
-  opacity: 1;
+const BottomIconContainer = styled.div`
+  text-align:center;
+  padding-top:5px;
+  color:white;
 `;
