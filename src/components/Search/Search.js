@@ -8,11 +8,15 @@ class Search extends Component {
     this.setState({
       text: this.props.content.tag
     })
+    this.nameInput.focus();
   }
   render() { 
     return ( 
     <div style={{"marginTop":"5em"}} className="container">
-      <input type="text" 
+      <input
+        type="text"
+        autofocus="true"
+        ref={(input) => { this.nameInput = input; }}  
         placeholder="検索"
         id="searchinput"
         value={this.state.text}
