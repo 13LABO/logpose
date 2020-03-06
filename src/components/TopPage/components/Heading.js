@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 import HeadingButton from "./HeadingButton";
 
 // const data = "LOGPOSEで\n北海道の就活イベントを\n探そう！";
@@ -22,8 +22,8 @@ export default function Heading() {
         <HeadingText>
           {data}
         </HeadingText>
-        <HeadingButtonWrapper>
-          <HeadingButtonContainer onClick={ searchByTag }>
+        <HeadingButtonWrapper >
+          <HeadingButtonContainer onClick={ searchByTag } style={{cursor:"pointer"}}>
             <HeadingButton 
               title={"カテゴリタグ"}
               subtitle={"からさがす"}
@@ -36,13 +36,15 @@ export default function Heading() {
               subtitle={"からさがす"}
             />
           </HeadingButtonContainer> */}
-          <HeadingButtonContainer onClick={ search }>
-            <HeadingButton 
-              title={"細かい条件"}
-              subtitle={"でさがす"}
-              icon={['fas', 'search']}
-            />
-          </HeadingButtonContainer>
+          <Link to="/events" >
+            <HeadingButtonContainer onClick={ search }>
+              <HeadingButton 
+                title={"細かい条件"}
+                subtitle={"でさがす"}
+                icon={['fas', 'search']}
+              />
+            </HeadingButtonContainer>
+          </Link>
         </HeadingButtonWrapper>
       </HeadingContainer>
     </>
