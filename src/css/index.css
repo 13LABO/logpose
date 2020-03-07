@@ -189,7 +189,8 @@ html {
   position: relative;
   width: 80px;
 	height: 80px;
-	margin: 9em auto;
+	margin: 6em auto 18em;
+	overflow: hidden;
 }
 .lds-ellipsis div {
   position: absolute;
@@ -197,7 +198,7 @@ html {
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: #b3e5fc;
+  background: #f8bbd0;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {

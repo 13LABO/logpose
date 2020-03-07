@@ -63,7 +63,7 @@ class App extends Component{
           news: response.items
         });
       });
-  }
+	}
 
   render(){
     return (

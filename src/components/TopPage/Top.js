@@ -18,15 +18,20 @@ class Top extends Component {
             <Heading /> {/* 写真 */}
           </div>
           <div className="regular-wrapper" id="regular-wrapper">
-            <div className="container center-align">
-						{ this.props.content.events.length ? (
-              <Calendar content={this.props.content}/>
-						):(
-							<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-						)}
+            <div className="container">
+							{ this.props.content.events.length ? (
+								<Calendar content={this.props.content}/>
+							):(<div className='center-align'>
+								<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+								</div>
+							)}
               <TagList setTag={ this.props.setTag }/>
               <AttensionEventList />
+							{ this.props.content.news.length ? (
               <NewInfoList content={this.props.content.news}/>
+							):(
+								<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+							)}
             </div>
           </div>
         </TopPageContainer>   
