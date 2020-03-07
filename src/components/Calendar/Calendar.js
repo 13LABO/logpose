@@ -45,7 +45,7 @@ const Calendar = (props) => {
           captionElement = {(props)=>{
             return (
               <div className="DayPicker-Caption">
-                {props.date.getFullYear()} / {props.date.getMonth()+1}
+                {props.date.getFullYear()} / {props.date.getMonth()+1}　<span style={{fontSize:"1rem"}}>のイベント</span>
               </div>
             )}}
         />

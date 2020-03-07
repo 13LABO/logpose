@@ -31,13 +31,12 @@ class Search extends Component {
     let tmp = this.state.events;
     for (let i = 0; i < n; i++) {
       tmp[i][0] = monkukuiDistance(this.state.text, tmp[i][1]);
-      console.log(tmp);
     }
     this.setState({events:tmp});
+    console.log(tmp);
   }
   // ソートをして，setState する
   render() { 
-    
     return ( 
     <div style={{"marginTop":"5em"}} className="container">
     <button onClick={() => this.culcDistances()}>console.log</button>
@@ -55,5 +54,5 @@ class Search extends Component {
      );
   }
 }
- 
+
 export default Search;
