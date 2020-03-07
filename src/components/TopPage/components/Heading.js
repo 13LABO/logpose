@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 import HeadingButton from "./HeadingButton";
 
-const data = "LOGPOSEで\n北海道の就活イベントを\n探そう";
-//const backImg = '../assets/syukatu2.jpeg';
+// const data = "LOGPOSEで\n北海道の就活イベントを\n探そう！";
+const data = "就活、\n ソロ活？"
 
 export default function Heading() {
 
@@ -22,8 +22,8 @@ export default function Heading() {
         <HeadingText>
           {data}
         </HeadingText>
-        <HeadingButtonWrapper>
-          <HeadingButtonContainer onClick={ searchByTag }>
+        <HeadingButtonWrapper >
+          <HeadingButtonContainer onClick={ searchByTag } style={{cursor:"pointer"}}>
             <HeadingButton 
               title={"カテゴリタグ"}
               subtitle={"からさがす"}
@@ -36,13 +36,15 @@ export default function Heading() {
               subtitle={"からさがす"}
             />
           </HeadingButtonContainer> */}
-          <HeadingButtonContainer onClick={ search }>
-            <HeadingButton 
-              title={"細かい条件"}
-              subtitle={"でさがす"}
-              icon={['fas', 'search']}
-            />
-          </HeadingButtonContainer>
+          <Link to="/events" >
+            <HeadingButtonContainer onClick={ search }>
+              <HeadingButton 
+                title={"細かい条件"}
+                subtitle={"でさがす"}
+                icon={['fas', 'search']}
+              />
+            </HeadingButtonContainer>
+          </Link>
         </HeadingButtonWrapper>
       </HeadingContainer>
     </>
@@ -53,13 +55,17 @@ const HeadingText = styled.div`
   white-space: pre-line;
   text-align: center;
   color: white;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: bold;
   padding:3em 0;
+  line-height: 2em;
+  text-shadow: -2px 4px 0 rgba(0,0,0,0.3);
+  letter-spacing: 2px;
+}
 `
 
 const HeadingContainer = styled.div`
-  border: 1px solid #aaa;  /* FIXME 後でとる */
+  /*border: 1px solid #aaa;   FIXME 後でとる */
   margin-left: auto;
   margin-right: auto;
   /* margin-top: 10px; */

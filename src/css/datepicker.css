@@ -137,7 +137,10 @@
   text-align: center;
   cursor: pointer;
   font-size: 140% !important;
+  /* border-bottom: 1px solid rgba(0, 0, 128, 0.596); */
 }
+
+
 
 .DayPicker-WeekNumber {
   display: table-cell;
@@ -179,12 +182,14 @@
 .DayPicker-Day--outside {
   color: #8B9898;
   cursor: default;
+  border: none !important;
 }
 
 .DayPicker-Day--disabled {
   color: #DCE0E0;
   cursor: default;
   /* background-color: #eff1f1; */
+  border: none !important;
 }
 
 /* Example modifiers */

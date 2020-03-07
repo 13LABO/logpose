@@ -25,7 +25,10 @@ const moment = extendMoment(Moment);
 
 class App extends Component{
   client = contentful.createClient(ApiKey);
-  state = {events:[],news:[]}
+  state = {events:[],news:[],tag:[]}
+
+  setTag = tag => {this.setState({ tag:tag });}
+
   componentDidMount() {
     //get event datas from GAS...
     //https://script.google.com/d/1217VsRFyRFei_trI6ZBq4KIFug9bSenV5cNkxKFrYeUZDF5Drv6z0z1j/edit
@@ -65,14 +68,13 @@ class App extends Component{
   render(){
     return (
         <BrowserRouter>
-          <div className="App" style={{"width":"100vw",overflowX:"hidden"}}>
             <Burger />
             <Navbar />
-            <main style={{"width":"100vw",overflowX:"hidden"}}>
+          <div className="App">
               <Switch>
                 <Route 
                   exact path='/'
-                  render={()=><Top content={this.state}/>}
+                  render={()=><Top content={this.state} setTag={this.setTag}/>}
                 />
                 <Route 
                   exact path='/home' 
@@ -88,14 +90,14 @@ class App extends Component{
                 />
                 <Route 
                   exact path='/events' 
-                  render={()=><Search content={this.state}/>}
+                  render={()=><Search content={this.state} setTag={this.setTag}/>}
+                  //component={Search}
                 />
                 <Route component={NotFound} />
               </Switch>
               <div className="grey-text valign-wrapper" style={{"height":"10em","marginTop":"10em"}}>
                 <div style={{"margin":"0 auto"}}>©2020  Logpose</div>
               </div>
-            </main>
           </div>
         </BrowserRouter>
     );
