@@ -24,22 +24,32 @@ class Search extends Component {
     this.nameInput.focus();
   }
 
-  // TODO 
-  // 距離計算する
   culcDistances() {
     var n = this.state.events.length;
     let tmp = this.state.events;
-    for (let i = 0; i < n; i++) {
+    for(let i = 0; i < n; i++) {
       tmp[i][0] = monkukuiDistance(this.state.text, tmp[i][1]);
     }
+
+    // 距離順にソートする（O(n^2) の雑をやる）（バブルソート）
+    for(let i = 0; i < n; i++) {
+      for(let j = i + 1; j < n; j++) {
+        if(tmp[i][0] > tmp[j][0]) {
+          let buf = tmp[i];
+          tmp[i] = tmp[j];
+          tmp[j] = buf;
+        }
+      }
+    }
+    console.log(tmp);
     this.setState({events:tmp});
     console.log(tmp);
   }
-  // ソートをして，setState する
+
   render() { 
     return ( 
     <div style={{"marginTop":"5em"}} className="container">
-    <button onClick={() => this.culcDistances()}>console.log</button>
+      <button onClick={() => this.culcDistances()}>console.log</button>
       <input
         type="text"
         autoFocus={true}
@@ -49,7 +59,7 @@ class Search extends Component {
         value={this.state.text}
         style={{width:"80%",margin:"1em 0.5em",padding:"0.5em 1em",borderRadius:"4px",border:"2px solid #ddd",display:"inlineBlock"}}
         onChange={(e)=>{this.setState({text:e.target.value})}}
-      />      
+      />
     </div>
      );
   }

@@ -48,8 +48,8 @@ html {
 .regular-wrapper{
   width: 100vw;
   position: relative;
-  background: #efebe9;
-} 
+  background:white;
+}
 
 .noselect{
   -moz-user-select: none;
