@@ -10,7 +10,7 @@ const Navbar = () => {
           <ul className="right" >
           <li>
           <NavLink to="/events">
-            <i className="tiny material-icons" style={{"marginTop":"20%"}}>search</i>
+            <i className="tiny material-icons" style={{"marginTop":"15%"}}>search</i>
           </NavLink>
           </li>
           </ul>
