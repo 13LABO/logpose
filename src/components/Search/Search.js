@@ -45,6 +45,7 @@ class Search extends Component {
     }
     console.log(tmp);
     this.setState({events:tmp});
+    console.log(tmp);
   }
 
 	timer = () => {
