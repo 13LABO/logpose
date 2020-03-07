@@ -18,8 +18,12 @@ class Top extends Component {
             <Heading /> {/* 写真 */}
           </div>
           <div className="regular-wrapper" id="regular-wrapper">
-            <div className="container">
+            <div className="container center-align">
+						{ this.props.content.events.length ? (
               <Calendar content={this.props.content}/>
+						):(
+							<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+						)}
               <TagList setTag={ this.props.setTag }/>
               <AttensionEventList />
               <NewInfoList content={this.props.content.news}/>
@@ -27,7 +31,7 @@ class Top extends Component {
           </div>
         </TopPageContainer>   
       </div>
-     );
+    );
   }
 }
 
@@ -36,5 +40,5 @@ const TopPageContainer = styled.div`
   margin:0;
   padding:0;
 `;
- 
+
 export default Top;

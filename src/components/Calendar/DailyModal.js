@@ -21,7 +21,7 @@ const DailyModal = (props) => {
   const eventOnTheDay = props.events.filter((e)=>{
     return (e.fdate.format('YYYY/M/D')===props.selectedDay)}).map((e)=>{
       return(
-         <MyCard key={ e.pk } content={ e } />
+        <MyCard key={ e.pk } content={ e } />
       )
     })
 
