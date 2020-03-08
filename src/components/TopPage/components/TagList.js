@@ -40,7 +40,7 @@ export default function TagList(props) {
   })
 
   return (
-    <>
+    <div >
       <TopBarWrapper>
         <TopBarTextContainer>
           {topBarText}
@@ -49,7 +49,7 @@ export default function TagList(props) {
       <TagListWrapper>
         { tagicons }
       </TagListWrapper>
-    </> 
+    </div> 
   );
 }
 

@@ -17,11 +17,15 @@ class NewInfoList extends Component{
       <ListContainer>
         {
           this.props.content.map((item) => ( 
-            <List key={item.sys.id}><NewsCard publishDate={item.fields.publishDate}
-                                        newsTitle={item.fields.title}
-                                        newsBody={item.fields.body}/></List>
-       ))
-    }
+            <List key={item.sys.id}>
+							<NewsCard
+								publishDate={item.fields.publishDate}
+                newsTitle={item.fields.title}
+                newsBody={item.fields.body}
+							/>
+						</List>
+					))
+				}
       </ListContainer>
       <Link to="/news">
         <Button>全てのお知らせを見る</Button>
@@ -49,7 +53,7 @@ const List = styled.li`
 const Button = styled.div`
   width:90%;
   background-color:grey;
-  margin:5px auto;
+  margin:2em auto;
   height:30px;
   line-height:30px;
   text-align:center;

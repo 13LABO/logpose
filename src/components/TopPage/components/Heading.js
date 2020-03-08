@@ -7,15 +7,7 @@ import HeadingButton from "./HeadingButton";
 const data = "就活、\n ソロ活？"
 
 export default function Heading() {
-
-  const search = () => {
-    console.log("search by conditions?");
-  }
-
-  const searchByTag = () => {
-    console.log("search by tag!");
-  }
-
+	
   return (
     <>
       <HeadingContainer>
@@ -23,21 +15,17 @@ export default function Heading() {
           {data}
         </HeadingText>
         <HeadingButtonWrapper >
-          <HeadingButtonContainer onClick={ searchByTag } style={{cursor:"pointer"}}>
-            <HeadingButton 
-              title={"カテゴリタグ"}
-              subtitle={"からさがす"}
-              icon={['fas', 'tags']}
-            />
-          </HeadingButtonContainer>
-          {/* <HeadingButtonContainer>
-            <HeadingButton 
-              title={"カレンダー"}
-              subtitle={"からさがす"}
-            />
-          </HeadingButtonContainer> */}
+					<a href='#taglists'>
+						<HeadingButtonContainer style={{cursor:"pointer"}}>
+							<HeadingButton 
+								title={"カテゴリタグ"}
+								subtitle={"からさがす"}
+								icon={['fas', 'tags']}
+							/>
+						</HeadingButtonContainer>
+					</a>
           <Link to="/events" >
-            <HeadingButtonContainer onClick={ search }>
+            <HeadingButtonContainer>
               <HeadingButton 
                 title={"細かい条件"}
                 subtitle={"でさがす"}

@@ -24,11 +24,6 @@
   }
 }
 
-/* Color/shape of burger icon bars on hover*/
-/* .bm-burger-bars-hover {
-  background: #ddd;
-} */
-
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
   height: 40px !important;
@@ -69,7 +64,7 @@ nav.bm-item-list{
 .bm-item-list {
   color: #b8b7ad;
   padding: 0.8em;
-  line-height: 45px !important;
+  line-height: 50px !important;
 }
 
 /* Individual item */

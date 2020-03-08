@@ -26,10 +26,8 @@ class Burger extends React.Component{
         width={'15em'}
       >
         <NavLink to="/" className="menu-item" onClick={()=>this.closeMenu()}>トップ</NavLink>
-        <NavLink to="/about" className="menu-item" onClick={()=>this.closeMenu()}>about</NavLink>
-        <NavLink to="/news" className="menu-item" onClick={()=>this.closeMenu()}>news</NavLink>
-        <NavLink to="/home"  className="menu-item" onClick={()=>this.closeMenu()}>旧トップ</NavLink>
-        <NavLink to="/events" className="menu-item" onClick={()=>this.closeMenu()}>探す(暫定)</NavLink>
+        <NavLink to="/news" className="menu-item" onClick={()=>this.closeMenu()}>ニュース</NavLink>
+        <NavLink to="/about" className="menu-item" onClick={()=>this.closeMenu()}><span>Logpose</span>について</NavLink>
       </Menu>
     );
     }

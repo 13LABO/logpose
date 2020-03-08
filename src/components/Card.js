@@ -43,6 +43,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
+
 const Details = (props) =>{
   const content = props.content;
   //const classes = useStyles();

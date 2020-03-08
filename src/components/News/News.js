@@ -22,15 +22,23 @@ class News extends Component{
   
   render(){
     return ( 
-    <React.Fragment>
-      <Header>Logposeからのニュース</Header>
-      {
-      this.state.news.map((item) => ( 
-        <List key={item.sys.id}><NewsCard publishDate={item.fields.publishDate}
-                                        newsTitle={item.fields.title}
-                                        newsBody={item.fields.body}/></List>
-       ))
-    }</React.Fragment>
+			<div className='mycontainer'>
+				<Header className=''>Logposeからのニュース</Header>
+				{
+					this.state.news.length ? (this.state.news.map((item) => ( 
+							<List key={item.sys.id} className='container'>
+								<NewsCard
+									publishDate={item.fields.publishDate}
+									newsTitle={item.fields.title}
+									newsBody={item.fields.body}
+								/>
+							</List>
+						))) : (
+							<div className='center-align'>
+								<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+							</div>)
+				}
+			</div>
     );
   }
 }
@@ -40,5 +48,5 @@ const List = styled.li`
 const Header = styled.h5`
   padding: 1em;
 `;
- 
+
 export default News;

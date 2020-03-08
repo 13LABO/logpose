@@ -50,6 +50,7 @@ const Calendar = (props) => {
             )}}
         />
       </div>
+			<div id='taglists' style={{height:'3em'}}></div>
       <DailyModal // initially hidden
         isModalOpen={ isModalOpen }
         setModalOpen={ setModalOpen }

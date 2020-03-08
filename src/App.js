@@ -3,7 +3,7 @@ import axios from 'axios';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 import Navbar from './components/Nav/Navbar';
-import Home from './components/Home';
+// import Home from './components/Home';
 import Top from './components/TopPage/Top';
 import News from './components/News/News'
 import About from './components/About/About';
@@ -75,10 +75,6 @@ class App extends Component{
                 <Route 
                   exact path='/'
                   render={()=><Top content={this.state} setTag={this.setTag}/>}
-                />
-                <Route 
-                  exact path='/home' 
-                  render={()=><Home content={this.state}/>}
                 />
                 <Route 
                   exact path='/about' 

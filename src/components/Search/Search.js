@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import monkukuiDistance from './algorithm/monkukuiDistance';
-import { faLastfmSquare } from '@fortawesome/free-brands-svg-icons';
+import MyCard from '../Card';
+// import { faLastfmSquare } from '@fortawesome/free-brands-svg-icons';
 
 let timer = false;
 
@@ -21,16 +22,16 @@ class Search extends Component {
       text += e.target;
       text += e.hokkaidoOrNot;
       //text += e.content; 
-      return ([0,text,e])
+      return ([0, text, e, false])
 		})
 		this.setData();
 		this.setState({events:slug})
 		this.isResult();
 		this.nameInput.focus();
 		this.timer();
-		
-		setTimeout(()=>{this.setData()},5000)
-		// this.culcDistances().then(this.cards)
+		if(this.state.text.length){
+			setTimeout(()=>{this.setData()},2000)
+		}
 	}
 	
 	setData = () => {
@@ -56,6 +57,11 @@ class Search extends Component {
 			let tmp = this.state.events;
 			for(let i = 0; i < n; i++) {
 				tmp[i][0] = monkukuiDistance(this.state.text, tmp[i][1]);
+				if(tmp[i][0]===0){
+					tmp[i][3] = true;
+				}else{
+					tmp[i][3] = false;
+				}
 			}
 			
 			// 距離順にソートする（O(n^2) の雑をやる）（バブルソート）
@@ -108,17 +114,16 @@ class Search extends Component {
 		this.state.result ? ( events.map((e,i)=>{
 			return (
 				<div key={i}>
-					<div>------</div>
-					<div>{ e[2].title }</div>
+					<MyCard content={e[2]} isHit={e[3]} />
+					{/* { e.title } */}
 				</div>
 				)
 			})
 		) : (
 			<div>
-				<div style={{margin:'2em'}}>検索結果はありませんでした</div>
+				<div style={{margin:'2em'}}>検索結果はありませんでした...</div>
 			</div>
 		))
-		console.log(cards)
 
     return ( 
     <div style={{"marginTop":"5em"}} className="container">
