@@ -13,6 +13,7 @@ import NotFound from './components/404';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import * as contentful from 'contentful';
 import ApiKey from './constants/contentful';
+import ReactGA from 'react-ga';
 //import ReactDOM from 'react-dom';
 import { library } from '@fortawesome/fontawesome-svg-core'; //fontawesomeのコアファイル
 import { fab } from '@fortawesome/free-brands-svg-icons'; //fontawesomeのbrandアイコンのインポート
@@ -30,6 +31,10 @@ class App extends Component{
   setTag = tag => {this.setState({ tag:tag });}
 
   componentDidMount() {
+		// google analytics
+		const { pathname } = this.props.location;
+    ReactGA.set({ page: pathname });
+    ReactGA.pageview(pathname);
     //get event datas from GAS...
     //https://script.google.com/d/1217VsRFyRFei_trI6ZBq4KIFug9bSenV5cNkxKFrYeUZDF5Drv6z0z1j/edit
     axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")

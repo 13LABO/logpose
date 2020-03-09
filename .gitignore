@@ -29,3 +29,4 @@ yarn-error.log*
 .firebaserc
 
 /src/constants/contentful.js
+/src/constants/ga.js
