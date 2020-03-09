@@ -4,16 +4,7 @@ import './css/materialize/css/materialize.css';
 import './css/index.css'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import ReactGA from 'react-ga';
-import createBrowserHistory from 'history/createBrowserHistory';
 
-ReactGA.initialize('UA-159843081-1');
-const history = createBrowserHistory();
-history.listen(({ pathname }) => {
-	console.log(pathname);
-  ReactGA.set({ page: pathname });
-  ReactGA.pageview(pathname);
-});
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

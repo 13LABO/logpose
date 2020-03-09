@@ -20,10 +20,6 @@ class About extends Component {
 				about: response.items
 			});
 		});
-
-		this.client.getAssets()
-		.then((response) => console.log(response.items))
-		.catch(console.error)
 	}
 
 
@@ -54,6 +50,7 @@ class About extends Component {
 							{ abouts }
 						</div>
         </div>
+				<button onClick={()=>{console.log(this.props)}}>history</button>
       </div>
     );
   }

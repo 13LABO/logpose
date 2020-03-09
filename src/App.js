@@ -13,12 +13,25 @@ import NotFound from './components/404';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import * as contentful from 'contentful';
 import ApiKey from './constants/contentful';
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 //import ReactDOM from 'react-dom';
 import { library } from '@fortawesome/fontawesome-svg-core'; //fontawesomeのコアファイル
 import { fab } from '@fortawesome/free-brands-svg-icons'; //fontawesomeのbrandアイコンのインポート
 import { fas } from '@fortawesome/free-solid-svg-icons'; //fontawesomeのsolidアイコンのインポート
 import { far } from '@fortawesome/free-regular-svg-icons'; //fontawesomeのregularアイコンのインポート
+
+import ReactGA from 'react-ga';
+import {createBrowserHistory} from 'history';
+
+ReactGA.initialize('UA-159843081-1');
+console.log("initiinit");
+const history = createBrowserHistory();
+history.listen((location) => {
+  console.log("hello...");
+	console.log(location);
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
 
 library.add(fab, fas, far);
 
@@ -32,9 +45,10 @@ class App extends Component{
 
   componentDidMount() {
 		// google analytics
-		const { pathname } = this.props.location;
-    ReactGA.set({ page: pathname });
-    ReactGA.pageview(pathname);
+		// const pathname = this.props.location.pathname;
+    // ReactGA.set({ page: pathname });
+    // ReactGA.pageview(pathname);
+
     //get event datas from GAS...
     //https://script.google.com/d/1217VsRFyRFei_trI6ZBq4KIFug9bSenV5cNkxKFrYeUZDF5Drv6z0z1j/edit
     axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
@@ -82,12 +96,14 @@ class App extends Component{
                   render={()=><Top content={this.state} setTag={this.setTag}/>}
                 />
                 <Route 
-                  exact path='/about' 
-                  render={()=><About content={this.state}/>}
+                  exact path='/about'
+                  component={About}
+                  // render={()=><About content={this.state}/>}
                 />
                 <Route 
                   exact path='/news' 
-                  render={()=><News content={this.state}/>}
+                  component={News}
+                  // render={()=><News content={this.state}/>}
                 />
                 <Route 
                   exact path='/events' 
@@ -99,6 +115,8 @@ class App extends Component{
               <div className="grey-text valign-wrapper" style={{"height":"10em","marginTop":"10em"}}>
                 <div style={{"margin":"0 auto"}}>©2020  Logpose</div>
               </div>
+              <button onClick={()=>{console.log(history)}}>history</button>
+              <button onClick={()=>{console.log(history.location.pathname)}}>history.location.pathname</button>
           </div>
         </BrowserRouter>
     );
