@@ -15,7 +15,7 @@ class Top extends Component {
         <TopPageContainer>
           <div className="parallax-wrapper">
             <Information /> {/* 新型コロナですよーとか */}
-            <Heading /> {/* 写真 */}
+            <Heading /> 
           </div>
           <div className="regular-wrapper" id="regular-wrapper">
             <div className="container">

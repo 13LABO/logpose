@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TagIcon from "./TagIcon";
 
-const topBarText = "カテゴリータグ一覧";
+const topBarText = "カテゴリータグ";
 
 export default function TagList(props) {
 

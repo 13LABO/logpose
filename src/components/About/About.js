@@ -20,6 +20,10 @@ class About extends Component {
 				about: response.items
 			});
 		});
+
+		this.client.getAssets()
+		.then((response) => console.log(response.items))
+		.catch(console.error)
 	}
 
 

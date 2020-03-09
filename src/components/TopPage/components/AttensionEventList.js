@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import Pagination from './Pagination';
+import * as contentful from 'contentful';
+import ApiKey from '../../../constants/contentful';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const topBarText = "おすすめ";
 const styles = {
   root: {
-    padding: '0 30px',
+		padding: '0 30px',
   },
   slideContainer: {
-    padding: '0 10px',
+		padding: '0 10px',
+		overflowY:'hidden',
   },
   slide: {
     padding: 15,
@@ -30,39 +33,66 @@ const styles = {
   },
 };
 
-export default function AttensionEventList() {
+export default class AttensionEventList extends Component{
+	client = contentful.createClient(ApiKey);
+	state = { index:0, recommends:{} }
 
-  const [ index, setIndex ] = useState(0);
-  const handleChangeIndex = (index) => {
-    setIndex(index);
-  }
-  return (
-    <Container>
-      <TopBarWrapper>
-        <TopBarTextContainer>
-          {topBarText}
-        </TopBarTextContainer>
-      </TopBarWrapper>
-      
-      <SwipeableViewsContainer>
-        <AutoPlaySwipeableViews index={index} onChangeIndex={handleChangeIndex} style={styles.root} slideStyle={styles.slideContainer}>
-          <div style={Object.assign({}, styles.slide, styles.slide1)}>slide n°1</div>
-          <div style={Object.assign({}, styles.slide, styles.slide2)}>slide n°2</div>
-          <div style={Object.assign({}, styles.slide, styles.slide3)}>slide n°3</div>
-        </AutoPlaySwipeableViews>
-        <PaginationWrapper>
-          <Pagination dots={3} index={index} onChangeIndex={handleChangeIndex} />
-        </PaginationWrapper>
-      </SwipeableViewsContainer>
-    </Container>
-  );
+	componentDidMount() {
+		this.client.getAssets()
+		.then((response) => {
+			this.setState({recommends:response.items})
+			console.log(response.items)
+		})
+		.catch(console.error)
+	}
+
+  handleChangeIndex = (index) => {
+    this.setState({index:index})
+	}
+	render(){
+
+		const recommends = this.state.recommends.length ? (
+			this.state.recommends.map((e, i)=>{
+				let url = `https://${e.fields.file.url}`
+				return (
+					<div key={i} style={{height:'20vh', overflowY:'hidden'}}>
+					<a href={e.fields.description} target='_blank'>
+						<img src={url}  alt={e.fields.title} title={e.fields.title} style={{objectFit:'contain', width:'100%', height:'100%', filter:'drop-shadow(1px 1px 1px rgba(0,0,0,.5)) drop-shadow(1px 1px 5px rgba(0,0,0,.5))'}} />
+					</a>
+					</div>
+				)
+			})
+		):(
+			<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+		)
+
+		return (
+			<Container>
+				<TopBarWrapper>
+					<TopBarTextContainer>
+						{topBarText}
+					</TopBarTextContainer>
+				</TopBarWrapper>
+				
+				<SwipeableViewsContainer>
+					<AutoPlaySwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex} style={styles.root} slideStyle={styles.slideContainer}>
+						{/* <div style={Object.assign({}, styles.slide, styles.slide1)}>slide n°1</div> */}
+						{ recommends }
+					</AutoPlaySwipeableViews>
+					<PaginationWrapper>
+						<Pagination dots={this.state.recommends.length ? this.state.recommends.length : 0} index={this.state.index} onChangeIndex={this.handleChangeIndex} />
+					</PaginationWrapper>
+				</SwipeableViewsContainer>
+			</Container>
+		);
+	}
 }
 
 const Container = styled.div`
-  height: 15rem;
+  /*height: 15rem;*/
 `;
 const SwipeableViewsContainer = styled.div`
-  margin: 15px;
+  margin-top:1em;
 `;
 
 const TopBarWrapper = styled.div`
