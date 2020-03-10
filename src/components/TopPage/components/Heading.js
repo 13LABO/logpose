@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import HeadingButton from "./HeadingButton";
 
 // const data = "LOGPOSEで\n北海道の就活イベントを\n探そう！";
-const data = "就活、\n ソロ活？"
+const data = "オンライン就活情報が集まるサイト、\n ログポ"
 
 export default function Heading() {
 	
