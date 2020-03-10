@@ -3,12 +3,14 @@ import axios from 'axios';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 import Navbar from './components/Nav/Navbar';
+import { Link } from 'react-router-dom'
 // import Home from './components/Home';
 import Top from './components/TopPage/Top';
 import News from './components/News/News'
 import About from './components/About/About';
 import Burger from './components/Nav/Burger';
 import Search from './components/Search/Search';
+import Policy from './components/Policy';
 import NotFound from './components/404';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import * as contentful from 'contentful';
@@ -101,10 +103,17 @@ class App extends Component{
                   render={()=><Search content={this.state} setTag={this.setTag}/>}
                   //component={Search}
                 />
+                <Route 
+                  exact path='/policy' 
+                  component={Policy}
+                />
                 <Route component={NotFound} />
               </Switch>
               <div className="grey-text valign-wrapper" style={{"height":"10em","marginTop":"10em"}}>
-                <div style={{"margin":"0 auto"}}>©2020  Logpose</div>
+                <div style={{"margin":"0 auto", fontSize:"120%"}}>
+                  ©2020  Logpose  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <Link to="/policy" style={{fontSize:"70%"}}> プライバシーポリシー</Link>
+                </div>
               </div>
           </div>
         </BrowserRouter>
