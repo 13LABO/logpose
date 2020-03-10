@@ -5,6 +5,7 @@ import { autoPlay } from 'react-swipeable-views-utils';
 import Pagination from './Pagination';
 import * as contentful from 'contentful';
 import ApiKey from '../../../constants/contentful';
+import ReactGA from 'react-ga';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -49,16 +50,17 @@ export default class AttensionEventList extends Component{
   handleChangeIndex = (index) => {
     this.setState({index:index})
 	}
+
 	render(){
 
 		const recommends = this.state.recommends.length ? (
 			this.state.recommends.map((e, i)=>{
 				let url = `https://${e.fields.file.url}`
 				return (
-					<div key={i} style={{height:'20vh', overflowY:'hidden'}}>
-					<a href={e.fields.description} target='_blank' rel="noopener noreferrer">
-						<img src={url}  alt={e.fields.title} title={e.fields.title} style={{objectFit:'contain', width:'100%', height:'100%', filter:'drop-shadow(1px 1px 1px rgba(0,0,0,.5)) drop-shadow(1px 1px 5px rgba(0,0,0,.5))'}} />
-					</a>
+					<div key={i} style={{height:'20vh', overflowY:'hidden'}} onClick={()=>{ReactGA.outboundLink({label:e.fields.description})}}>
+						<a href={e.fields.description} target='_blank' rel="noopener noreferrer">
+							<img src={url}  alt={e.fields.title} title={e.fields.title} style={{objectFit:'contain', width:'100%', height:'100%', filter:'drop-shadow(1px 1px 1px rgba(0,0,0,.5)) drop-shadow(1px 1px 5px rgba(0,0,0,.5))'}} />
+						</a>
 					</div>
 				)
 			})
@@ -76,7 +78,6 @@ export default class AttensionEventList extends Component{
 				
 				<SwipeableViewsContainer>
 					<AutoPlaySwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex} style={styles.root} slideStyle={styles.slideContainer}>
-						{/* <div style={Object.assign({}, styles.slide, styles.slide1)}>slide n°1</div> */}
 						{ recommends }
 					</AutoPlaySwipeableViews>
 					<PaginationWrapper>

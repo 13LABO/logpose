@@ -2,6 +2,7 @@ import React from 'react';
 import { slide as Menu } from 'react-burger-menu'
 import '../../css/burger.css'
 import { NavLink } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 class Burger extends React.Component{
   state={
@@ -9,11 +10,11 @@ class Burger extends React.Component{
   }
 
   handleStateChange (state) {
-    this.setState({menuOpen: state.isOpen})  
+    this.setState({menuOpen: state.isOpen})
   }
   
   closeMenu () {
-    //console.log(this.state);
+		ReactGA.event({category:'hamburgerMenu', action:'opened'})
     this.setState({menuOpen: false})
   }
   render(){

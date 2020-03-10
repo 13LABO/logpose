@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 export default function TagIcon(props) {
 
   const handleTagSearch = () => {
+		ReactGA.event({category:'selected_tag', action:props.tag})
     console.log(props.tag)
     props.setTag(props.tag)
   }

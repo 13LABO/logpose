@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return ( 
@@ -9,9 +9,9 @@ const Navbar = () => {
           <Link to="/" className="brand-logo navi" style={{"fontSize":"2.5rem","marginLeft":"0.2em"}}>Logpose</Link>
           <ul className="right" >
           <li>
-          <NavLink to="/events">
+          <Link to="/events">
             <i className="tiny material-icons" style={{"marginTop":"15%"}}>search</i>
-          </NavLink>
+          </Link>
           </li>
           </ul>
           

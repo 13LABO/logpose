@@ -6,9 +6,14 @@ import NewInfoList from './components/NewInfoList';
 import Information from './components/Information';
 import Calendar from '../Calendar/Calendar';
 import styled from "styled-components";
+import ReactGA from 'react-ga';
 
 class Top extends Component {
-  state = {  }
+	state = {  }
+	componentDidMount(){
+		ReactGA.set({ page: window.location.pathname });
+		ReactGA.pageview(window.location.pathname);
+	}
   render() { 
     return (
       <div>

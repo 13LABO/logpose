@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import monkukuiDistance from './algorithm/monkukuiDistance';
 import MyCard from '../Card';
-// import { faLastfmSquare } from '@fortawesome/free-brands-svg-icons';
+import ReactGA from 'react-ga';
 
 let timer = false;
 
 class Search extends Component {
   state = { text: "", events:"", result:false, isSearching:false }
   componentDidMount(){
-		console.log('component mounted')
+		ReactGA.set({ page: window.location.pathname });
+		ReactGA.pageview(window.location.pathname);
     this.setState({
       text: this.props.content.tag,
       events: ""
@@ -35,7 +36,6 @@ class Search extends Component {
 	}
 	
 	setData = () => {
-		console.log('set data fired')
 		let slug = this.props.content.events.map((e)=>{
       let text = ""
       text += e.organizer;

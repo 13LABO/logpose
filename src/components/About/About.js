@@ -1,6 +1,7 @@
 import React ,{ Component }from 'react';
 import * as contentful from 'contentful';
 import ApiKey from '../../constants/contentful';
+import ReactGA from 'react-ga';
 
 
 class About extends Component {
@@ -8,6 +9,8 @@ class About extends Component {
 	state = { about:'' }
 
 	componentDidMount() {
+		ReactGA.set({ page: window.location.pathname });
+		ReactGA.pageview(window.location.pathname);
 		//get news from contentful...
 		//https://github.com/contentful/contentful.js#documentation--references
 		//https://www.contentful.com/developers/docs/references/content-delivery-api/

@@ -2,22 +2,25 @@ import React, { Component } from 'react';
 import * as contentful from 'contentful';
 import ApiKey from '../../constants/contentful';
 import NewsCard from "../NewsCard";
-import styled from 'styled-components'
+import styled from 'styled-components';
+import ReactGA from 'react-ga';
 
 
 class News extends Component{
   client = contentful.createClient(ApiKey);
   state = {news:[]}
   componentDidMount() {
-      this.client.getEntries({
-        order: '-sys.createdAt',
-        'sys.contentType.sys.id': 'logposeNews',
-        })
-      .then((response) => {
-          this.setState({
-            news: response.items    
-          });
-      });
+		ReactGA.set({ page: window.location.pathname });
+		ReactGA.pageview(window.location.pathname);
+		this.client.getEntries({
+			order: '-sys.createdAt',
+			'sys.contentType.sys.id': 'logposeNews',
+			})
+		.then((response) => {
+				this.setState({
+					news: response.items    
+				});
+		});
   }
   
   render(){
