@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import ReactGA from 'react-ga';
+import cat from '../images/servererror_cat-min.png';
 
 class NotFound extends Component {
 	componentDidMount(){
@@ -9,14 +10,12 @@ class NotFound extends Component {
 	}
 	render() {
 		return ( 
-			<div>
-      <div className="center" style={{"margin":"3em auto"}}>ページが見つかりませんでした</div>
-      <div className="center">
-      <Button variant="contained" color="default"　disableElevation href='/'>
-        トップに戻る
-      </Button>
+			<>
+      <div className="center" style={{"margin":"2em auto"}}>サーバーエラーが発生しています…</div>
+      <div className="catContainer" style={{width:"75%",margin:"0 auto"}}>
+				<img src={cat} className="catContainer" style={{width:"100%",maxHeight:"80vh",objectFit:"cover"}} />
       </div>
-    </div>
+    </>
 		);
 	}
 }

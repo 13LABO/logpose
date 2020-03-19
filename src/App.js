@@ -37,10 +37,10 @@ class App extends Component{
   setTag = tag => {this.setState({ tag:tag });}
 
   componentDidMount() {
-    //get event datas from GAS...
-    //https://script.google.com/d/1217VsRFyRFei_trI6ZBq4KIFug9bSenV5cNkxKFrYeUZDF5Drv6z0z1j/edit
-    // axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
-    axios.get("https://script.google.com/macros/s/AKfycbxBTrIESdz6fk9Fec9KyG0FPzLAYFLreplZ2fTij9TOhZF3x1XU/exec")
+    // get event datas from GAS...
+		// project at logpose_production_13laboCareer
+    // https://script.google.com/d/1fvUktQdTM0oc18K27VO1Dlvsjz48XGzqYoawVVOA8HJcDFjAyhGfh2x4/edit
+    axios.get("https://script.google.com/macros/s/AKfycbw6y0i1YWGDHaDkLjCSTm04lK_lsv9eMO5noVNn5ePwrUdNVRY/exec")
       .then(res => {
         console.log(res);
         moment.locale('ja');
@@ -59,9 +59,9 @@ class App extends Component{
         this.setState({events: "error"})
       })
 
-      //get news from contentful...
-      //https://github.com/contentful/contentful.js#documentation--references
-      //https://www.contentful.com/developers/docs/references/content-delivery-api/
+      // get news from contentful...
+      // https://github.com/contentful/contentful.js#documentation--references
+      // https://www.contentful.com/developers/docs/references/content-delivery-api/
       this.client.getEntries({
         order: '-sys.createdAt',
         'sys.contentType.sys.id': 'logposeNews',
@@ -74,9 +74,16 @@ class App extends Component{
       });
 	}
 
+
+
   render(){
-    return (
-        <BrowserRouter>
+		const Page = () => {return (this.state.events=="error" ? (
+			<BrowserRouter>
+				<Navbar />
+				<NotFound />
+			</BrowserRouter>
+		):(
+			<BrowserRouter>
             <Burger />
             <Navbar />
           <div className="App">
@@ -114,6 +121,49 @@ class App extends Component{
               </div>
           </div>
         </BrowserRouter>
+		)
+		)}
+
+    return (
+				<Page />
+       	// <BrowserRouter>
+        //     <Burger />
+        //     <Navbar />
+        //   <div className="App">
+        //       <Switch>
+        //         <Route 
+        //           exact path='/'
+        //           render={()=><Top content={this.state} setTag={this.setTag}/>}
+        //         />
+        //         <Route 
+        //           exact path='/about'
+        //           component={About}
+        //           // render={()=><About content={this.state}/>}
+        //         />
+        //         <Route 
+        //           exact path='/news' 
+        //           component={News}
+        //           // render={()=><News content={this.state}/>}
+        //         />
+        //         <Route 
+        //           exact path='/events' 
+        //           render={()=><Search content={this.state} setTag={this.setTag}/>}
+        //           //component={Search}
+        //         />
+        //         <Route 
+        //           exact path='/policy' 
+        //           component={Policy}
+        //         />
+        //         <Route component={NotFound} />
+        //       </Switch>
+        //       <div className="grey-text valign-wrapper" style={{"height":"10em","marginTop":"10em"}}>
+        //         <div style={{"margin":"0 auto", fontSize:"120%"}}>
+        //           ©2020  Logpose  &nbsp;&nbsp;&nbsp;&nbsp;
+        //           <Link to="/policy" style={{fontSize:"70%"}}> プライバシーポリシー</Link>
+        //         </div>
+        //       </div>
+        //   </div>
+        // </BrowserRouter>
     );
   }
 }

@@ -224,3 +224,18 @@ html {
   background: transparent;/*背景透明に*/
   border-left: solid 5px #ff7b7b;/*左線*/
 }
+
+
+.catContainer{
+	position: relative;
+}
+
+.catContainer:after{
+	position: absolute;
+  content: '';
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow:inset 0 0 20px 21px white;
+}

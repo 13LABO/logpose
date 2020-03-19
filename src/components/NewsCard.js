@@ -8,6 +8,7 @@ import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ReactMarkdown from 'react-markdown';
 
 
 const useStyles = makeStyles(theme => ({
@@ -32,12 +33,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const NewsCard = (props) => {
-
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+	const newsBody = String(props.newsBody)
 
   return (
     <Card className={classes.root} variant="outlined" style={{"margin":"1em 0px"}} >
@@ -62,7 +63,8 @@ const NewsCard = (props) => {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <div onClick={handleExpandClick}>
-            {props.newsBody}
+            {/* {props.newsBody} */}
+						<ReactMarkdown source={props.newsBody} />
           </div>
         </CardContent>
       </Collapse>
