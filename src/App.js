@@ -37,15 +37,12 @@ class App extends Component{
   setTag = tag => {this.setState({ tag:tag });}
 
   componentDidMount() {
-		// google analytics
-		// const pathname = this.props.location.pathname;
-    // ReactGA.set({ page: pathname });
-    // ReactGA.pageview(pathname);
-
     //get event datas from GAS...
     //https://script.google.com/d/1217VsRFyRFei_trI6ZBq4KIFug9bSenV5cNkxKFrYeUZDF5Drv6z0z1j/edit
-    axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
+    // axios.get("https://script.google.com/macros/s/AKfycbxsAv-wRMQTwnclT2UoMDEIr4DQlSBrffZAwqqK-VBUiwjT3dD3/exec")
+    axios.get("https://script.google.com/macros/s/AKfycbxBTrIESdz6fk9Fec9KyG0FPzLAYFLreplZ2fTij9TOhZF3x1XU/exec")
       .then(res => {
+        console.log(res);
         moment.locale('ja');
         const datas = res.data.length ? (
           res.data.map(eventData=>{

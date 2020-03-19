@@ -53,8 +53,7 @@ class About extends Component {
 							{ abouts }
 						</div>
         </div>
-				<button onClick={()=>{console.log(this.props)}}>history</button>
-      </div>
+				</div>
     );
   }
 }

@@ -42,7 +42,7 @@ export default class AttensionEventList extends Component{
 		this.client.getAssets()
 		.then((response) => {
 			this.setState({recommends:response.items})
-			console.log(response.items)
+			// console.log(response.items)
 		})
 		.catch(console.error)
 	}

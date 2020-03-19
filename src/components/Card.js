@@ -86,11 +86,11 @@ const MyBox = (props) => {
   const content = props.content;
   const classes = useStyles();
   const genre = content.genre.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.genre}</Paper></Grid>):("")
-  const target = content.target.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.target}</Paper></Grid>):("")
-  const isHokkaido = content.hokkaidoOrNot.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.hokkaidoOrNot}</Paper></Grid>):("")
+  //const target = content.target.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.target}</Paper></Grid>):("")
+  //const isHokkaido = content.hokkaidoOrNot.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.hokkaidoOrNot}</Paper></Grid>):("")
   return(
     <Grid container style={{marginLeft:"10px"}}>
-    { genre }{ target }{ isHokkaido }
+     { genre }{/*{ isHokkaido }{ target } */}
     </Grid>
   )
 }
