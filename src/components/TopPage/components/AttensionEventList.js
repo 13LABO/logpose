@@ -61,7 +61,7 @@ export default class AttensionEventList extends Component{
 				let url = `https://${e.fields.image.fields.file.url}`
 				return (
 					<div key={i} style={{height:'20vh', overflowY:'hidden'}} onClick={()=>{ReactGA.outboundLink({label:e.fields.description})}}>
-						<a href={e.fields.description} target='_blank' rel="noopener noreferrer">
+						<a href={e.fields.image.fields.description} target='_blank' rel="noopener noreferrer">
 							<img src={url}  alt={e.fields.title} title={e.fields.title} style={{objectFit:'contain', width:'100%', height:'100%', filter:'drop-shadow(1px 1px 1px rgba(0,0,0,.5)) drop-shadow(1px 1px 5px rgba(0,0,0,.5))'}} />
 						</a>
 					</div>
