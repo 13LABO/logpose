@@ -30,8 +30,8 @@ const IconContainer = styled.span`
   /* width: 80px; */
   padding: 4px 9px;
   height: 30px;
-  background: #C4C4C4 0% 0% no-repeat padding-box;
-  border-radius: 20px;
+  background: #bbb 0% 0% no-repeat padding-box;
+  border-radius: 16px;
   opacity: 1;
 `;
 

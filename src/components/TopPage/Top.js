@@ -3,7 +3,6 @@ import Heading from './components/Heading';
 import TagList from './components/TagList';
 import AttensionEventList from './components/AttensionEventList';
 import NewInfoList from './components/NewInfoList';
-// import Information from './components/Information';
 import Calendar from '../Calendar/Calendar';
 import styled from "styled-components";
 import ReactGA from 'react-ga';
@@ -17,9 +16,7 @@ class Top extends Component {
   render() { 
     return (
       <div>
-        <TopPageContainer>
           <div className="parallax-wrapper">
-            {/* <Information /> 新型コロナですよーとか */}
             <Heading /> 
           </div>
           <div className="regular-wrapper" id="regular-wrapper">
@@ -39,16 +36,10 @@ class Top extends Component {
 							)}
             </div>
           </div>
-        </TopPageContainer>   
       </div>
     );
   }
 }
 
-const TopPageContainer = styled.div`
-  width: 100%;  
-  margin:0;
-  padding:0;
-`;
 
 export default Top;

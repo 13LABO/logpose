@@ -47,7 +47,7 @@ html {
 
 
 .regular-wrapper{
-  width: 100vw;
+  width: 100%;
   position: relative;
   background:inherit;
 }
@@ -130,7 +130,7 @@ html {
   /* margin-left: 7% !important; */
 }
 .MuiIconButton-root{
-  padding:14px !important;
+  padding:10px !important;
 }
 .MuiTypography-h5{
 	font-size: 20px;

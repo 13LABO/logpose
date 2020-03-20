@@ -77,94 +77,52 @@ class App extends Component{
 
 
   render(){
-		const Page = () => {return (this.state.events=="error" ? (
-			<BrowserRouter>
-				<Navbar />
-				<NotFound />
-			</BrowserRouter>
-		):(
-			<BrowserRouter>
-            <Burger />
-            <Navbar />
-          <div className="App">
-              <Switch>
-                <Route 
-                  exact path='/'
-                  render={()=><Top content={this.state} setTag={this.setTag}/>}
-                />
-                <Route 
-                  exact path='/about'
-                  component={About}
-                  // render={()=><About content={this.state}/>}
-                />
-                <Route 
-                  exact path='/news' 
-                  component={News}
-                  // render={()=><News content={this.state}/>}
-                />
-                <Route 
-                  exact path='/events' 
-                  render={()=><Search content={this.state} setTag={this.setTag}/>}
-                  //component={Search}
-                />
-                <Route 
-                  exact path='/policy' 
-                  component={Policy}
-                />
-                <Route component={NotFound} />
-              </Switch>
-              <div className="grey-text valign-wrapper" style={{"height":"10em","marginTop":"10em"}}>
-                <div style={{"margin":"0 auto", fontSize:"120%"}}>
-                  ©2020  Logpose  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <Link to="/policy" style={{fontSize:"70%"}}> プライバシーポリシー</Link>
-                </div>
-              </div>
-          </div>
-        </BrowserRouter>
-		)
-		)}
+		const Page = () => {
+			return ( this.state.events=="error" ? (
+				<BrowserRouter>
+					<Navbar />
+					<NotFound />
+				</BrowserRouter>
+			):(
+				<BrowserRouter>
+							<Burger />
+							<Navbar />
+							<div className="App">
+								<Switch>
+									<Route 
+										exact path='/'
+										render={()=><Top content={this.state} setTag={this.setTag}/>}
+									/>
+									<Route 
+										exact path='/about'
+										component={About}
+									/>
+									<Route 
+										exact path='/news' 
+										component={News}
+									/>
+									<Route 
+										exact path='/events' 
+										render={()=><Search content={this.state} setTag={this.setTag}/>}
+									/>
+									<Route 
+										exact path='/policy' 
+										component={Policy}
+									/>
+									<Route component={NotFound} />
+								</Switch>
+								<div className="grey-text valign-wrapper" style={{"height":"10em","marginTop":"10em"}}>
+									<div style={{"margin":"0 auto", fontSize:"110%"}}>
+										©2020  Logpose  &nbsp;&nbsp;&nbsp;
+										<Link to="/policy" style={{fontSize:"70%"}}> プライバシーポリシー</Link>
+									</div>
+								</div>
+						</div>
+					</BrowserRouter>
+				)
+			)}
 
-    return (
-				<Page />
-       	// <BrowserRouter>
-        //     <Burger />
-        //     <Navbar />
-        //   <div className="App">
-        //       <Switch>
-        //         <Route 
-        //           exact path='/'
-        //           render={()=><Top content={this.state} setTag={this.setTag}/>}
-        //         />
-        //         <Route 
-        //           exact path='/about'
-        //           component={About}
-        //           // render={()=><About content={this.state}/>}
-        //         />
-        //         <Route 
-        //           exact path='/news' 
-        //           component={News}
-        //           // render={()=><News content={this.state}/>}
-        //         />
-        //         <Route 
-        //           exact path='/events' 
-        //           render={()=><Search content={this.state} setTag={this.setTag}/>}
-        //           //component={Search}
-        //         />
-        //         <Route 
-        //           exact path='/policy' 
-        //           component={Policy}
-        //         />
-        //         <Route component={NotFound} />
-        //       </Switch>
-        //       <div className="grey-text valign-wrapper" style={{"height":"10em","marginTop":"10em"}}>
-        //         <div style={{"margin":"0 auto", fontSize:"120%"}}>
-        //           ©2020  Logpose  &nbsp;&nbsp;&nbsp;&nbsp;
-        //           <Link to="/policy" style={{fontSize:"70%"}}> プライバシーポリシー</Link>
-        //         </div>
-        //       </div>
-        //   </div>
-        // </BrowserRouter>
-    );
+    return <Page />
   }
 }
 

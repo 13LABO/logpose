@@ -16,7 +16,7 @@ const DailyModal = (props) => {
   const [pageNumber, setPageNumber] = useState(0);
   //console.log(days.indexOf(props.selectedDay)+1)
   const handlePageChange = pageNumber => setPageNumber(pageNumber)
-  const handleAfterOpenFunc = () =>{return}
+  //const handleAfterOpenFunc = () =>{return}
 
   const eventOnTheDay = props.events.filter((e)=>{
     return (e.fdate.format('YYYY/M/D')===props.selectedDay)}).map((e)=>{
@@ -36,25 +36,24 @@ const DailyModal = (props) => {
         shouldCloseOnOverlayClick = { true }
         shouldCloseOnEsc = { true }
         shouldReturnFocusAfterClose = {true}
-        parentSelector = { () => document.body }
+        parentSelector = { () => document.querySelector('#root') }
         //parentSelector={() => document.querySelector('#regular-wrapper')}
         aria = {{ labelledby: "heading", describedby: "full_description" }}
-        onAfterOpen = { handleAfterOpenFunc }
+        //onAfterOpen = { handleAfterOpenFunc }
         style = { modalStyle }
         closeTimeoutMS = { 150 }
       >
-        <div style={{height:"100%"}} className="container">
+        <div  className="container">
         <div>
-          <div style={{height:'4em'}}>
-            <div onClick={()=>{props.setModalOpen(!props.isModalOpen)}}  className='valign-wrapper' style={{width:'30%',cursor:"pointer",marginTop:"5em",}}>
-              <i className="material-icons medium" style={{opacity:0.4}}>chevron_left</i>
-              <span style={{transform:'translateX(-10px)'}}>戻る</span>
+          <div style={{height:'3em'}}>
+            <div onClick={()=>{props.setModalOpen(!props.isModalOpen)}}  className='valign-wrapper right' style={{cursor:"pointer",margin:"3em",}}>
+              <i className="material-icons small" style={{opacity:0.6}}>close</i>
             </div>
           </div>
           
 
           <div style={{height:"100%"}}>
-            <div style={{padding:"1em",fontSize:"150%",marginLeft:"10%"}}>{ moment(props.selectedDay,'YYYY/M/D').format('YYYY年M月') }</div>
+            <div style={{padding:"1.4em 0",fontSize:"150%",marginLeft:"10%"}}>{ moment(props.selectedDay,'YYYY/M/D').format('YYYY年 M月') }</div>
             <DatePagination
               totalItemsCount = { days.length }
               onChange={ handlePageChange }
@@ -63,7 +62,7 @@ const DailyModal = (props) => {
               setSelectedDay={ props.setSelectedDay } // set to 'YYYY/M/D'
               selectedDay={ props.selectedDay } // 'YYYY/M/D'
             />
-            <div  style={{height:"100%"}}> { eventOnTheDay } </div>
+            <div  style={{height:"100%",marginBottom:"2em"}}> { eventOnTheDay } </div>
           </div>
         </div>
         </div>
@@ -121,9 +120,10 @@ const Page = (props) => {
     props.setSelectedDay(date);
   }
   return (
-    <li className={isActive?'active':'' } onClick={handleClick}>
+    <li className={isActive?'active':'' } onClick={handleClick} style={{cursor:"pointer"}}>
       <span href={'#'}>
-        {moment(date,'YYYY/M/D').format('D')}
+        <big>{moment(date,'YYYY/M/D').format('D')}</big><br/>
+        {moment(date,'YYYY/M/D').format('ddd')}
       </span>
     </li>
   )
@@ -142,21 +142,22 @@ const modalStyle={
     // backgroundColor: 'rgba(0, 0, 0, 0.5)'
   },
   content: {
-    overflowY:"hidden",
+		zIndex:999999,
+    overflowY:"scroll",
     zIndex:20,
-    position: 'absolute',
-    top: 0,
+    position: 'relative',
+    top: -30,
     left: 0,
     right: 0,
     //bottom: "100px",
-    border: '1px solid #ccc',
+    // border: '1px solid #ccc',
     //background: '#fff',
     overflow: 'scroll',
     WebkitOverflowScrolling: 'touch',
     // borderRadius: '4px',
     outline: 'none',
     padding: 0,
-    backgroundColor: '#efebe9',
+    backgroundColor: '#fafafa',
     height:"100vh",
 
     

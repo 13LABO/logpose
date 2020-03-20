@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return ( 
-    <div className="navbar-fixed">
+    <div className="">
       <nav className="nav-wrapper red darken-3" id="navi">
         <div className="container">
           <Link to="/" className="brand-logo navi" style={{"fontSize":"2.5rem","marginLeft":"0.2em"}}>Logpose</Link>

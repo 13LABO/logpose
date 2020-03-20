@@ -70,32 +70,31 @@ const Details = (props) =>{
   )
 }
 
-const URL = props =>{
-	const content = props.content;
-	console.log(props)
-
-  const url = content.url.length ? (
-    <div className="valign-wrapper" style={{"display":"flex"}}>
-      <i className="tiny material-icons">link</i>
-      <a className="truncate" href={content.url} target="_blank" rel="noopener noreferrer" style={{"fontSize":"12px","width":"80%","paddingLeft":"10px"}}>{content.url}</a>
-    </div>
-    ):("")
-  return (
-    <div className="bigcontainer" style={{"padding":"15px 0"}}>{url}</div>
-  )
-}
+// const URL = props =>{
+// 	const content = props.content;
+//   const url = content.url.length ? (
+//     <div className="valign-wrapper" style={{"display":"flex"}}>
+//       <i className="tiny material-icons">link</i>
+//       <a className="truncate" href={content.url} target="_blank" rel="noopener noreferrer" style={{"fontSize":"12px","width":"80%","paddingLeft":"10px"}}>{content.url}</a>
+//     </div>
+//     ):("")
+//   return (
+//     <div className="bigcontainer" style={{"padding":"15px 0"}}>{url}</div>
+//   )
+// }
 
 
 const MyBox = (props) => {
   const content = props.content;
   const classes = useStyles();
   const genre = content.genre.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.genre}</Paper></Grid>):("")
+  const genre2 = content.genre2.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.genre2}</Paper></Grid>):("")
   const type = content.type.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.type}</Paper></Grid>):("")
   const target = content.target.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.target}</Paper></Grid>):("")
   //const isHokkaido = content.hokkaidoOrNot.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.hokkaidoOrNot}</Paper></Grid>):("")
   return(
-    <Grid container style={{marginLeft:"10px"}}>
-      { genre }{ type }{ target }
+    <Grid container style={{marginLeft:"5px"}}>
+      { genre }{ genre2 }{ target }{ type }
     </Grid>
   )
 }
@@ -108,7 +107,7 @@ const MyCard = (props) => {
 	const HeaderLink = (
 			<div className="valign-wrapper" style={{"display":"flex"}}>
 				<a style={{cursor:"pointer",width:"80%",display:"inline-block"}} className="truncate">
-					{content.title}
+					{content.title}&nbsp;&nbsp;
 					<i className="tiny material-icons">launch</i>
 				</a>
 			</div>)
@@ -142,7 +141,7 @@ const MyCard = (props) => {
           <div onClick={handleExpandClick}>
             <Details content={ content }/>
           </div>
-          <URL content={ content } />
+          {/* <URL content={ content } /> */}
         </CardContent>
       </Collapse>
     </Card>

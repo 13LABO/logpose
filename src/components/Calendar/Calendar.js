@@ -19,7 +19,6 @@ const Calendar = (props) => {
 
   const handleDayClick = (day, { selected, disabled }) => {
     if(disabled){return;}
-    //console.log(day.toLocaleDateString("ja-JP"))
     setSelectedDay(day.toLocaleDateString("ja-JP"))
     setModalOpen(true);
   };

@@ -23,15 +23,6 @@ const styles = {
     minHeight: 100,
     color: '#fff',
   },
-  slide1: {
-    backgroundColor: '#FEA900',
-  },
-  slide2: {
-    backgroundColor: '#B3DC4A',
-  },
-  slide3: {
-    backgroundColor: '#6AC0FF',
-  },
 };
 
 export default class AttensionEventList extends Component{
@@ -39,12 +30,24 @@ export default class AttensionEventList extends Component{
 	state = { index:0, recommends:{} }
 
 	componentDidMount() {
-		this.client.getAssets()
-		.then((response) => {
-			this.setState({recommends:response.items})
-			// console.log(response.items)
+		// this.client.getAssets({
+		// 	// order: '-fields.title'
+		// })
+		// .then((response) => {
+		// 	this.setState({recommends:response.items})
+		// 	console.log(response.items)
+		// })
+		// .catch(console.error)
+		this.client.getEntries({
+			'content_type': 'logposeRecommend',
+			order: 'fields.content_order',
+			// 'contentType': 'logposeRecommend',
+		}).then((res)=>{
+			this.setState({recommends:res.items})
+			console.log(this.state)
+		}).catch((err)=>{
+			console.log(err)
 		})
-		.catch(console.error)
 	}
 
   handleChangeIndex = (index) => {
@@ -55,7 +58,7 @@ export default class AttensionEventList extends Component{
 
 		const recommends = this.state.recommends.length ? (
 			this.state.recommends.map((e, i)=>{
-				let url = `https://${e.fields.file.url}`
+				let url = `https://${e.fields.image.fields.file.url}`
 				return (
 					<div key={i} style={{height:'20vh', overflowY:'hidden'}} onClick={()=>{ReactGA.outboundLink({label:e.fields.description})}}>
 						<a href={e.fields.description} target='_blank' rel="noopener noreferrer">
@@ -65,36 +68,32 @@ export default class AttensionEventList extends Component{
 				)
 			})
 		):(
-			<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+			<div className="center">
+				<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+			</div>
 		)
 
 		return (
-			<Container>
+			<div>
 				<TopBarWrapper>
 					<TopBarTextContainer>
 						{topBarText}
 					</TopBarTextContainer>
 				</TopBarWrapper>
 				
-				<SwipeableViewsContainer>
+				<div style={{marginTop:"1em"}}>
 					<AutoPlaySwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex} style={styles.root} slideStyle={styles.slideContainer}>
 						{ recommends }
 					</AutoPlaySwipeableViews>
-					<PaginationWrapper>
+					<PaginationWrapper className="valign-wrapper">
 						<Pagination dots={this.state.recommends.length ? this.state.recommends.length : 0} index={this.state.index} onChangeIndex={this.handleChangeIndex} />
 					</PaginationWrapper>
-				</SwipeableViewsContainer>
-			</Container>
+				</div>
+			</div>
 		);
 	}
 }
 
-const Container = styled.div`
-  /*height: 15rem;*/
-`;
-const SwipeableViewsContainer = styled.div`
-  margin-top:1em;
-`;
 
 const TopBarWrapper = styled.div`
   background: #707070;
@@ -110,4 +109,6 @@ const TopBarTextContainer = styled.div`
 const PaginationWrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
+	height:4em;
+	margin-right:1em;
 `;

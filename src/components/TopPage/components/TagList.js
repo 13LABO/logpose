@@ -8,17 +8,17 @@ export default function TagList(props) {
 
   // どうやって tag 取得するんだろう
   const tags = [
-    "合同説明会",
-    "セミナー(選考対策)",
-    "セミナー(その他)",
-    "21卒",
+    "合同企業説明会",
     "22卒",
+    "エンジニア",
+    "セミナー(選考対策)",
     "全学年",
-    "エンジニア職",
-    // "",
-    // "",
-    // "",
-    // "",
+    "21卒",
+    "面接GD",
+    // "エンジニア職",
+    "総合職",
+    "一般職",
+    "セミナー(その他)",
     // "",
   ];
 
@@ -60,7 +60,8 @@ const TagListWrapper = styled.div`
   /* display: flex; */
   margin-left: 10px;
   /* flex-wrap: wrap; */
-  overflow-x: scroll;
+  overflow-x: hidden;
+	margin: 1em 0;
 `;
 
 const TagWrapper = styled.div`

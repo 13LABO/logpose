@@ -2,7 +2,7 @@ import React ,{ Component }from 'react';
 import * as contentful from 'contentful';
 import ApiKey from '../../constants/contentful';
 import ReactGA from 'react-ga';
-
+import ReactMarkdown from 'react-markdown';
 
 class About extends Component {
 	client = contentful.createClient(ApiKey);
@@ -33,7 +33,9 @@ class About extends Component {
 				return (
 					<div style={{marginBottom:'4em'}} key={i}>
 						<h5 className='aboutHeader'>{ e.fields.title }</h5>
-						<p>{ e.fields.body }</p>
+						<p>
+							<ReactMarkdown source={ e.fields.body } />
+						</p>
 					</div>
 				)
 			})
