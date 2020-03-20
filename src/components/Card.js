@@ -9,6 +9,7 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ReactGA from 'react-ga';
 //import moment from 'moment'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -105,8 +106,8 @@ const MyCard = (props) => {
   const [expanded, setExpanded] = React.useState(false);
 	const handleExpandClick = () => setExpanded(!expanded);
 	const HeaderLink = (
-			<div className="valign-wrapper" style={{"display":"flex"}}>
-				<a style={{cursor:"pointer",width:"80%",display:"inline-block"}} className="truncate">
+			<div className="valign-wrapper" style={{"display":"flex"}} onClick={()=>{ReactGA.event({category:'event_link', action:content.title})}}>
+				<a href={content.url} target='_blank' rel="noopener noreferrer" style={{cursor:"pointer",width:"80%",display:"inline-block"}} className="truncate">
 					{content.title}&nbsp;&nbsp;
 					<i className="tiny material-icons">launch</i>
 				</a>
@@ -134,7 +135,6 @@ const MyCard = (props) => {
           <ExpandMoreIcon/>
         </IconButton>
       </CardActions>
-      
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>

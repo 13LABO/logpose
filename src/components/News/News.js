@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as contentful from 'contentful';
 import ApiKey from '../../constants/contentful';
 import NewsCard from "../NewsCard";
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import ReactGA from 'react-ga';
 
 

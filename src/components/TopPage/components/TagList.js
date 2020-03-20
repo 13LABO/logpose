@@ -31,7 +31,7 @@ export default function TagList(props) {
   })
 
   return (
-    <div >
+    <div>
       <TopBarWrapper>
         <TopBarTextContainer>
           {topBarText}

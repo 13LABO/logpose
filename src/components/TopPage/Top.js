@@ -15,7 +15,7 @@ class Top extends Component {
 	}
   render() { 
     return (
-      <div>
+      <>
           <div className="parallax-wrapper">
             <Heading /> 
           </div>
@@ -36,7 +36,7 @@ class Top extends Component {
 							)}
             </div>
           </div>
-      </div>
+      </>
     );
   }
 }

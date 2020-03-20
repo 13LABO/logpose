@@ -9,8 +9,7 @@ const data = "札幌就活情報\n集約サイト\nログポ"
 export default function Heading() {
 	
   return (
-    <>
-      <HeadingContainer>
+    <div style={{margin:"0 auto"}}>
         <HeadingText>
           {data}
         </HeadingText>
@@ -34,8 +33,7 @@ export default function Heading() {
             </HeadingButtonContainer>
           </Link>
         </HeadingButtonWrapper>
-      </HeadingContainer>
-    </>
+    </div>
   );
 }
 
@@ -52,13 +50,6 @@ const HeadingText = styled.div`
 }
 `
 
-const HeadingContainer = styled.div`
-  /*border: 1px solid #aaa;   FIXME 後でとる */
-  margin-left: auto;
-  margin-right: auto;
-  /* margin-top: 10px; */
-  /* background-color: rgb(0, 0, 0, 0.5); */
-`
 
 const HeadingButtonWrapper = styled.div`
   display: flex;
@@ -66,7 +57,7 @@ const HeadingButtonWrapper = styled.div`
   margin: 30px;
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
+  width: 290px;
 `;
 
 const HeadingButtonContainer = styled.div`

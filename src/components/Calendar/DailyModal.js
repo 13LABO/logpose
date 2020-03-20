@@ -144,7 +144,7 @@ const modalStyle={
   content: {
 		zIndex:999999,
     overflowY:"scroll",
-    zIndex:20,
+    // zIndex:20,
     position: 'relative',
     top: -30,
     left: 0,
