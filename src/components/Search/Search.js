@@ -43,8 +43,8 @@ class Search extends Component {
       text += e.genre2;
       text += e.title;
       text += e.target;
-      text += e.hokkaidoOrNot;
-      //text += e.content; 
+      text += e.content;
+      text += e.place; 
       return ([0,text,e])
     })
 		this.setState({events:slug})
@@ -78,7 +78,6 @@ class Search extends Component {
 			// console.log(tmp);
 		}else{
 			this.setState({result:false, isSearching:true})
-			// return 0
 		}
 	}
 
@@ -121,15 +120,12 @@ class Search extends Component {
 			})
 		) : (
 			<div>
-				<div style={{margin:'2em'}}>検索結果はありませんでした...</div>
+				<div style={{margin:'1em 2em'}}>検索結果はありませんでした...</div>
 			</div>
 		))
 
     return ( 
-    <div style={{"marginTop":"5em"}} className="container">
-      <button onClick={() => console.log(this.state)}>console.log</button>
-      <button onClick={() => console.clear()}>console.clear</button>
-      <button onClick={() => console.log(this.props.content)}>props</button>
+    <div style={{"marginTop":"6em"}} className="container">
       <input
         type="text"
 				onKeyUp = { this.timer }
@@ -138,7 +134,7 @@ class Search extends Component {
         placeholder="検索"
         id="searchinput"
         value={this.state.text}
-        style={{width:"80%",margin:"1em 0.5em",padding:"0.5em 1em",borderRadius:"4px",border:"2px solid #ddd",display:"inlineBlock"}}
+        style={{width:"80%",margin:"2em 1em",padding:"0.5em 1em",borderRadius:"4px",border:"2px solid #ddd",display:"inlineBlock"}}
         onChange={(e)=>{this.setState({text:e.target.value})}}
       />
 			{ cards }

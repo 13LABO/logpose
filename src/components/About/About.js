@@ -33,14 +33,16 @@ class About extends Component {
 				return (
 					<div style={{marginBottom:'4em'}} key={i}>
 						<h5 className='aboutHeader'>{ e.fields.title }</h5>
-						<p>
+						<div>
 							<ReactMarkdown source={ e.fields.body } />
-						</p>
+						</div>
 					</div>
 				)
 			})
 		):(
-			''
+			<div className="center">
+				<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+			</div>
 		)
 
     return ( 

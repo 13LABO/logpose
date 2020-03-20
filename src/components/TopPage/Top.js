@@ -4,7 +4,7 @@ import TagList from './components/TagList';
 import AttensionEventList from './components/AttensionEventList';
 import NewInfoList from './components/NewInfoList';
 import Calendar from '../Calendar/Calendar';
-import styled from "styled-components";
+// import styled from "styled-components";
 import ReactGA from 'react-ga';
 
 class Top extends Component {
@@ -24,7 +24,7 @@ class Top extends Component {
 							{ this.props.content.events.length ? (
 								<Calendar content={this.props.content}/>
 							):(<div className='center-align'>
-								<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+									<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 								</div>
 							)}
               <TagList setTag={ this.props.setTag }/>

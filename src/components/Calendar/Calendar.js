@@ -49,7 +49,9 @@ const Calendar = (props) => {
             )}}
         />
       </div>
-			<div id='taglists' style={{height:'3em'}}></div>
+			<div id='taglists' style={{height:'3em'}}>
+				<p>イベント掲載は<a href="https://forms.gle/PSBAVP5dEuZJGyhRA">こちらから</a></p>
+			</div>
       <DailyModal // initially hidden
         isModalOpen={ isModalOpen }
         setModalOpen={ setModalOpen }
