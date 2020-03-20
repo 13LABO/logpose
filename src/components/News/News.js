@@ -25,17 +25,16 @@ class News extends Component{
   
   render(){
     return ( 
-			<div className='mycontainer'>
-				<Header className=''>Logposeからのニュース</Header>
+			<div className='container'>
+				<h5 className='aboutHeader' style={{margin:"2em 0.6em"}}>Logposeからのニュース</h5>
 				{
-					this.state.news.length ? (this.state.news.map((item) => ( 
-							<List key={item.sys.id} className='container'>
+					this.state.news.length ? (this.state.news.map((item) => (
 								<NewsCard
+									key={item.sys.id}
 									publishDate={item.fields.publishDate}
 									newsTitle={item.fields.title}
 									newsBody={item.fields.body}
-								/>
-							</List>
+								/>		
 						))) : (
 							<div className='center-align'>
 								<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
@@ -45,11 +44,6 @@ class News extends Component{
     );
   }
 }
-const List = styled.li`
-  list-style:none;
-  `;
-const Header = styled.h5`
-  padding: 1em;
-`;
+
 
 export default News;

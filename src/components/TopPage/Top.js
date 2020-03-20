@@ -3,7 +3,7 @@ import Heading from './components/Heading';
 import TagList from './components/TagList';
 import AttensionEventList from './components/AttensionEventList';
 import NewInfoList from './components/NewInfoList';
-import Information from './components/Information';
+// import Information from './components/Information';
 import Calendar from '../Calendar/Calendar';
 import styled from "styled-components";
 import ReactGA from 'react-ga';

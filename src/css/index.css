@@ -61,20 +61,20 @@ html {
 
 @media screen and (max-width:520px){
   body{
-    font-size:15px;
+    font-size:12px;
     cursor: default !important;
   }
   .MuiTypography-h5{
-    font-size: 17px !important;
-    font-weight: 500 !important;
+    font-size: 15px !important;
+    /* font-weight: 400 !important; */
     font-family: 'Noto Sans JP', sans-serif !important;
   }
   .MuiCard-root{
     margin:0 auto !important;
   }
-  /* .MuiCardHeader-root{
-    padding:10px !important;
-  } */
+  .MuiCardHeader-root{
+    padding:16px 15px 0 !important;
+  }
   .MuiCardHeader-subheader{
     margin:0.2rem !important;
     font-size: 100% !important;
@@ -99,8 +99,6 @@ html {
     background-image: url(../components/TopPage/assets/syuukatu4-min.jpg) !important; 
   }
 }
-
-
 
 .w3{
   font-weight: 300;
@@ -132,9 +130,10 @@ html {
   /* margin-left: 7% !important; */
 }
 .MuiIconButton-root{
-  padding:18px !important;
+  padding:14px !important;
 }
 .MuiTypography-h5{
+	font-size: 20px;
   font-family: 'Noto Sans JP', sans-serif !important;
 }
 
@@ -152,8 +151,8 @@ html {
 }
 
 .MuiCardHeader-subheader{
-  margin:0.2rem !important;
-  font-size: 110% !important;
+  margin:0.4rem 0.2rem !important;
+  font-size: 100% !important;
 }
 
 .myModal{

@@ -25,7 +25,7 @@ class Home extends Component {
 				<div className="container">
 					{ postList }
 				</div>
-    	</div>
+			</div>
     );
   }
 }

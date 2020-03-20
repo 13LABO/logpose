@@ -35,17 +35,15 @@ const useStyles = makeStyles(theme => ({
 const NewsCard = (props) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-	const newsBody = String(props.newsBody)
+  const handleExpandClick = () => setExpanded(!expanded);
 
   return (
+		<>
     <Card className={classes.root} variant="outlined" style={{"margin":"1em 0px"}} >
-      <div style={{"display":"flex"}} onClick={handleExpandClick}>
+      <div onClick={handleExpandClick}>
         <CardHeader
           title={props.newsTitle}
-          subheader={props.publishDate}
+          subheader={ props.publishDate }
           style={{"cursor":"default"}}
         />
       </div>
@@ -58,17 +56,14 @@ const NewsCard = (props) => {
           <ExpandMoreIcon/>
         </IconButton>
       </CardActions>
-      
-      
+
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <div onClick={handleExpandClick}>
-            {/* {props.newsBody} */}
+        <CardContent onClick={handleExpandClick}>
 						<ReactMarkdown source={props.newsBody} />
-          </div>
         </CardContent>
       </Collapse>
     </Card>
+		</>
   );
 }
 
