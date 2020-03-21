@@ -30,18 +30,9 @@ export default class AttensionEventList extends Component{
 	state = { index:0, recommends:{} }
 
 	componentDidMount() {
-		// this.client.getAssets({
-		// 	// order: '-fields.title'
-		// })
-		// .then((response) => {
-		// 	this.setState({recommends:response.items})
-		// 	console.log(response.items)
-		// })
-		// .catch(console.error)
 		this.client.getEntries({
 			'content_type': 'logposeRecommend',
 			order: 'fields.content_order',
-			// 'contentType': 'logposeRecommend',
 		}).then((res)=>{
 			this.setState({recommends:res.items})
 			console.log(this.state)
@@ -59,7 +50,7 @@ export default class AttensionEventList extends Component{
 			this.state.recommends.map((e, i)=>{
 				let url = `https://${e.fields.image.fields.file.url}`
 				return (
-					<div key={i} style={{height:'20vh', overflowY:'hidden'}} onClick={()=>{ReactGA.event({category:'logpose_recommend', action:e.fields.image.fields.title})}}>
+					<div key={i} style={{height:'20vh',overflowY:'hidden',overflowX:"hidden"}} onClick={()=>{ReactGA.event({category:'logpose_recommend', action:e.fields.image.fields.title})}}>
 						<a href={e.fields.image.fields.description} target='_blank' rel="noopener noreferrer">
 							<img src={url}  alt={e.fields.image.fields.title} title={e.fields.title} style={{objectFit:'contain', width:'100%', height:'100%', filter:'drop-shadow(1px 1px 1px rgba(0,0,0,.5)) drop-shadow(1px 1px 5px rgba(0,0,0,.5))'}} />
 						</a>
