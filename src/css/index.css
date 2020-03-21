@@ -69,6 +69,20 @@ html {
   -ms-user-select: none;
 }
 
+@media screen and (min-width:530px){
+  .logpo{
+    letter-spacing: 35px !important;
+    transform: translateX(10px);
+    font-size: 170% !important;
+    margin-top: 0.5em !important;
+  }
+  .beforelogpo{
+    letter-spacing: 8px !important;
+    line-height: 1.4em !important;
+    font-size: 130%;
+  }
+}
+
 
 @media screen and (max-width:520px){
   body{

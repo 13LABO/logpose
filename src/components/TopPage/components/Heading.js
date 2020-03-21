@@ -3,17 +3,15 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import HeadingButton from "./HeadingButton";
 
-// const data = "LOGPOSEで\n北海道の就活イベントを\n探そう！";
-const data = "札幌就活情報\n共有サイト\nログポ"
 
 export default function Heading() {
 	
   return (
     <div style={{margin:"0 auto"}}>
         <HeadingText>
-					<div>札幌就活情報</div>
-					<div>共有サイト</div>
-					<div style={{fontFamily:'MyFont-b',fontSize:"120%",marginTop:"20px",letterSpacing:"4px"}}>ログポ</div>
+					<div className="beforelogpo" >札幌就活情報</div>
+					<div className="beforelogpo">共有サイト</div>
+					<div className="logpo" style={{fontFamily:'MyFont-b',fontSize:"136%",marginTop:"20px",letterSpacing:"4px"}}>ログポ</div>
         </HeadingText>
         <HeadingButtonWrapper >
 					<a href='#taglists'>
