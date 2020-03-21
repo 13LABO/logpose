@@ -92,10 +92,10 @@ const MyBox = (props) => {
   const genre2 = content.genre2.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.genre2}</Paper></Grid>):("")
   const type = content.type.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.type}</Paper></Grid>):("")
   const target = content.target.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.target}</Paper></Grid>):("")
-  //const isHokkaido = content.hokkaidoOrNot.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.hokkaidoOrNot}</Paper></Grid>):("")
+  const isOnline = content.onlineOrNot.length ? (<Grid><Paper elevation={0} className={classes.paper}>{content.onlineOrNot}</Paper></Grid>):("")
   return(
     <Grid container style={{marginLeft:"5px"}}>
-      { genre }{ genre2 }{ target }{ type }
+      { genre }{ genre2 }{ target }{ type }{ isOnline }
     </Grid>
   )
 }

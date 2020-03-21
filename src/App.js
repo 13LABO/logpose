@@ -20,15 +20,19 @@ import { library } from '@fortawesome/fontawesome-svg-core'; //fontawesomeのコ
 import { fab } from '@fortawesome/free-brands-svg-icons'; //fontawesomeのbrandアイコンのインポート
 import { fas } from '@fortawesome/free-solid-svg-icons'; //fontawesomeのsolidアイコンのインポート
 import { far } from '@fortawesome/free-regular-svg-icons'; //fontawesomeのregularアイコンのインポート
-
+import {
+  FacebookIcon,
+	TwitterIcon,
+	FacebookShareButton,
+	TwitterShareButton,
+} from "react-share";
 import ReactGA from 'react-ga';
 
 
 ReactGA.initialize('UA-159843081-1');
-
 library.add(fab, fas, far);
-
 const moment = extendMoment(Moment);
+const myUrl = "https://logpose-13labo.firebaseapp.com/"
 
 class App extends Component{
   client = contentful.createClient(ApiKey);
@@ -77,6 +81,8 @@ class App extends Component{
 
 
   render(){
+		const twIcon = (<div style={{transform:"translateY(10px)",marginLeft:"1em",display:"inline-block"}}><TwitterIcon size={35} round={true}/> </div>)
+		const fbIcon = (<div style={{transform:"translateY(10px)",marginLeft:"1em",display:"inline-block"}}><FacebookIcon size={35} round={true}/> </div>)
 		const Page = () => {
 			return ( this.state.events=="error" ? (
 				<BrowserRouter>
@@ -111,9 +117,27 @@ class App extends Component{
 									/>
 									<Route component={NotFound} />
 								</Switch>
-								<div className="grey-text valign-wrapper" style={{"height":"10em","marginTop":"10em"}}>
-									<div style={{"margin":"0 auto", fontSize:"110%"}}>
-										©2020  Logpose  &nbsp;&nbsp;&nbsp;
+								<div className="grey-text center-align" style={{"height":"10em","marginTop":"10em"}}>
+									<div style={{"margin":"0 auto", fontSize:"110%"}} className="">
+										©2020  Logpose
+										<TwitterShareButton 
+											children = { twIcon }
+											url = { myUrl }
+											className = "noselect"
+											title = "札幌就活情報共有サイトログポをシェア！"
+											hashtags = { ["就活","オンライン就活","札幌就活","キャリア","21卒"] }
+											// related = { ["13LABO_cafe"] }
+										/>
+										<FacebookShareButton
+											children = { fbIcon }
+											url = { myUrl }
+											className = "noselect"
+											quote = "札幌就活情報共有サイトログポをシェア！"
+											hashtag = "#就活"
+										/>
+										
+									</div>
+									<div style={{marginTop:"2em"}}>
 										<Link to="/policy" style={{fontSize:"70%"}}> プライバシーポリシー</Link>
 									</div>
 								</div>

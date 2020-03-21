@@ -44,7 +44,8 @@ class Search extends Component {
       text += e.title;
       text += e.target;
       text += e.content;
-      text += e.place; 
+      text += e.place;
+      text += e.onlineOrNot;
       return ([0,text,e])
     })
 		this.setState({events:slug})
