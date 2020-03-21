@@ -1,0 +1,265 @@
+body {
+  margin: 0;
+  padding:0;
+  font-family: 'Noto Sans JP', sans-serif, 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI',  'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue' !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  /* transform-style: preserve-3d; */
+}
+
+
+html {
+  /* perspective: 1px; */
+  transition:all 1s ease;
+  /* overflow: hidden; */
+  height: 100%;
+	/* overflow-x: hidden; */
+	scroll-behavior: smooth;
+}
+
+
+@font-face {
+	font-family: 'MyFont-m';
+	src: url(./fonts/coop_logo_m.ttf);
+}
+
+@font-face {
+	font-family: 'MyFont-b';
+	src: url(./fonts/coop_logo_b.ttf);
+}
+
+
+.parallax-wrapper{
+  width:100%;
+  height: 60%; 
+  box-sizing: border-box;
+  margin:0;
+  transform-style: preserve-3d; 
+  position: relative;
+} 
+
+.parallax-wrapper::before{
+  content: "";
+  z-index: -2;
+  width: 100%; 
+  height:105%;
+  position: absolute;
+  /* border: 1px solid green; */
+  /* top: 0; left: 0; bottom: 0; right: 0; */
+  /* display: block; */
+  background-image: url(../components/TopPage/assets/syukatu2.jpeg);
+  background-color:#5f5f62;
+  background-blend-mode:overlay;
+  background-size:cover;
+  background-position: top center;
+}
+
+
+.regular-wrapper{
+  width: 100%;
+  position: relative;
+  background:inherit;
+}
+
+.noselect{
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+@media screen and (min-width:530px){
+  .logpo{
+    letter-spacing: 35px !important;
+    transform: translateX(10px);
+    font-size: 170% !important;
+    margin-top: 0.5em !important;
+  }
+  .beforelogpo{
+    letter-spacing: 8px !important;
+    line-height: 1.4em !important;
+    font-size: 130%;
+  }
+}
+
+
+@media screen and (max-width:520px){
+  body{
+    font-size:12px;
+    cursor: default !important;
+  }
+  .MuiTypography-h5{
+    font-size: 15px !important;
+    /* font-weight: 400 !important; */
+    font-family: 'Noto Sans JP', sans-serif !important;
+  }
+  .MuiCard-root{
+    margin:0 auto !important;
+  }
+  .MuiCardHeader-root{
+    padding:16px 15px 0 !important;
+  }
+  .MuiCardHeader-subheader{
+    margin:0.2rem !important;
+    font-size: 100% !important;
+  }
+  .brand-logo{
+    font-size: 2rem !important;
+  }
+  .container{
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  .MuiPaper-outlined{
+    border-left: 0 !important;
+    border-right: 0 !important;
+  }
+  .mycontainer{
+    margin: 0 auto;
+    width:90%;
+  }
+
+  /* .parallax-wrapper::before{
+    background-image: url(../components/TopPage/assets/syuukatu4-min.jpg) !important; 
+  } */
+}
+
+.w3{
+  font-weight: 300;
+}
+.w4{
+  font-weight: 400;
+}
+.w5{
+  font-weight: 500;
+}
+
+.navi{
+  font-family: 'Monofett', cursive;
+}
+
+
+
+/* styles for card */
+.MuiIconButton-root{
+  width:20%;
+}
+
+.MuiIconButton-root:hover{
+  background-color: white !important;
+}
+
+.MuiCardActions-root{
+  padding:0px !important;
+  /* margin-left: 7% !important; */
+}
+.MuiIconButton-root{
+  padding:10px !important;
+}
+.MuiTypography-h5{
+	font-size: 20px;
+  font-family: 'Noto Sans JP', sans-serif !important;
+}
+
+.truncate{
+  display: inline-block !important;
+}
+
+.MuiCardContent-root{
+  padding-bottom: 9px !important;
+}
+
+.bigcontainer{
+  width:90%;
+  margin: 0 auto;
+}
+
+.MuiCardHeader-subheader{
+  margin:0.4rem 0.2rem !important;
+  font-size: 100% !important;
+}
+
+.myModal{
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;
+}
+
+.myModal::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+  display:none;
+}
+
+
+
+
+/* activity indicator */
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+	height: 80px;
+	margin: 6em auto 18em;
+	overflow: hidden;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #f8bbd0;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {transform: scale(0);}
+  100% {transform: scale(1);}
+}
+@keyframes lds-ellipsis3 {
+  0% {transform: scale(1);}
+  100% {transform: scale(0);}
+}
+@keyframes lds-ellipsis2 {
+  0% {transform: translate(0, 0);}
+  100% {transform: translate(24px, 0);}
+}
+
+
+
+.aboutHeader {
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: transparent;/*背景透明に*/
+  border-left: solid 5px #ff7b7b;/*左線*/
+}
+
+
+/* .catContainer{
+	position: relative;
+}
+
+.catContainer:after{
+	position: absolute;
+  content: '';
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow:inset 0 0 20px 21px white;
+} */

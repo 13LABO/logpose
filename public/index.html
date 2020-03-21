@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" prefix="og: http://ogp.me/ns#">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -7,72 +7,46 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="【札幌就活情報】魔法のLogpose"
-    />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+      content="札幌での就活情報を集約しているサイト Logpose"
+		/>
+		<meta property="og:title" content="札幌就活情報！ログポ"/>
+		<meta property="og:description" content="札幌での就活情報を集約しているサイト Logpose"/>
+		<meta property="og:image" content="https://logpose-13labo.firebaseapp.com/ogp_2.png"/>
+		<meta property="og:url" content="https://logpose-13labo.firebaseapp.com/"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:site_name" content="Logpose">
+		<!-- <meta name="twitter:site" content="@xxxxxxxxx"> -->
+		<meta name="twitter:card" content="summary">
+		<!-- <meta property="fb:admins" content="xxxxxxxx" /> -->
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Logpose</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> -->
-      
-    <!-- Compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
-    <!-- Compiled and minified JavaScript -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />    
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Monofett&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   </head>
-  <body>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCTqP88A09mdvSwLEPYsDe2pXS6jPxg64o",
-    authDomain: "logpose-f0f03.firebaseapp.com",
-    databaseURL: "https://logpose-f0f03.firebaseio.com",
-    projectId: "logpose-f0f03",
-    storageBucket: "logpose-f0f03.appspot.com",
-    messagingSenderId: "402760309313",
-    appId: "1:402760309313:web:5935af921c9e8af70604c0",
-    measurementId: "G-Z1MY5BER5N"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
+  <body style="background-color: white;">  
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+    <script>
+      // var firebaseConfig = {
+      //   apiKey: "AIzaSyAUk1jlSBQMxuU4ALF7uhBmUpbTvEa3Cys",
+      //   authDomain: "logpose-13labo.firebaseapp.com",
+      //   databaseURL: "https://logpose-13labo.firebaseio.com",
+      //   projectId: "logpose-13labo",
+      //   storageBucket: "logpose-13labo.appspot.com",
+      //   messagingSenderId: "530550004545",
+      //   appId: "1:530550004545:web:18961a798631c45be11fc0",
+      //   measurementId: "G-7CV9ML2R91"
+      // };
+      // firebase.initializeApp(firebaseConfig);
+      // firebase.analytics();
+    </script>
+    </body>
 </html>

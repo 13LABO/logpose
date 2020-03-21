@@ -1,0 +1,53 @@
+.react-date-pagination {
+  height: 60px;
+  margin: 5px 0 30px;
+}
+.react-date-pagination ul {
+  padding: 0;
+  display: inline-block;
+  margin-left: 0;
+  margin-bottom: 0;
+  -ms-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  /* -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); */
+  /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); */
+}
+.react-date-pagination li {
+  display: inline-block;
+  width: 13%;
+}
+
+
+.react-date-pagination span {
+  display: inline-block;
+  border-radius: 2px;
+  width:90%;
+  padding:6px 10%;
+  /* line-height: 34px; */
+  text-decoration: none;
+  color: #0088cc;
+}
+.react-date-pagination li:hover {
+  background-color: whitesmoke;
+}
+.react-date-pagination .active span{
+  color: white;
+  cursor: default;
+  background-color:salmon;
+}
+
+
+.react-date-pagination .disabled span,
+.react-date-pagination .disabled li,
+.react-date-pagination .disabled li:hover {
+  color: #999999;
+  background-color: transparent;
+  cursor: default;
+}
+
+.react-date-pagination a span{
+  padding: 2px;
+}

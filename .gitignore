@@ -25,3 +25,8 @@ yarn-debug.log*
 yarn-error.log*
 .firebase/hosting.YnVpbGQ.cache
 *.cache
+
+.firebaserc
+
+/src/constants/contentful.js
+/src/constants/ga.js
