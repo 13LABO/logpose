@@ -48,11 +48,6 @@ class About extends Component {
     return ( 
       <div className="mycontainer bigcontainer">
         <div className="" style={{"marginBottom":"5em"}}>
-            {/* <div style={{"display":"flex"}} className="valign-wrapper">
-              <i className="tiny material-icons">link</i>
-              <a className="truncate" href="https://docs.google.com/spreadsheets/d/1-ucKi5ArQ2FQIlgraXhxQYo9mm4ULn8f9LZvxH16ZfA/edit" style={{"fontSize":"12px","width":"80%","paddingLeft":"10px"}}>(マスプへのリンク)</a>
-              
-            </div> */}
 						<div style={{marginTop:'3em'}}>
 							{ abouts }
 						</div>
