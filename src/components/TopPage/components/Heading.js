@@ -11,7 +11,9 @@ export default function Heading() {
   return (
     <div style={{margin:"0 auto"}}>
         <HeadingText>
-          {data}
+					<div>札幌就活情報</div>
+					<div>共有サイト</div>
+					<div style={{fontFamily:'MyFont-b',fontSize:"120%",marginTop:"20px",letterSpacing:"4px"}}>ログポ</div>
         </HeadingText>
         <HeadingButtonWrapper >
 					<a href='#taglists'>
@@ -41,12 +43,14 @@ const HeadingText = styled.div`
   white-space: pre-line;
   text-align: center;
   color: white;
-  font-size: 2rem;
-  font-weight: bold;
-  padding:1.9em 0;
-  line-height: 2em;
-  text-shadow: -2px 4px 0 rgba(0,0,0,0.3);
-  letter-spacing: 2px;
+  font-size: 3rem;
+  /* font-weight: bold; */
+  padding:2.9em 0 0.9em;
+  line-height: 1.3em;
+  /* text-shadow: -2px 4px 0 rgba(0,0,0,0.3); */
+  letter-spacing: 3px;
+	font-family: MyFont-m;
+	
 }
 `
 

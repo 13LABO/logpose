@@ -6,6 +6,7 @@ import '../../css/datepicker.css';
 import MomentLocaleUtils from 'react-day-picker/moment';
 import 'moment/locale/ja';
 import DailyModal from './DailyModal';
+import styled from 'styled-components';
 
 const moment = extendMoment(Moment);
 const MONTHS = ['1','2','3','4','5','6','7','8','9','10','11','12']
@@ -33,6 +34,12 @@ const Calendar = (props) => {
   const disabledDays = { before: dateFrom, after: dateTo }
 
   return (
+		<>
+			{/* <TopBarWrapper>
+        <TopBarTextContainer>
+          カレンダーから探す
+        </TopBarTextContainer>
+      </TopBarWrapper> */}
     <div style={{"height":"100%",'width':'100%','padding':'1.5em 0'}} className='center-align calendar-wrapper'>
       <div style={{height:'100%'}} className='bigcontainer noselect'>
         <DayPicker // literally a calendar
@@ -61,7 +68,22 @@ const Calendar = (props) => {
         events = { props.content.events }
       />
     </div>
+		</>
   );
 }
 
 export default Calendar
+
+
+const TopBarWrapper = styled.div`
+  background: #707070;
+  height: 43px;
+	transform: translateY(-10px);
+	`;
+
+const TopBarTextContainer = styled.div`
+  margin-left:10px;
+  font-size:19px;
+  color: #FFFFFF;
+  line-height:43px;
+`;

@@ -20,6 +20,17 @@ html {
 }
 
 
+@font-face {
+	font-family: 'MyFont-m';
+	src: url(./fonts/coop_logo_m.ttf);
+}
+
+@font-face {
+	font-family: 'MyFont-b';
+	src: url(./fonts/coop_logo_b.ttf);
+}
+
+
 .parallax-wrapper{
   width:100%;
   height: 60%; 
@@ -39,7 +50,7 @@ html {
   /* top: 0; left: 0; bottom: 0; right: 0; */
   /* display: block; */
   background-image: url(../components/TopPage/assets/syukatu2.jpeg);
-  background-color:#666;
+  background-color:#5f5f62;
   background-blend-mode:overlay;
   background-size:cover;
   background-position: top center;
@@ -95,9 +106,9 @@ html {
     width:90%;
   }
 
-  .parallax-wrapper::before{
+  /* .parallax-wrapper::before{
     background-image: url(../components/TopPage/assets/syuukatu4-min.jpg) !important; 
-  }
+  } */
 }
 
 .w3{
@@ -225,7 +236,7 @@ html {
 }
 
 
-.catContainer{
+/* .catContainer{
 	position: relative;
 }
 
@@ -237,4 +248,4 @@ html {
   left: 0;
   right: 0;
   box-shadow:inset 0 0 20px 21px white;
-}
+} */
