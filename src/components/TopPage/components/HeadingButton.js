@@ -6,7 +6,7 @@ export default function Button(props) {
 
   return (
     <HeadingButtonWrapper>
-      <TopIconContainer><FontAwesomeIcon icon={props.icon}　size="lg"/></TopIconContainer>
+      <TopIconContainer><FontAwesomeIcon icon={props.icon} size="lg"/></TopIconContainer>
       <TitleContainer>
         {props.title}
       </TitleContainer>
@@ -14,7 +14,7 @@ export default function Button(props) {
         {props.subtitle}
       </SubTitleContainer>
       
-      <BottomIconContainer><FontAwesomeIcon icon={['fas','chevron-down']}　size="lg"/></BottomIconContainer>
+      <BottomIconContainer><FontAwesomeIcon icon={['fas','chevron-down']} size="lg"/></BottomIconContainer>
     </HeadingButtonWrapper>
   );
 }
@@ -47,13 +47,11 @@ const TopIconContainer = styled.div`
   left: 163px;
   width: 50px;
   height: 50px;
-  background: transparent radial-gradient(closest-side at 84% 50%, #FF9300 0%, #FF0B0B 100%) 0% 0% no-repeat padding-box;
+  /*background: transparent radial-gradient(closest-side at 84% 50%, #FF9300 0%, #FF0B0B 100%) 0% 0% no-repeat padding-box;*/
+  background: #f44336;
   opacity: 1;
   border-radius: 50%;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
+  margin: 10px auto;
   text-align:center;
   line-height:50px;
   color:white;

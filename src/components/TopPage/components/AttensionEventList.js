@@ -6,10 +6,10 @@ import Pagination from './Pagination';
 import * as contentful from 'contentful';
 import ApiKey from '../../../constants/contentful';
 import ReactGA from 'react-ga';
+import HeadingBar from './HeadingBar'
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-const topBarText = "おすすめ";
 const styles = {
   root: {
 		padding: '0 30px',
@@ -35,7 +35,7 @@ export default class AttensionEventList extends Component{
 			order: 'fields.content_order',
 		}).then((res)=>{
 			this.setState({recommends:res.items})
-			console.log(this.state)
+			// console.log(this.state)
 		}).catch((err)=>{
 			console.log(err)
 		})
@@ -63,14 +63,10 @@ export default class AttensionEventList extends Component{
 			</div>
 		)
 
+
 		return (
 			<div>
-				<TopBarWrapper>
-					<TopBarTextContainer>
-						{topBarText}
-					</TopBarTextContainer>
-				</TopBarWrapper>
-				
+				<HeadingBar title="おすすめ" name="heart"/>
 				<div style={{marginTop:"1em"}}>
 					<AutoPlaySwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex} style={styles.root} slideStyle={styles.slideContainer}>
 						{ recommends }
@@ -84,21 +80,10 @@ export default class AttensionEventList extends Component{
 	}
 }
 
-
-const TopBarWrapper = styled.div`
-  background: #707070;
-`;
-
-const TopBarTextContainer = styled.div`
-  margin-left:10px;
-  font-size:19px;
-  color: #FFFFFF;
-  line-height:43px;
-`;
-
 const PaginationWrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
+	justify-content: center;
+	marginTop: 0.5em;
 	height:4em;
-	margin-right:1em;
 `;

@@ -2,28 +2,23 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import NewsCard from "../../NewsCard";
 import { Link } from 'react-router-dom';
+import HeadingBar from './HeadingBar';
 
-const topBarText = "新着情報";
 class NewInfoList extends Component{
   render(){
     return (
       <div>
-        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"></link>
-        <TopBarWrapper>
-          <TopBarTextContainer>
-            {topBarText}
-          </TopBarTextContainer>
-        </TopBarWrapper>
+        <HeadingBar title="新着情報" name="bolt"/>
       <ListContainer>
         {
           this.props.content.map((item) => ( 
-            <List key={item.sys.id}>
+            <li key={item.sys.id} style={{fontSize:"12px"}}>
 							<NewsCard
 								publishDate={item.fields.publishDate}
                 newsTitle={item.fields.title}
                 newsBody={item.fields.body}
 							/>
-						</List>
+						</li>
 					))
 				}
       </ListContainer>
@@ -35,31 +30,17 @@ class NewInfoList extends Component{
   }
 }
 
-const TopBarWrapper = styled.div`
-  background: #707070;
-  width: 100%;
-  height: 43px;
-`;
 
-const TopBarTextContainer = styled.div`
-  margin-left:10px;
-  font-size:19px;
-  color: #FFFFFF;
-  line-height:43px;
-`;
-const List = styled.li`
-  font-size:12px;
-`;
 const Button = styled.div`
   width:90%;
-  background-color:grey;
+  background-color:#aaa;
   margin:2em auto;
   height:30px;
   line-height:30px;
   text-align:center;
   border-radius:5px;
   color:white;
-  margin-top: 1em;
+  /*margin-top: 1em;*/
   cursor: pointer;
 `;
 const ListContainer = styled.div`

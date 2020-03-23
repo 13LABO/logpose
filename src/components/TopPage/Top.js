@@ -5,6 +5,7 @@ import AttensionEventList from './components/AttensionEventList';
 import NewInfoList from './components/NewInfoList';
 import Calendar from '../Calendar/Calendar';
 // import styled from "styled-components";
+import HeadingBar from './components/HeadingBar';
 import ReactGA from 'react-ga';
 
 class Top extends Component {
@@ -21,6 +22,7 @@ class Top extends Component {
           </div>
           <div className="regular-wrapper" id="regular-wrapper">
             <div className="container">
+              <HeadingBar title="イベントカレンダー" name="calendar-alt" left='18px'/>
 							{ this.props.content.events.length ? (
 								<Calendar content={this.props.content}/>
 							):(<div className='center-align'>

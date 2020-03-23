@@ -7,7 +7,7 @@ export default function TagIcon(props) {
 
   const handleTagSearch = () => {
 		ReactGA.event({category:'selected_tag', action:props.tag})
-    console.log(props.tag)
+    // console.log(props.tag)
     props.setTag(props.tag)
   }
 
@@ -31,7 +31,7 @@ const IconContainer = styled.span`
   padding: 4px 9px;
   height: 30px;
   background: #bbb 0% 0% no-repeat padding-box;
-  border-radius: 16px;
+  border-radius: 9px;
   opacity: 1;
 `;
 

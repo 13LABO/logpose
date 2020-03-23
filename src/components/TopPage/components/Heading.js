@@ -43,7 +43,7 @@ const HeadingText = styled.div`
   color: white;
   font-size: 3rem;
   /* font-weight: bold; */
-  padding:2.9em 0 0.9em;
+  padding:2em 0 0.5em;
   line-height: 1.3em;
   /* text-shadow: -2px 4px 0 rgba(0,0,0,0.3); */
   letter-spacing: 3px;

@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TagIcon from "./TagIcon";
-
-const topBarText = "カテゴリータグ";
+import HeadingBar from './HeadingBar';
 
 export default function TagList(props) {
 
@@ -25,19 +24,15 @@ export default function TagList(props) {
 
   const tagicons = tags.map((tag,i)=>{
     return (
-      <TagWrapper key={i}>
+      <div style={{display:'inline-block',margin:'5px'}} key={i}>
         <TagIcon tag={tag} setTag={ props.setTag }/>
-      </TagWrapper>
+      </div>
     )
   })
 
   return (
     <div>
-      <TopBarWrapper>
-        <TopBarTextContainer>
-          {topBarText}
-        </TopBarTextContainer>
-      </TopBarWrapper>
+      <HeadingBar title="タグ" name="tags"/>
       <TagListWrapper>
         { tagicons }
       </TagListWrapper>
@@ -45,27 +40,8 @@ export default function TagList(props) {
   );
 }
 
-const TopBarWrapper = styled.div`
-  background: #707070;
-  height: 43px;
-`;
-
-const TopBarTextContainer = styled.div`
-  margin-left:10px;
-  font-size:19px;
-  color: #FFFFFF;
-  line-height:43px;
-`;
-
 const TagListWrapper = styled.div`
-  /* display: flex; */
-  margin-left: 10px;
-  /* flex-wrap: wrap; */
   overflow-x: hidden;
-	margin: 1em 0;
-`;
-
-const TagWrapper = styled.div`
-  margin: 5px;
-  display: inline-block;
+	margin:0.3em 0;
+  margin-left: 1.8em;
 `;

@@ -46,7 +46,7 @@ class App extends Component{
     // https://script.google.com/d/1fvUktQdTM0oc18K27VO1Dlvsjz48XGzqYoawVVOA8HJcDFjAyhGfh2x4/edit
     axios.get("https://script.google.com/macros/s/AKfycbw6y0i1YWGDHaDkLjCSTm04lK_lsv9eMO5noVNn5ePwrUdNVRY/exec")
       .then(res => {
-        console.log(res);
+        // console.log(res);
         moment.locale('ja');
         const datas = res.data.length ? (
           res.data.map(eventData=>{
@@ -57,7 +57,7 @@ class App extends Component{
         this.setState({
           events: datas
         });
-        console.log(this.state)
+        // console.log(this.state)
       })
       .catch(res=>{
         this.setState({events: "error"})
@@ -81,8 +81,8 @@ class App extends Component{
 
 
   render(){
-		const twIcon = (<div style={{transform:"translateY(10px)",marginLeft:"1em",display:"inline-block"}}><TwitterIcon size={35} round={true}/> </div>)
-		const fbIcon = (<div style={{transform:"translateY(10px)",marginLeft:"1em",display:"inline-block"}}><FacebookIcon size={35} round={true}/> </div>)
+		const twIcon = (<div><TwitterIcon size={35} round={true}/> </div>)
+		const fbIcon = (<div ><FacebookIcon size={35} round={true}/> </div>)
 		const Page = () => {
 			return ( this.state.events=="error" ? (
 				<BrowserRouter>
@@ -117,27 +117,30 @@ class App extends Component{
 									/>
 									<Route component={NotFound} />
 								</Switch>
-								<div className="grey-text center-align" style={{"height":"10em","marginTop":"10em"}}>
-									<div style={{"margin":"0 auto", fontSize:"110%"}} className="">
+								<div className="grey-text center-align">
+									<div style={{"margin":"4em auto 2em", fontSize:"110%"}} className="">
 										©2020  Logpose
-										<TwitterShareButton 
-											children = { twIcon }
-											url = { myUrl }
-											className = "noselect"
-											title = "札幌就活情報共有サイトログポをシェア！"
-											hashtags = { ["就活","オンライン就活","札幌就活","キャリア","21卒"] }
-											// related = { ["13LABO_cafe"] }
-										/>
-										<FacebookShareButton
-											children = { fbIcon }
-											url = { myUrl }
-											className = "noselect"
-											quote = "札幌就活情報共有サイトログポをシェア！"
-											hashtag = "#就活"
-										/>
-										
+										<div style={{marginLeft:'1em',display:'inline-block',transform:"translateY(13px)"}}>
+											<TwitterShareButton 
+												children = { <TwitterIcon size={35} round={true}/> }
+												url = { myUrl }
+												className = "noselect"
+												title = "札幌就活情報共有サイトログポをシェア！"
+												hashtags = { ["就活","オンライン就活","札幌就活","キャリア","21卒"] }
+												// related = { ["13LABO_cafe"] }
+											/>
+										</div>
+										<div style={{marginLeft:'1em',display:'inline-block',transform:"translateY(13px)"}}>
+											<FacebookShareButton
+												children = { <FacebookIcon size={35} round={true}/> }
+												url = { myUrl }
+												className = "noselect"
+												quote = "札幌就活情報共有サイトログポをシェア！"
+												hashtag = "#就活"
+											/>
+										</div>
 									</div>
-									<div style={{marginTop:"2em"}}>
+									<div style={{marginBottom:"3em"}}>
 										<Link to="/policy" style={{fontSize:"70%"}}> プライバシーポリシー</Link>
 									</div>
 								</div>
