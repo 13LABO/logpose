@@ -84,7 +84,7 @@ class Search extends Component {
 		let count = 0
 		if (this.state.events.length){
 			for (let i=0;i<this.state.events.length;i++){
-				if (this.state.events[i][0]!=this.state.text.length){result = true;}
+				if (this.state.events[i][0] != this.state.text.length){result = true;}
 				if (this.state.events[i][3]){count++}
 			}
 			this.setState({result:result,count:count})
