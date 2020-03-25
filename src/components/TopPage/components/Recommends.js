@@ -78,7 +78,7 @@ export default class Recommends extends Component{
 						style={styles.root}
 						slideStyle={styles.slideContainer}
 						// autoplay={false} // for dev
-						enableMouseEvents={true}
+						// enableMouseEvents={true}
 					>
 						{ recommends }
 					</AutoPlaySwipeableViews>
