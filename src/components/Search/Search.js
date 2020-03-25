@@ -6,7 +6,7 @@ import ReactGA from 'react-ga';
 let timer = false;
 
 class Search extends Component {
-  state = { text: "", events:"", result:false, isSearching:false }
+  state = { text: "", events:"", result:false, isSearching:false, count:0 }
   componentDidMount(){
 		ReactGA.set({ page: window.location.pathname });
 		ReactGA.pageview(window.location.pathname);
@@ -14,19 +14,8 @@ class Search extends Component {
       text: this.props.content.tag,
       events: ""
     })
-    let slug = this.props.content.events.map((e)=>{
-      let text = ""
-      text += e.organizer;
-      text += e.genre;
-      text += e.genre2;
-      text += e.title;
-      text += e.target;
-      text += e.hokkaidoOrNot;
-      //text += e.content; 
-      return ([0, text, e, false])
-		})
+
 		this.setData();
-		this.setState({events:slug})
 		this.isResult();
 		this.nameInput.focus();
 		this.timer();
@@ -46,7 +35,7 @@ class Search extends Component {
       text += e.content;
       text += e.place;
       text += e.onlineOrNot;
-      return ([0,text,e])
+      return ([0, text, e, false]) // distance, slug, event, isHit
     })
 		this.setState({events:slug})
 	}
@@ -82,23 +71,26 @@ class Search extends Component {
 		}
 	}
 
+	// onekeyup から一定時間経ったよって教えてくれるやつ
 	timer = () => {
 		if (timer !== false)  clearTimeout(timer);
 		timer = setTimeout(()=>{
 			this.culcDistances().then(this.isResult)
 		}, 400);
 	}
-
+  // hit が1件でもあったか
 	isResult = () => {
 		let result = false;
+		let count = 0
 		if (this.state.events.length){
 			for (let i=0;i<this.state.events.length;i++){
 				if (this.state.events[i][0]!=this.state.text.length){result = true;}
+				if (this.state.events[i][3]){count++}
 			}
-			this.setState({result:result})
+			this.setState({result:result,count:count})
 			setTimeout(()=>{this.setState({isSearching:false})},500)
 		}else{
-			this.setState({result:result});
+			this.setState({result:false});
 			setTimeout(()=>{this.setState({isSearching:false})},500)
 		}
 	}
@@ -115,18 +107,18 @@ class Search extends Component {
 			return (
 				<div key={i}>
 					<MyCard content={e[2]} isHit={e[3]} />
-					{/* { e.title } */}
 				</div>
 				)
 			})
 		) : (
 			<div>
-				<div style={{margin:'1em 2em'}}>検索結果はありませんでした...</div>
+				<div style={{margin:'1em 2em',height:'45vh'}}>検索結果はありませんでした...</div>
 			</div>
 		))
 
     return ( 
-    <div style={{"marginTop":"6em"}} className="container">
+    <div style={{"marginTop":"5em"}} className="container">
+			<div className='mycontainer' style={{marginTop:'1.5em'}}>フリーワード検索</div>
       <input
         type="text"
 				onKeyUp = { this.timer }
@@ -135,9 +127,20 @@ class Search extends Component {
         placeholder="検索"
         id="searchinput"
         value={this.state.text}
-        style={{width:"80%",margin:"2em 1em",padding:"0.5em 1em",borderRadius:"4px",border:"2px solid #ddd",display:"inlineBlock"}}
+        style={{width:"80%",margin:"1em 1em",padding:"0.6em 1em",borderRadius:"6px",border:"2px solid #ddd",display:"inlineBlock"}}
         onChange={(e)=>{this.setState({text:e.target.value})}}
       />
+			{this.state.result ? (
+				<div className='mycontainer' style={{margin:'1.5em 2em 1em'}}>
+					<div>
+						<span style={{fontSize:'150%',fontWeight:'500',color:'#d32f2f'}}>{this.state.count}</span>
+						<span style={{color:'#d32f2f'}}>件</span> がヒット
+					</div>
+				</div>
+			):(
+				<div></div>
+			)
+			}
 			{ cards }
     </div>
     );

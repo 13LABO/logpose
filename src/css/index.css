@@ -91,7 +91,7 @@ html {
   }
   .MuiTypography-h5{
     font-size: 15px !important;
-    /* font-weight: 400 !important; */
+    font-weight: 500 !important;
     font-family: 'Noto Sans JP', sans-serif !important;
   }
   .MuiCard-root{

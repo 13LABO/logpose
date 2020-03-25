@@ -16,7 +16,8 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: "100%",
+		maxWidth: "100%",
+		"margin":"0.5em 0px",
     flexGrow: 1,
     '&:hover': {
       boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .1)',
@@ -71,18 +72,6 @@ const Details = (props) =>{
   )
 }
 
-// const URL = props =>{
-// 	const content = props.content;
-//   const url = content.url.length ? (
-//     <div className="valign-wrapper" style={{"display":"flex"}}>
-//       <i className="tiny material-icons">link</i>
-//       <a className="truncate" href={content.url} target="_blank" rel="noopener noreferrer" style={{"fontSize":"12px","width":"80%","paddingLeft":"10px"}}>{content.url}</a>
-//     </div>
-//     ):("")
-//   return (
-//     <div className="bigcontainer" style={{"padding":"15px 0"}}>{url}</div>
-//   )
-// }
 
 
 const MyBox = (props) => {
@@ -117,7 +106,7 @@ const MyCard = (props) => {
 	const dayTime = `${content.fdate.format('M/D')} (${week[content.week]})　　${content.organizer}`
 	
   return (
-    <Card className={classes.root} variant="outlined" style={{"margin":"0.5em 0px"}} >
+    <Card className={classes.root} variant="outlined" style={props.isHit?({backgroundColor:'#fffee9'}):({})}>
       <div onClick={ handleExpandClick }>
         <CardHeader
           title={ HeaderLink }
@@ -141,7 +130,6 @@ const MyCard = (props) => {
           <div onClick={handleExpandClick}>
             <Details content={ content }/>
           </div>
-          {/* <URL content={ content } /> */}
         </CardContent>
       </Collapse>
     </Card>
