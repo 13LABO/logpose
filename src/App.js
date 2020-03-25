@@ -139,9 +139,8 @@ class App extends Component{
 									/>
 								</div>
 							</div>
-							<div style={{marginBottom:"3em"}}>
 								<Link to="/policy" style={{fontSize:"70%"}}> プライバシーポリシー</Link>
-							</div>
+							<div style={{height:"3em"}}></div>
 						</div>
 					</div>
 				</BrowserRouter>

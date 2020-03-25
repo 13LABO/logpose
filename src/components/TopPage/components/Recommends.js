@@ -15,7 +15,7 @@ const styles = {
 		padding: '5px 15vw',
   },
   slideContainer: {
-		padding: '5px',
+		padding: '0 5px',
 		overflowY:'hidden',
   },
 };
@@ -46,8 +46,17 @@ export default class Recommends extends Component{
 				let url = `https://${e.fields.image.fields.file.url}`
 				return (
 					<div key={i} style={{height:'20vh',overflowY:'hidden',overflowX:"hidden"}} onClick={()=>{ReactGA.event({category:'logpose_recommend', action:e.fields.image.fields.title})}}>
-						<a href={e.fields.image.fields.description} target='_blank' rel="noopener noreferrer">
-							<img src={url}  alt={e.fields.image.fields.title} title={e.fields.title} style={{objectFit:'contain', width:'100%', height:'100%', filter:'drop-shadow(1px 1px 1px rgba(0,0,0,.5)) drop-shadow(1px 1px 5px rgba(0,0,0,.5))'}} />
+						<a
+							href={e.fields.image.fields.description}
+							target='_blank'
+							rel="noopener noreferrer"
+						>
+							<img
+								className='recommendImage'
+								src={url}
+								alt={e.fields.image.fields.title}
+								title={e.fields.title}
+							/>
 						</a>
 					</div>
 				)
@@ -68,8 +77,8 @@ export default class Recommends extends Component{
 						onChangeIndex={this.handleChangeIndex}
 						style={styles.root}
 						slideStyle={styles.slideContainer}
-						// autoplay={false} // for dev
-						enableMouseEvents={true}
+						autoplay={false} // for dev
+						// enableMouseEvents={true}
 					>
 						{ recommends }
 					</AutoPlaySwipeableViews>
