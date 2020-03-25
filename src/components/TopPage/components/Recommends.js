@@ -77,8 +77,8 @@ export default class Recommends extends Component{
 						onChangeIndex={this.handleChangeIndex}
 						style={styles.root}
 						slideStyle={styles.slideContainer}
-						autoplay={false} // for dev
-						// enableMouseEvents={true}
+						// autoplay={false} // for dev
+						enableMouseEvents={true}
 					>
 						{ recommends }
 					</AutoPlaySwipeableViews>
