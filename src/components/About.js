@@ -1,6 +1,6 @@
 import React ,{ Component }from 'react';
 import * as contentful from 'contentful';
-import ApiKey from '../../constants/contentful';
+import ApiKey from '../constants/contentful';
 import ReactGA from 'react-ga';
 import ReactMarkdown from 'react-markdown';
 

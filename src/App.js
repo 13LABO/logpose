@@ -6,8 +6,8 @@ import Navbar from './components/Nav/Navbar';
 import { Link } from 'react-router-dom'
 // import Home from './components/Home';
 import Top from './components/TopPage/Top';
-import News from './components/News/News'
-import About from './components/About/About';
+import News from './components/News'
+import About from './components/About';
 import Burger from './components/Nav/Burger';
 import Search from './components/Search/Search';
 import Policy from './components/Policy';
@@ -81,8 +81,6 @@ class App extends Component{
 
 
   render(){
-		const twIcon = (<div><TwitterIcon size={35} round={true}/> </div>)
-		const fbIcon = (<div ><FacebookIcon size={35} round={true}/> </div>)
 		const Page = () => {
 			return ( this.state.events=="error" ? (
 				<BrowserRouter>
@@ -101,7 +99,8 @@ class App extends Component{
 									/>
 									<Route 
 										exact path='/about'
-										component={About}
+										// component={About}
+										render={()=><About/>}
 									/>
 									<Route 
 										exact path='/news' 

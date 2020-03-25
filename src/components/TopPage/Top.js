@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Heading from './components/Heading';
 import TagList from './components/TagList';
-import AttensionEventList from './components/AttensionEventList';
+import Recommends from './components/Recommends';
 import NewInfoList from './components/NewInfoList';
 import Calendar from '../Calendar/Calendar';
-// import styled from "styled-components";
 import HeadingBar from './components/HeadingBar';
 import ReactGA from 'react-ga';
 
@@ -23,14 +22,14 @@ class Top extends Component {
           <div className="regular-wrapper" id="regular-wrapper">
             <div className="container">
               <HeadingBar title="イベントカレンダー" name="calendar-alt" left='18px'/>
-							{ this.props.content.events.length ? (
+							{/* { this.props.content.events.length ? ( */}
 								<Calendar content={this.props.content}/>
-							):(<div className='center-align'>
+							{/* ):(<div className='center-align'>
 									<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 								</div>
-							)}
+							)} */}
               <TagList setTag={ this.props.setTag }/>
-              <AttensionEventList />
+              <Recommends/>
 							{ this.props.content.news.length ? (
               <NewInfoList content={this.props.content.news}/>
 							):(

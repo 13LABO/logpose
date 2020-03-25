@@ -25,7 +25,7 @@ const styles = {
   },
 };
 
-export default class AttensionEventList extends Component{
+export default class Recommends extends Component{
 	client = contentful.createClient(ApiKey);
 	state = { index:0, recommends:{} }
 

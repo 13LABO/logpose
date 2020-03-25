@@ -6,15 +6,18 @@ export default function Button(props) {
 
   return (
     <HeadingButtonWrapper>
-      <TopIconContainer><FontAwesomeIcon icon={props.icon} size="lg"/></TopIconContainer>
+      <TopIconContainer>
+				<FontAwesomeIcon icon={props.icon} size="lg"/>
+			</TopIconContainer>
       <TitleContainer>
         {props.title}
       </TitleContainer>
       <SubTitleContainer>
         {props.subtitle}
       </SubTitleContainer>
-      
-      <BottomIconContainer><FontAwesomeIcon icon={['fas','chevron-down']} size="lg"/></BottomIconContainer>
+      <BottomIconContainer>
+				<FontAwesomeIcon icon={['fas','chevron-down']} size="lg"/>
+			</BottomIconContainer>
     </HeadingButtonWrapper>
   );
 }
