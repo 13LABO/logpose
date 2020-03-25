@@ -42,6 +42,6 @@ export default function TagList(props) {
 
 const TagListWrapper = styled.div`
   overflow-x: hidden;
-	margin:0.3em 0;
-  margin-left: 1.8em;
+	margin:0.2em 0.4em 0.6em;
+  margin-left: 1.3em;
 `;

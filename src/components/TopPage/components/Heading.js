@@ -9,9 +9,11 @@ export default function Heading() {
   return (
     <div style={{margin:"0 auto"}}>
         <HeadingText>
+				<div style={{padding:'0.5em 0'}}>
 					<div className="beforelogpo" >札幌就活情報</div>
 					<div className="beforelogpo">共有サイト</div>
 					<div className="logpo" style={{fontFamily:'MyFont-b',fontSize:"136%",marginTop:"20px",letterSpacing:"4px"}}>ログポ</div>
+				</div>
         </HeadingText>
         <HeadingButtonWrapper >
 					<a href='#taglists'>
@@ -33,6 +35,7 @@ export default function Heading() {
             </HeadingButtonContainer>
           </Link>
         </HeadingButtonWrapper>
+				<div style={{height:'1.2em'}}></div>
     </div>
   );
 }

@@ -6,8 +6,7 @@ import '../../css/datepicker.css';
 import MomentLocaleUtils from 'react-day-picker/moment';
 import 'moment/locale/ja';
 import DailyModal from './DailyModal';
-// import styled from 'styled-components';
-// import HeadingBar from '../TopPage/components/HeadingBar';
+
 
 const moment = extendMoment(Moment);
 const MONTHS = ['1','2','3','4','5','6','7','8','9','10','11','12']
@@ -38,8 +37,9 @@ const Calendar = (props) => {
 		<>
     <div style={{"height":"100%",'width':'100%','padding':'1.5em 0'}} className='center-align calendar-wrapper'>
       <div style={{height:'100%'}} className='bigcontainer noselect'>
+			{/* <div className='calendarDialog' style={{width:'80%',background:'green',margin:'0 auto'}}>空いてる日を</div> */}
         <DayPicker // literally a calendar
-          localeUtils={MomentLocaleUtils}
+          localeUtils={ MomentLocaleUtils }
           locale="ja"
           months = { MONTHS }
           disabledDays={[...noEventDays, disabledDays]}
@@ -47,7 +47,10 @@ const Calendar = (props) => {
           captionElement = {(props)=>{
             return (
               <div className="DayPicker-Caption">
-                {props.date.getFullYear()} / {props.date.getMonth()+1}　<span style={{fontSize:"1rem"}}>のイベント</span>
+								<div>
+									<p style={{margin:0,padding:0}}>日付をクリックしてみよう！</p>
+								</div>
+									{ props.date.getFullYear() }年{ props.date.getMonth()+1 }月
               </div>
             )}}
         />

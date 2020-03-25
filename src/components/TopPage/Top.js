@@ -20,8 +20,8 @@ class Top extends Component {
             <Heading /> 
           </div>
           <div className="regular-wrapper" id="regular-wrapper">
-            <div className="container">
-              <HeadingBar title="イベントカレンダー" name="calendar-alt" left='18px'/>
+            <div className="container" style={{marginTop:'0.5em'}} >
+              <HeadingBar title="イベントカレンダー" name="calendar-alt"/>
 							{/* { this.props.content.events.length ? ( */}
 								<Calendar content={this.props.content}/>
 							{/* ):(<div className='center-align'>

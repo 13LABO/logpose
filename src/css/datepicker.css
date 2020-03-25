@@ -13,13 +13,9 @@
   height: 100%;
   flex-direction: row;
   /* padding-bottom: 1em; */
-
   -webkit-user-select: none;
-
     -moz-user-select: none;
-
       -ms-user-select: none;
-
           user-select: none;
 }
 
@@ -35,38 +31,37 @@
   width:100%;
   height: 100%;
   display: table;
-  margin:1em 0;
-  margin-top: 1em;
+  /* margin:1em 0;
+  margin-top: 1em; */
   border-spacing: 0;
   border-collapse: collapse;
-
   -webkit-user-select: none;
-
-     -moz-user-select: none;
-
-      -ms-user-select: none;
-
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-/* .DayPicker-NavBar {
-} */
+
+
+.calendar-wrapper{
+	padding:0 !important;
+}
+
 
 .DayPicker-NavButton {
   position: absolute;
-  top: 1em;
-  right: 1.5em;
+	top: 4.2em;
+  right: 20%;
   left: auto;
-
   display: inline-block;
   margin-top: 2px;
-  width: 2.5em;
-  height: 2.5em;
+  width: 2em;
+  height: 2em;
   background-position: center;
   background-size: 50%;
   background-repeat: no-repeat;
   color: #8B9898;
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .DayPicker-NavButton:hover {
@@ -74,8 +69,8 @@
 }
 
 .DayPicker-NavButton--prev {
-  margin-right: 4em;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAVVJREFUWAnN2G0KgjAYwPHpGfRkaZeqvgQaK+hY3SUHrk1YzNLay/OiEFp92I+/Mp2F2Mh2lLISWnflFjzH263RQjzMZ19wgs73ez0o1WmtW+dgA01VxrE3p6l2GLsnBy1VYQOtVSEH/atCCgqpQgKKqYIOiq2CBkqtggLKqQIKgqgCBjpJ2Y5CdJ+zrT9A7HHSTA1dxUdHgzCqJIEwq0SDsKsEg6iqBIEoq/wEcVRZBXFV+QJxV5mBtlDFB5VjYTaGZ2sf4R9PM7U9ZU+lLuaetPP/5Die3ToO1+u+MKtHs06qODB2zBnI/jBd4MPQm1VkY79Tb18gB+C62FdBFsZR6yeIo1YQiLJWMIiqVjQIu1YSCLNWFgijVjYIuhYYCKoWKAiiFgoopxYaKLUWOii2FgkophYp6F3r42W5A9s9OcgNvva8xQaysKXlFytoqdYmQH6tF3toSUo0INq9AAAAAElFTkSuQmCC');
+	margin-right: calc(60% - 2em);
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAVVJREFUWAnN2G0KgjAYwPHpGfRkaZeqvgQaK+hY3SUHrk1YzNLay/OiEFp92I+/Mp2F2Mh2lLISWnflFjzH263RQjzMZ19wgs73ez0o1WmtW+dgA01VxrE3p6l2GLsnBy1VYQOtVSEH/atCCgqpQgKKqYIOiq2CBkqtggLKqQIKgqgCBjpJ2Y5CdJ+zrT9A7HHSTA1dxUdHgzCqJIEwq0SDsKsEg6iqBIEoq/wEcVRZBXFV+QJxV5mBtlDFB5VjYTaGZ2sf4R9PM7U9ZU+lLuaetPP/5Die3ToO1+u+MKtHs06qODB2zBnI/jBd4MPQm1VkY79Tb18gB+C62FdBFsZR6yeIo1YQiLJWMIiqVjQIu1YSCLNWFgijVjYIuhYYCKoWKAiiFgoopxYaKLUWOii2FgkophYp6F3r42W5A9s9OcgNvva8xQaysKXlFytoqdYmQH6tF3toSUo0INq9AAAAAElFTkSuQmCC');
 }
 
 .DayPicker-NavButton--next {
@@ -88,16 +83,52 @@
 
 .DayPicker-Caption {
   display: table-caption;
-  margin-bottom: 2em;
-  padding: 0 0.5em;
-  text-align: left;
-  font-size: 170%;
+  /* margin-bottom: 1em; */
+  padding: 0.6em 0.5em;
+  text-align: center;
+	font-size: 140%;
 }
 
 .DayPicker-Caption > div {
+	/* font-family: MyFont-m; */
+	position: relative;
+	margin:0 auto;
+	/* margin-top: 1em !important; */
+	margin-bottom: 1.2em !important;
   font-weight: 500;
-  font-size: 1.15em;
+	font-size: 65%;
+	/* margin-bottom: 2em; */
+	display: block;
+	width:15em;
+	background-color: hsl(0,90%,95%);
+	padding:0.5em;
+	border-radius: 12px;
 }
+
+.DayPicker-Caption > div::before {
+	content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -12px;
+  border: 12px solid transparent;
+  border-top: 12px solid  rgb(255,0,0,0.1);
+}
+
+/* 
+.balloon1 {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+}
+*/
+
 
 .DayPicker-Weekdays {
   display: table-header-group;

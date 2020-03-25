@@ -9,7 +9,6 @@ class Pagination extends React.Component {
 
   render() {
     const { index, dots } = this.props;
-
     const children = [];
 
     for (let i = 0; i < dots; i += 1) {
@@ -18,7 +17,7 @@ class Pagination extends React.Component {
       );
     }
 
-    return <div>{children}</div>;
+    return <div>{ children }</div>;
   }
 }
 

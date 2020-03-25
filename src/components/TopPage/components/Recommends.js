@@ -12,16 +12,11 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const styles = {
   root: {
-		padding: '0 30px',
+		padding: '5px 15vw',
   },
   slideContainer: {
-		padding: '0 10px',
+		padding: '5px',
 		overflowY:'hidden',
-  },
-  slide: {
-    padding: 15,
-    minHeight: 100,
-    color: '#fff',
   },
 };
 
@@ -68,11 +63,22 @@ export default class Recommends extends Component{
 			<div>
 				<HeadingBar title="おすすめ" name="heart"/>
 				<div style={{marginTop:"1em"}}>
-					<AutoPlaySwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex} style={styles.root} slideStyle={styles.slideContainer}>
+					<AutoPlaySwipeableViews
+						index={this.state.index}
+						onChangeIndex={this.handleChangeIndex}
+						style={styles.root}
+						slideStyle={styles.slideContainer}
+						// autoplay={false} // for dev
+						enableMouseEvents={true}
+					>
 						{ recommends }
 					</AutoPlaySwipeableViews>
 					<PaginationWrapper className="valign-wrapper">
-						<Pagination dots={this.state.recommends.length ? this.state.recommends.length : 0} index={this.state.index} onChangeIndex={this.handleChangeIndex} />
+						<Pagination
+							dots={ this.state.recommends.length ? this.state.recommends.length : 0 }
+							index={ this.state.index }
+							onChangeIndex={ this.handleChangeIndex }
+						/>
 					</PaginationWrapper>
 				</div>
 			</div>

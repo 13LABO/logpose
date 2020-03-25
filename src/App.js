@@ -89,64 +89,64 @@ class App extends Component{
 				</BrowserRouter>
 			):(
 				<BrowserRouter>
-							<Burger />
-							<Navbar />
-							<div className="App">
-								<Switch>
-									<Route 
-										exact path='/'
-										render={()=><Top content={this.state} setTag={this.setTag}/>}
+					<Burger />
+					<Navbar />
+					<div className="App">
+						<Switch>
+							<Route 
+								exact path='/'
+								render={()=><Top content={this.state} setTag={this.setTag}/>}
+							/>
+							<Route 
+								exact path='/about'
+								// component={About}
+								render={()=><About/>}
+							/>
+							<Route 
+								exact path='/news' 
+								component={News}
+							/>
+							<Route 
+								exact path='/events' 
+								render={()=><Search content={this.state} setTag={this.setTag}/>}
+							/>
+							<Route 
+								exact path='/policy' 
+								component={Policy}
+							/>
+							<Route component={NotFound} />
+						</Switch>
+						<div className="grey-text center-align">
+							<div style={{"margin":"4em auto 2em", fontSize:"110%"}} className="">
+								©2020  Logpose
+								<div style={{marginLeft:'1em',display:'inline-block',transform:"translateY(13px)"}}>
+									<TwitterShareButton 
+										children = { <TwitterIcon size={35} round={true}/> }
+										url = { myUrl }
+										className = "noselect"
+										title = "札幌就活情報共有サイトログポをシェア！"
+										hashtags = { ["就活","オンライン就活","札幌就活","キャリア","21卒"] }
+										// related = { ["13LABO_cafe"] }
 									/>
-									<Route 
-										exact path='/about'
-										// component={About}
-										render={()=><About/>}
-									/>
-									<Route 
-										exact path='/news' 
-										component={News}
-									/>
-									<Route 
-										exact path='/events' 
-										render={()=><Search content={this.state} setTag={this.setTag}/>}
-									/>
-									<Route 
-										exact path='/policy' 
-										component={Policy}
-									/>
-									<Route component={NotFound} />
-								</Switch>
-								<div className="grey-text center-align">
-									<div style={{"margin":"4em auto 2em", fontSize:"110%"}} className="">
-										©2020  Logpose
-										<div style={{marginLeft:'1em',display:'inline-block',transform:"translateY(13px)"}}>
-											<TwitterShareButton 
-												children = { <TwitterIcon size={35} round={true}/> }
-												url = { myUrl }
-												className = "noselect"
-												title = "札幌就活情報共有サイトログポをシェア！"
-												hashtags = { ["就活","オンライン就活","札幌就活","キャリア","21卒"] }
-												// related = { ["13LABO_cafe"] }
-											/>
-										</div>
-										<div style={{marginLeft:'1em',display:'inline-block',transform:"translateY(13px)"}}>
-											<FacebookShareButton
-												children = { <FacebookIcon size={35} round={true}/> }
-												url = { myUrl }
-												className = "noselect"
-												quote = "札幌就活情報共有サイトログポをシェア！"
-												hashtag = "#就活"
-											/>
-										</div>
-									</div>
-									<div style={{marginBottom:"3em"}}>
-										<Link to="/policy" style={{fontSize:"70%"}}> プライバシーポリシー</Link>
-									</div>
 								</div>
+								<div style={{marginLeft:'1em',display:'inline-block',transform:"translateY(13px)"}}>
+									<FacebookShareButton
+										children = { <FacebookIcon size={35} round={true}/> }
+										url = { myUrl }
+										className = "noselect"
+										quote = "札幌就活情報共有サイトログポをシェア！"
+										hashtag = "#就活"
+									/>
+								</div>
+							</div>
+							<div style={{marginBottom:"3em"}}>
+								<Link to="/policy" style={{fontSize:"70%"}}> プライバシーポリシー</Link>
+							</div>
 						</div>
-					</BrowserRouter>
-				)
-			)}
+					</div>
+				</BrowserRouter>
+			)
+		)}
 
     return <Page />
   }
