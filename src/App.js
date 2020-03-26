@@ -10,6 +10,7 @@ import News from './components/News'
 import About from './components/About';
 import Burger from './components/Nav/Burger';
 import Search from './components/Search/Search';
+import ElasticSearch from './components/Search/ElasticSearch';
 import Policy from './components/Policy';
 import NotFound from './components/404';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
@@ -108,7 +109,7 @@ class App extends Component{
 							/>
 							<Route 
 								exact path='/events' 
-								render={()=><Search content={this.state} setTag={this.setTag}/>}
+								render={()=><ElasticSearch content={this.state} setTag={this.setTag}/>}
 							/>
 							<Route 
 								exact path='/policy' 
