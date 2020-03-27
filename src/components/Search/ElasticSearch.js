@@ -57,12 +57,22 @@ class ElasticSearch extends Component {
 			let tmp = this.state.events;
 			for(let i = 0; i < n; i++) {
 				tmp[i][0] = monkukuiDistance(this.state.text, tmp[i][1]);
+        if (this.state.events[i][2].genre === this.state.text) {
+          tmp[i][0] += 100;
+        }
+        if (this.state.events[i][2].target === this.state.text) {
+          tmp[i][0] += 100;
+        }
+        if (this.state.events[i][2].onlineOrNot === this.state.text) {
+          tmp[i][0] += 100;
+        }
 				if(tmp[i][0] >= 1){
 					tmp[i][3] = true;
 				}else{
 					tmp[i][3] = false;
 				}
 			}
+
 			
 			// 距離順にソートする（O(n^2) の雑をやる）（バブルソート）
 			for(let i = 0; i < n; i++) {
