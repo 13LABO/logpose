@@ -30,8 +30,6 @@ function tokenize(str) {
   .flat();
 }
 
-
-
 export default function monkukuiDistance( s, t ) {
   
   let u = tokenize(s);
@@ -41,7 +39,12 @@ export default function monkukuiDistance( s, t ) {
   let ret = 0;
   for (let i = 0; i < u.length; i++) {
     for (let j = 0; j < v.length; j++) {
-      if (u[i] == v[j]) ret++;
+      // if (u[i] == v[j]) ret++;
+      if (Math.min(u[i].length, v[j].length) <= 2) {
+        if (u[i] === v[j]) ret++;
+      } else {
+        if (levenshteinDistance(u[i], v[j]) <= 2) ret++;
+      }
     }
   }
 
