@@ -25,12 +25,6 @@ html {
 	src: url(./fonts/coop_logo_m.ttf);
 }
 
-@font-face {
-	font-family: 'MyFont-b';
-	src: url(./fonts/coop_logo_b.ttf);
-}
-
-
 .parallax-wrapper{
   width:100%;
   height: 60%; 
@@ -136,7 +130,7 @@ html {
 }
 
 .navi{
-  font-family: 'Monofett', cursive;
+  font-family: 'Monofett', sans-serif;
 }
 
 
