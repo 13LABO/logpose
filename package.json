@@ -19,7 +19,7 @@
     "core-util-is": "^1.0.2",
     "elasticlunr": "^0.9.5",
     "flexsearch": "^0.6.32",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "moment": "^2.24.0",
     "moment-range": "^4.0.2",
     "paginator": "^1.0.0",
